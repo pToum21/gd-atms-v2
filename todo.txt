@@ -1,1 +1,4 @@
 * create the backend that allows users to create accounts and log in
+* also allows users to write reviews
+
+* make the backend simple to start make it work then build from there
