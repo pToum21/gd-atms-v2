@@ -4,6 +4,10 @@ const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
 
+    Query: {
+        // add query for getting all users
+    },
+
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
             try {
