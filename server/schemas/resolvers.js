@@ -30,9 +30,14 @@ const resolvers = {
         },
 
         addReview: async () => {
-
+            try {
+                const review = await Review.create({ reviewText });
+                return review;
+            } catch (err) {
+                console.log(err);
+                throw new AuthenticationError('You need to be logged in!');
+            }
         }
-
     }
 };
 module.exports = resolvers;
