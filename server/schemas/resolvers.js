@@ -33,15 +33,33 @@ const resolvers = {
             return { token, user };
         },
 
-        addReview: async () => {
+        // addreview is broken
+        addReview: async (parent, { reviewText }, context) => {
             try {
-                const review = await Review.create({ reviewText });
+                // Check if the user is authenticated
+                if (!context.user) {
+                    console.log('You need to be logged in to add a review');
+                }
+
+                // Find the user who is creating the review
+                const user = await User.findById(context.user._id);
+                if (!user) {
+                    throw new Error('User not found');
+                }
+
+                // Create the review and associate it with the user
+                const review = await Review.create({
+                    reviewText,
+                    username: user.username 
+                });
+
                 return review;
             } catch (err) {
-                console.log(err);
-                throw new AuthenticationError('You need to be logged in!');
+                console.error(err);
+                throw new Error('Failed to add review');
             }
         }
     }
+
 };
 module.exports = resolvers;

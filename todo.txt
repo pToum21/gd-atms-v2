@@ -2,3 +2,8 @@
 * also allows users to write reviews
 
 * make the backend simple to start make it work then build from there
+
+
+
+------------------------------------------------------------------------
+notes: support tickets are reviews the review system is actually a support ticket sytem
