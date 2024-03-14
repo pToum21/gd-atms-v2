@@ -34,6 +34,7 @@ const resolvers = {
         },
 
         // addreview is broken
+        // is says user._id is not defined
         addReview: async (parent, { reviewText }, context) => {
             try {
                 // Check if the user is authenticated
