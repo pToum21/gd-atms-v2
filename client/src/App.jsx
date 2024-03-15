@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import './styles/main.css';
+import Chat from './components/Chat';
 
 
 const httpLink = createHttpLink({
@@ -29,6 +30,7 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <div style={{ minHeight: '75vh' }} >
+          <Chat />
           <Outlet />
         </div>
       </ApolloProvider>
