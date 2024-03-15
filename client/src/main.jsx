@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Error from './pages/Error.jsx';
 import Home from './pages/Home.jsx';
+import Reviews from './pages/Reviews.jsx';  
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // this establishes pages component structure and their paths
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/myLibrary',
-        element: < />
+        path: '/reviews',
+        element: < Reviews/>
       },
     ]
   }
