@@ -1,10 +1,6 @@
 import { Outlet } from 'react-router-dom';
-// components used in App.jsx (and will carry over to other pages, because this is default component in main.jsx)
-import NavBar from './Components/Navbar/Navbar';
-import Footer from './Components/Footer/Footer';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-// css
 import './styles/main.css';
 
 
@@ -32,11 +28,9 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <NavBar />
         <div style={{ minHeight: '75vh' }} >
           <Outlet />
         </div>
-        <Footer />
       </ApolloProvider>
     </>
   )
