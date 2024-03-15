@@ -7,3 +7,5 @@
 
 ------------------------------------------------------------------------
 notes: support tickets are reviews the review system is actually a support ticket sytem
+
+* move onto to building the front end
