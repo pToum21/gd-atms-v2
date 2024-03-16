@@ -3,6 +3,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import './styles/main.css';
 import Chat from './components/Chat';
+import Navbar from './components/Navbar';
 
 
 const httpLink = createHttpLink({
@@ -30,6 +31,7 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <div style={{ minHeight: '75vh' }} >
+          <Navbar />
           <Chat />
           <Outlet />
         </div>
