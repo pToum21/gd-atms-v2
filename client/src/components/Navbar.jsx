@@ -48,7 +48,7 @@ const Navbar = () => {
                     )}
                 </Toolbar>
             </AppBar>
-            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer} sx={{ '& .MuiDrawer-paper': { width: '100%' } }}>
                 <div role="presentation" onClick={toggleDrawer} onKeyDown={toggleDrawer}>
                     <List>
                         {['Home', 'About', 'Services', 'Contact'].map((text, index) => (
