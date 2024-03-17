@@ -28,7 +28,7 @@ const Navbar = () => {
             <AppBar position="static" sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', width: '93.5%', right: '3.2%', border: '2px solid white', height: '80px' }}>
                 <Toolbar>
                     <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-                        <Link to="/">
+                        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <img src={gdLogo} alt="gravedigger atms logo" style={{ height: '100%', width: 'auto' }} />
                         </Link>
                     </Typography>
@@ -51,7 +51,7 @@ const Navbar = () => {
                                 { text: 'Contact', path: '/contact' }
                             ].map((item, index) => (
                                 <ListItemButton key={item.text}>
-                                    <Link to={item.path}>
+                                    <Link to={item.path} style={{ textDecoration: 'none', color: 'inherit' }}>
                                         <ListItemText primary={item.text} />
                                     </Link>
                                 </ListItemButton>
@@ -73,7 +73,7 @@ const Navbar = () => {
                             { text: 'Contact', path: '/contact' }
                         ].map((item, index) => (
                             <ListItemButton key={item.text}>
-                                <Link to={item.path}>
+                                <Link to={item.path} style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <ListItemText primary={item.text} />
                                 </Link>
                             </ListItemButton>
