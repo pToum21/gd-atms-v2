@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import gdLogo from '../../public/gd-logo.png';
+import gdLogo from '/gd-logo.png';
 
 const Navbar = () => {
     const theme = useTheme();
