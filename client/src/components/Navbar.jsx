@@ -28,12 +28,12 @@ const Navbar = () => {
             <AppBar position="static" sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', width: '100%', border: '2px solid white', height: '80px' }}>
                 <Toolbar sx={{
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
+                    justifyContent: 'space-between', // Aligns logo to the left and links to the center
+                    alignItems: 'center' // Centers items vertically
                 }}>
                     <Typography variant="h6" noWrap>
                         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <img src={gdLogo} alt="gravedigger atms logo" style={{ height: '100%', width: 'auto' }} />
+                            <img src={gdLogo} alt="gravedigger atms logo" style={{ height: '100%', width: 'auto', marginBottom: '6%', marginLeft: '-35px' }} />
                         </Link>
                     </Typography>
                     {isSmallScreen ? (
@@ -49,10 +49,10 @@ const Navbar = () => {
                     ) : (
                         <List sx={{
                             display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            margin: 0,
-                            padding: 0
+                            justifyContent: 'center', // Centers items horizontally
+                            alignItems: 'center', // Centers items vertically
+                            margin: 0, // Remove default margin
+                            padding: 0 // Remove default padding
                         }}>
                             {[
                                 { text: 'Home', path: '/' },
