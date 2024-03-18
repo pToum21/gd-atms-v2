@@ -21,7 +21,7 @@ const NavBar = () => {
             {isNormalOrBigScreen ? (
                 <AppBar position="fixed" elevation={0}>
                     <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'white', height: '6.5vh' }}>
-                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.8rem', }}>
+                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
                             <span>
                                 <b>
                                     GD
@@ -31,7 +31,7 @@ const NavBar = () => {
                                 ATMs
                             </span>
                         </MuiLink>
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '9%' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', }}>
                             <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
                                 <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</MuiLink>
                                 <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
@@ -41,7 +41,7 @@ const NavBar = () => {
                     </Toolbar>
                 </AppBar>
             ) : (
-                <div style={{ display: 'flex', justifyContent: 'center', border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '30%', margin: 'auto', marginTop: '3%' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '39%', margin: 'auto', marginTop: '3%' }}>
                     <div style={{ display: 'flex', justifyContent: 'flex-start', width: '80%', paddingLeft: '8%' }}>
                         <IconButton
                             onClick={handleMenuOpen}
@@ -62,16 +62,18 @@ const NavBar = () => {
                             <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
                         </Menu>
                     </div>
-                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.8rem', }}>
-                        <span>
-                            <b>
-                                GD
-                            </b>
-                        </span>
-                        <span style={{ color: 'gray' }}>
-                            ATMs
-                        </span>
-                    </MuiLink>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.9rem', }}>
+                            <span>
+                                <b>
+                                    GD
+                                </b>
+                            </span>
+                            <span style={{ color: 'gray' }}>
+                                ATMs
+                            </span>
+                        </MuiLink>
+                    </div>
                     <IconButton component={Link} to="/login" sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%' }}>
                         <AccountCircleIcon />
                     </IconButton>
