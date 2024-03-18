@@ -33,9 +33,9 @@ function App() {
         <div style={{ minHeight: '75vh' }} >
           <Navbar />
           <Chat />
-          <div style={{ marginTop: '80px' }}>
+          
             <Outlet />
-          </div>
+          
 
         </div>
       </ApolloProvider>
