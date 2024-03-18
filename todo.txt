@@ -9,3 +9,6 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
 * move onto to building the front end
+
+* color scheme of nav bar 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)'
+

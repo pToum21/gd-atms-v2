@@ -1,0 +1,30 @@
+* {
+    /* use outline for testing */
+    /* outline: 1px solid red; */
+    /* font-size: 1.2rem; */
+    font-family: 'Lato';
+    /* font-family: 'Montserrat'; */
+
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3ec;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+body::-webkit-scrollbar {
+    width: .9rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f3f3ec;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(#8abbb1, #c0dbbd);
+    border-radius: 10px;
+}
