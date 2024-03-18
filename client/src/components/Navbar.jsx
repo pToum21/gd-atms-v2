@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -25,9 +25,13 @@ const Navbar = () => {
 
     return (
         <React.Fragment>
-            <AppBar position="static" sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', width: '93.5%', right: '3.2%', border: '2px solid white', height: '80px' }}>
-                <Toolbar>
-                    <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', width: '100%', border: '2px solid white', height: '80px' }}>
+                <Toolbar sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <Typography variant="h6" noWrap>
                         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                             <img src={gdLogo} alt="gravedigger atms logo" style={{ height: '100%', width: 'auto' }} />
                         </Link>
@@ -43,7 +47,13 @@ const Navbar = () => {
                             <MenuIcon />
                         </IconButton>
                     ) : (
-                        <List sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <List sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            margin: 0,
+                            padding: 0
+                        }}>
                             {[
                                 { text: 'Home', path: '/' },
                                 { text: 'About', path: '/about' },
