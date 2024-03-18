@@ -1,9 +1,11 @@
+import WelcomePage from "../components/WelcomePage";
+
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <p>Welcome to the home page.</p>
-    </div>
+    <>
+      <h1>Home Page</h1>
+      <WelcomePage />
+    </>
   );
 }
 
