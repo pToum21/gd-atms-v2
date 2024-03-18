@@ -1,11 +1,6 @@
 * {
-    /* use outline for testing */
-    /* outline: 1px solid red; */
-    /* font-size: 1.2rem; */
     font-family: 'Lato';
-    /* font-family: 'Montserrat'; */
-
-
+    /* outline: solid 1px red; */
 }
 
 body {

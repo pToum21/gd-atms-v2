@@ -33,7 +33,10 @@ function App() {
         <div style={{ minHeight: '75vh' }} >
           <Navbar />
           <Chat />
-          <Outlet />
+          <div style={{ marginTop: '80px' }}>
+            <Outlet />
+          </div>
+
         </div>
       </ApolloProvider>
     </>

@@ -25,15 +25,16 @@ const Navbar = () => {
 
     return (
         <React.Fragment>
-            <AppBar position="static" sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', width: '100%', border: '2px solid white', height: '80px' }}>
+            <AppBar sx={{ borderRadius: '30px', background: 'linear-gradient(90deg, #5eff6b 0%, #009688 100%)', border: '2px solid white' }}>
                 <Toolbar sx={{
                     display: 'flex',
                     justifyContent: 'space-between', // Aligns logo to the left and links to the center
-                    alignItems: 'center' // Centers items vertically
+                    alignItems: 'center', // Centers items vertically
+                    height: '80px'
                 }}>
                     <Typography variant="h6" noWrap>
                         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <img src={gdLogo} alt="gravedigger atms logo" style={{ height: '100%', width: 'auto', marginBottom: '6%', marginLeft: '-35px' }} />
+                            <img src={gdLogo} alt="gravedigger atms logo" style={{ width: 'auto', marginLeft: '-35px' }} />
                         </Link>
                     </Typography>
                     {isSmallScreen ? (
@@ -91,6 +92,7 @@ const Navbar = () => {
                     </List>
                 </div>
             </Drawer>
+            
         </React.Fragment>
     );
 };
