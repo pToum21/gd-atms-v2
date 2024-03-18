@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Link as MuiLink, IconButton, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -41,7 +42,7 @@ const NavBar = () => {
                 </AppBar>
             ) : (
                 <div style={{ display: 'flex', justifyContent: 'center', border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '30%', margin: 'auto', marginTop: '3%' }}>
-                    <div style={{ display: 'flex', justifyContent: 'flex-start',width: '90%'}}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-start', width: '80%', paddingLeft: '8%' }}>
                         <IconButton
                             onClick={handleMenuOpen}
                             edge="start"
@@ -61,6 +62,20 @@ const NavBar = () => {
                             <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
                         </Menu>
                     </div>
+                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.8rem', }}>
+                        <span>
+                            <b>
+                                GD
+                            </b>
+                        </span>
+                        <span style={{ color: 'gray' }}>
+                            ATMs
+                        </span>
+                    </MuiLink>
+                    <IconButton component={Link} to="/login" sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%' }}>
+                        <AccountCircleIcon />
+                    </IconButton>
+
                 </div>
             )}
             <Toolbar />
