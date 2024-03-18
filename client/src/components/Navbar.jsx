@@ -1,18 +1,20 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <>
             <AppBar position="fixed">
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Typography variant="h6">My App</Typography>
-                    <div sx={{ display: 'flex', gap: '1rem' }}>
-                        <Button color="inherit">Home</Button>
-                        <Button color="inherit">About</Button>
-                        <Button color="inherit">Services</Button>
-                        <Button color="inherit">Contact</Button>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'white' }}>
+                    <Typography variant="h6" sx={{color: 'black'}}>My App</Typography>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={{ padding: '5%',border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                            <Link style={{textDecoration: 'none', fontSize: '1.2rem', color: 'black'}}>Reviews</Link>
+                            <Link style={{textDecoration: 'none', fontSize: '1.2rem', color: 'black'}}>Contact</Link>
+                        </div>
                     </div>
+                    <Typography variant="h6" sx={{color: 'black'}}>My App</Typography>
                 </Toolbar>
             </AppBar>
             <Toolbar />
