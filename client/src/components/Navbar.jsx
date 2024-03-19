@@ -20,7 +20,7 @@ const NavBar = () => {
         <>
             {isNormalOrBigScreen ? (
                 <AppBar position="fixed" elevation={0}>
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'white', height: '6.5vh' }}>
+                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', backgroundColor: 'white', height: '6.5vh' }}>
                         <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
                             <span>
                                 <b>
