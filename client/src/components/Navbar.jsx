@@ -37,11 +37,13 @@ const NavBar = () => {
                                 <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
                             </div>
                         </div>
-                        <MuiLink variant="h6" component={Link} to="/login" sx={{ color: 'black', textDecoration: 'none', }}>Login</MuiLink>
+                        <IconButton component={Link} to="/login" sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
+                            <AccountCircleIcon  sx={{height: '30px', width: '30px'}}/>
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
             ) : (
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '39%', margin: 'auto', marginTop: '3%' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '39%', margin: 'auto', marginTop: '3%' }}>
                     <div style={{ display: 'flex', justifyContent: 'flex-start', width: '80%', paddingLeft: '8%' }}>
                         <IconButton
                             onClick={handleMenuOpen}
@@ -62,7 +64,7 @@ const NavBar = () => {
                             <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
                         </Menu>
                     </div>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
                         <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.9rem', }}>
                             <span>
                                 <b>
