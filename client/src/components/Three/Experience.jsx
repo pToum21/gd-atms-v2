@@ -7,13 +7,13 @@ import * as THREE from 'three';
 
 const Experience = () => {
     const { size, scene } = useThree();
-    scene.background = new THREE.Color('#FFFFFF');
+    scene.background = new THREE.Color('#FFFFFF'); // Set background to white
     const [showLetters, setShowLetters] = useState(true);
 
     return (
         <>
             <OrbitControls />
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={10} />
             <ATM />
         </>
     );
