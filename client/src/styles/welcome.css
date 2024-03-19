@@ -1,0 +1,9 @@
+.welcome-title {
+    font-size: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+}
