@@ -1,18 +1,20 @@
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import React from 'react';
 import { useThree } from '@react-three/fiber';
-import { useState } from 'react';
-import { ATM } from "./Atm";
+import { OrbitControls } from '@react-three/drei';
+import { ATM } from './Atm';
 import * as THREE from 'three';
 
-
 const Experience = () => {
-    const { size, scene } = useThree();
+    const { scene, camera } = useThree();
     scene.background = new THREE.Color('#f7f7f7');
-    const [showLetters, setShowLetters] = useState(true);
+
+    // Set up a fixed camera position
+    camera.position.set(-1, 0, 2);
 
     return (
         <>
-            <OrbitControls />
+            {/* Disable user interaction with OrbitControls */}
+            <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
             <ambientLight intensity={10} />
             <ATM />
         </>
