@@ -12,10 +12,8 @@ const Three = () => {
                 gl={{ alpha: false }}
                 camera={{ position: [0, 0, 10], fov: 60 }}
             >
-                <ambientLight intensity={0.5} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <Experience />
-                <OrbitControls />
             </Canvas>
         </div>
     );
