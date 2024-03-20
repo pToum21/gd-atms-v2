@@ -7,7 +7,7 @@ import * as THREE from 'three';
 
 const Experience = () => {
     const { size, scene } = useThree();
-    scene.background = new THREE.Color('#FFFFFF'); // Set background to white
+    scene.background = new THREE.Color('#f7f7f7');
     const [showLetters, setShowLetters] = useState(true);
 
     return (
