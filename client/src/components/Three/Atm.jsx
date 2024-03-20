@@ -10,7 +10,7 @@ export function ATM(props) {
   // Rotate the ATM slowly
   useFrame(() => {
     if (isRotating) {
-      group.current.rotation.y += 0.01;
+      group.current.rotation.y += 0.003;
     }
   });
 
