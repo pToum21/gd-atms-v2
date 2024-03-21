@@ -13,7 +13,7 @@ const Experience = () => {
 
     return (
         <>
-            {/* Disable user interaction with OrbitControls */}
+            {/* this turns off user controls*/}
             <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
             <ambientLight intensity={10} />
             <ATM />
