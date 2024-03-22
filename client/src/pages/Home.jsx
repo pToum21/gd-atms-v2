@@ -3,8 +3,6 @@ import { Box, Typography } from '@mui/material';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 
-import './home.css';
-
 function Home() {
   return (
     <div>

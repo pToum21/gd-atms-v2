@@ -1,10 +1,14 @@
-const Footer = () => {
+import React from 'react';
+import { Paper } from '@mui/material';
 
+const Footer = () => {
     return (
-        <footer className="bg-gray-800 text-white p-4 text-center">
-        <div className="container mx-auto">
-            <p>&copy; 2021 by Your Name</p>
-        </div>
+        <footer>
+            <Paper elevation={3} style={{ borderRadius: '15px', borderTopLeftRadius: 0, borderTopRightRadius: 0, padding: '20px', backgroundColor: 'black' }}>
+                <div className="container mx-auto">
+                    <p style={{ color: 'white' }}>&copy; {new Date().getFullYear()} by Your Name</p>
+                </div>
+            </Paper>
         </footer>
     );
 };
