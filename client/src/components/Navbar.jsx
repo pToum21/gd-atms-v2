@@ -19,8 +19,8 @@ const NavBar = () => {
     return (
         <>
             {isNormalOrBigScreen ? (
-                <AppBar position="fixed" elevation={0}>
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', backgroundColor: 'white', height: '6.5vh' }}>
+                <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
+                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
                         <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
                             <span>
                                 <b>
@@ -31,14 +31,14 @@ const NavBar = () => {
                                 ATMs
                             </span>
                         </MuiLink>
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px'}}>
-                            <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px' }}>
+                            <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem' , background: 'white' }}>
                                 <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</MuiLink>
                                 <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
                             </div>
                         </div>
                         <IconButton component={Link} to="/login" sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
-                            <AccountCircleIcon  sx={{height: '30px', width: '30px'}}/>
+                            <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />
                         </IconButton>
                     </Toolbar>
                 </AppBar>
