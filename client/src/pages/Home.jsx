@@ -18,7 +18,7 @@ function Home() {
           borderRadius: '10px',
           padding: '20px',
           marginTop: '20px',
-          height: '100vh',
+          height: '30vh',
         }}
       >
         <div

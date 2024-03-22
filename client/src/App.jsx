@@ -4,6 +4,7 @@ import { setContext } from '@apollo/client/link/context';
 import './styles/main.css';
 import Chat from './components/Chat';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
@@ -35,6 +36,7 @@ function App() {
         <div style={{ minHeight: '75vh' }} >
           <Outlet />
         </div>
+        <Footer />
       </ApolloProvider>
     </>
   )

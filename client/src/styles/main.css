@@ -1,6 +1,5 @@
 * {
     font-family: 'poppins', sans-serif;
-    /* outline: solid 1px red; */
 }
 
 body {
@@ -20,6 +19,6 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background: linear-gradient(#8abbb1, #c0dbbd);
+    background: linear-gradient(#191b1b, #eb7e95);
     border-radius: 10px;
 }
