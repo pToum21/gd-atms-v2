@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
             <Paper elevation={3} style={{ borderRadius: '15px', borderTopLeftRadius: 0, borderTopRightRadius: 0, padding: '20px', backgroundColor: 'black' }}>
                 <div className="container mx-auto">
-                    <p style={{ color: 'white' }}>&copy; {new Date().getFullYear()} by Your Name</p>
+                    <p style={{ color: 'white' }}>&copy; {new Date().getFullYear()} GD ATMs</p>
                 </div>
             </Paper>
         </footer>

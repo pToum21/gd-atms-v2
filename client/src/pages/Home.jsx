@@ -13,7 +13,10 @@ function Home() {
         sx={{
           display: 'flex',
           backgroundColor: 'black',
-          borderRadius: '10px',
+          borderTopLeftRadius: '10px',
+          borderTopRightRadius: '10px',
+          borderBottomLeftRadius: '0',
+          borderBottomRightRadius: '0',
           padding: '20px',
           marginTop: '20px',
           height: '30vh',
