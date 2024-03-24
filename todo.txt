@@ -8,5 +8,5 @@
 ------------------------------------------------------------------------
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-* make the home page responsive
+* make the home page responsive on mobile 
 
