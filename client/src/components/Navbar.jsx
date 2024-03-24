@@ -18,6 +18,7 @@ const NavBar = () => {
 
     return (
         <>
+        {/* conditionally renders for if the screen is small or large/ mobile or regular */}
             {isNormalOrBigScreen ? (
                 <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
                     <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
@@ -32,7 +33,7 @@ const NavBar = () => {
                             </span>
                         </MuiLink>
                         <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px' }}>
-                            <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem' , background: 'white' }}>
+                            <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem', background: 'white' }}>
                                 <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</MuiLink>
                                 <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
                             </div>
