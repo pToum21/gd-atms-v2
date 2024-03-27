@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Chat extends Component {
 
     componentDidMount() {
-
+        // chatbot
         (function (d, m) {
             var kommunicateSettings =
                 { "appId": "1d68a771c3a6f127659ab68a3d41a58c7", "popupWidget": true, "automaticChatOpenOnNavigation": true };
