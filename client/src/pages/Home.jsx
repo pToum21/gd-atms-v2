@@ -12,14 +12,14 @@ function Home() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column', // Stack elements vertically by default
+          flexDirection: 'column',
           backgroundColor: 'black',
-          borderRadius: '10px',
+          borderRadius: '10px, 10px, 0, 10px',
           padding: '20px',
           marginTop: '20px',
           height: 'auto',
           '@media screen and (min-width: 768px)': {
-            flexDirection: 'row', // Change to row layout on larger screens
+            flexDirection: 'row',
           },
         }}
       >
@@ -31,7 +31,13 @@ function Home() {
             Your premier destination for convenient and affordable cash access solutions. With multiple locations strategically positioned across diverse neighborhoods and commercial hubs, we pride ourselves on being the go-to choice for anyone in need of quick and reliable cash transactions. At GD ATMs, we understand the importance of financial accessibility, which is why we've made it our mission to offer our services at the lowest possible cost to our valued customers. Our commitment to providing competitive transaction fees and ensuring operational excellence underscores our dedication to delivering a seamless and hassle-free experience. From bustling urban centers to suburban communities, our network of ATMs is designed to serve you wherever you are, empowering individuals with the financial flexibility they deserve. Discover the convenience and reliability of GD today, and experience firsthand how we're revolutionizing cash access for everyone.
           </p>
         </div>
+
       </Box>
+      <div style={{ backgroundColor: 'black' }}>
+        <div style={{ backgroundColor: '#eb7e95', borderRadius: '50px',}}>
+          <p style={{marginTop: '0', marginBottom: '0', }}>hi</p>
+        </div>
+      </div>
     </div>
   );
 }
