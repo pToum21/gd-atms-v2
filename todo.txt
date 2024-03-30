@@ -9,3 +9,4 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 
 
+* make the home page fully done in terms of layout the next time you work on this
