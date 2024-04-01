@@ -33,12 +33,16 @@ function Home() {
             Your premier destination for convenient and affordable cash access solutions. With multiple locations strategically positioned across diverse neighborhoods and commercial hubs, we pride ourselves on being the go-to choice for anyone in need of quick and reliable cash transactions. At GD ATMs, we understand the importance of financial accessibility, which is why we've made it our mission to offer our services at the lowest possible cost to our valued customers. Our commitment to providing competitive transaction fees and ensuring operational excellence underscores our dedication to delivering a seamless and hassle-free experience. From bustling urban centers to suburban communities, our network of ATMs is designed to serve you wherever you are, empowering individuals with the financial flexibility they deserve. Discover the convenience and reliability of GD today, and experience firsthand how we're revolutionizing cash access for everyone.
           </p>
         </div>
-
       </Box>
       {/* this div holds the credit card image*/}
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'grayscale(100%)', height: '100vh' }}>
-        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%' }}>
-          <img src={creditCards} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
+          {/* Inserting the title div */}
+          <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
+            <h1 style={{ color: 'white', fontSize: '2.5rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}>Accepted Cards</h1>
+          </div>
+          {/* End of title div */}
+          <img src={creditCards} style={{ filter: 'grayscale(100%)', width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
         </div>
       </div>
 
