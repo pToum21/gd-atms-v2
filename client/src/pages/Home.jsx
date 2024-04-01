@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 
-import creditCards from '../../public/images/creditcards.jpg'
+import creditCards from '/images/creditcards.jpg'
 
 function Home() {
   return (
