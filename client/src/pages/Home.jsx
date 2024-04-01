@@ -3,6 +3,8 @@ import { Box } from '@mui/material';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 
+import creditCards from '../../public/images/creditcards.jpg'
+
 function Home() {
   return (
     <div>
@@ -14,7 +16,7 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: 'black',
-          borderRadius: '10px, 10px, 0, 10px',
+          borderRadius: '10px 10px 0px 0px',
           padding: '20px',
           marginTop: '20px',
           height: 'auto',
@@ -34,11 +36,12 @@ function Home() {
 
       </Box>
       {/* this div will hold an image*/}
-      <div style={{ backgroundColor: 'black' }}>
-        <div style={{ backgroundColor: '#eb7e95', borderRadius: '50px',}}>
-          <p style={{marginTop: '0', marginBottom: '0', }}>hi</p>
+      <div style={{ background: 'black' }}>
+        <div style={{ backgroundColor: 'black', borderRadius: '50px', overflow: 'hidden' }}>
+          <img src={creditCards} style={{ width: '100%', height: 'auto', borderRadius: '50px' }} />
         </div>
       </div>
+
     </div>
   );
 }
