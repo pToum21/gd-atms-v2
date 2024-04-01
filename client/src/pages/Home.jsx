@@ -36,8 +36,8 @@ function Home() {
 
       </Box>
       {/* this div holds the credit card image*/}
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'grayscale(100%)' }}>
-        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', padding: '1%' }}>
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'grayscale(100%)', height: '100vh' }}>
+        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%' }}>
           <img src={creditCards} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
         </div>
       </div>
