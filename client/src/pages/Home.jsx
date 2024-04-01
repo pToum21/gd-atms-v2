@@ -16,7 +16,7 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: 'black',
-          borderRadius: '10px 10px 0px 0px',
+          borderRadius: '50px 50px 0px 0px',
           padding: '20px',
           marginTop: '20px',
           height: 'auto',
@@ -35,9 +35,9 @@ function Home() {
         </div>
 
       </Box>
-      {/* this div will hold an image*/}
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '90%', padding: '1%'}}>
+      {/* this div holds the credit card image*/}
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center', filter: 'grayscale(100%)' }}>
+        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', padding: '1%' }}>
           <img src={creditCards} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
         </div>
       </div>
