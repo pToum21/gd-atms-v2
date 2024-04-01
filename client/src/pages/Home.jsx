@@ -36,9 +36,9 @@ function Home() {
 
       </Box>
       {/* this div will hold an image*/}
-      <div style={{ background: 'black' }}>
-        <div style={{ backgroundColor: 'black', borderRadius: '50px', overflow: 'hidden' }}>
-          <img src={creditCards} style={{ width: '100%', height: 'auto', borderRadius: '50px' }} />
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '90%', padding: '1%'}}>
+          <img src={creditCards} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
         </div>
       </div>
 
