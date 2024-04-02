@@ -41,7 +41,7 @@ function Home() {
           <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
             <h1 style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}>Accepted Cards</h1>
           </div>
-          {/* End of title div */}
+          {/* add a scroll hover css function */}
           <img src={creditCards} style={{ filter: 'grayscale(100%)', width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
         </div>
       </div>
