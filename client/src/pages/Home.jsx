@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 
@@ -49,10 +49,13 @@ function Home() {
         <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
           {/* Inserting the title div */}
           <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
-            <h1 style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}>Accepted Cards</h1>
+            <h1
+              style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
+            >
+              Accepted Cards
+            </h1>
           </div>
-          {/* add a scroll hover css function */}
-          <Link to="/newpage"> {/* Add Link component with the destination path */}
+          <Link to="/newpage"> {/* Link to payment page */}
             <img
               src={creditCards}
               style={{
@@ -80,7 +83,6 @@ function Home() {
                 zIndex: '2',
               }}
             >
-              {/* Your card text */}
               <p>View Accepted Payments</p>
             </div>
           )}
