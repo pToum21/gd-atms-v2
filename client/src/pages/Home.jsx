@@ -55,7 +55,7 @@ function Home() {
               Accepted Cards
             </h1>
           </div>
-          <Link to="/newpage"> {/* Link to payment page */}
+          <Link to="/accepted-payment"> {/* Link to payment page */}
             <img
               src={creditCards}
               style={{

@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         path: '/reviews',
         element: < Reviews/>
       },
+      {
+        path: '/accepted-payment',
+        element: < Reviews/>
+      },
     ]
   }
 ]);
