@@ -4,6 +4,7 @@ import App from './App.jsx'
 import Error from './pages/Error.jsx';
 import Home from './pages/Home.jsx';
 import Reviews from './pages/Reviews.jsx';  
+import AcceptedPayments from './pages/AcceptedPayments.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // this establishes pages component structure and their paths
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/accepted-payment',
-        element: < Reviews/>
+        element: < AcceptedPayments/>
       },
     ]
   }
