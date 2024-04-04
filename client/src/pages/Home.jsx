@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/material';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 
-import creditCards from '/images/creditcards.jpg'
+import creditCards from '/images/creditcards.jpg';
 
 function Home() {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e) => {
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  };
+
   return (
-    <div>
+    <div onMouseMove={handleMouseMove}>
       <WelcomePage />
       <Three />
 
@@ -37,13 +45,45 @@ function Home() {
       </Box>
       {/* this div holds the credit card image*/}
       <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto' }}>
+
         <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
           {/* Inserting the title div */}
           <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
             <h1 style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}>Accepted Cards</h1>
           </div>
           {/* add a scroll hover css function */}
-          <img src={creditCards} style={{ filter: 'grayscale(100%)', width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50px' }} />
+          <Link to="/newpage"> {/* Add Link component with the destination path */}
+            <img
+              src={creditCards}
+              style={{
+                filter: 'grayscale(100%)',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '50px',
+                position: 'relative',
+                transition: 'filter 0.3s ease-in-out',
+              }}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            />
+          </Link>
+          {isHovering && (
+            <div
+              style={{
+                position: 'absolute',
+                top: cursorPosition.y + 1,
+                left: cursorPosition.x + 1,
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                padding: '10px',
+                borderRadius: '5px',
+                zIndex: '2',
+              }}
+            >
+              {/* Your card text */}
+              <p>View Accepted Payments</p>
+            </div>
+          )}
         </div>
       </div>
 
