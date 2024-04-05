@@ -3,8 +3,8 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as Mui
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Login from './Login'; 
-import Auth from '../utils/auth'; 
+import Login from './Login';
+import Auth from '../utils/auth';
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -31,9 +31,9 @@ const NavBar = () => {
     };
 
     return (
-        <>
-            <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
+        <div>
+            <AppBar elevation={0} sx={{ backgroundColor: 'transparent', }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh', }}>
                     <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
                         <span>
                             <b>
@@ -76,11 +76,16 @@ const NavBar = () => {
                 >
                     <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
+                    {isLoggedIn ? (
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                    ) : (
+                        <MenuItem onClick={handleLoginButtonClick}>Login</MenuItem>
+                    )}
                 </Menu>
             )}
             {/* Render Login component as modal if showLoginModal is true */}
             <Login open={showLoginModal} onClose={() => setShowLoginModal(false)} />
-        </>
+        </div>
     );
 };
 
