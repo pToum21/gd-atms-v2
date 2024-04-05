@@ -3,12 +3,14 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as Mui
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Login from './Login'; // Import the Login component
+import Login from './Login'; 
+import Auth from '../utils/auth'; 
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
     const [anchorEl, setAnchorEl] = useState(null);
     const [showLoginModal, setShowLoginModal] = useState(false); // State to manage modal visibility
+    const isLoggedIn = Auth.loggedIn(); // Check if the user is logged in
 
     const handleMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -19,74 +21,62 @@ const NavBar = () => {
     };
 
     const handleLoginButtonClick = () => {
-        setShowLoginModal(true); // Open the login modal
+        if (isLoggedIn) {
+            // If user is logged in, log them out
+            Auth.logout();
+        } else {
+            // If user is not logged in, open the login modal
+            setShowLoginModal(true);
+        }
     };
 
     return (
         <>
-            {isNormalOrBigScreen ? (
-                <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
-                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
-                            <span>
-                                <b>
-                                    GD
-                                </b>
-                            </span>
-                            <span style={{ color: 'gray' }}>
-                                ATMs
-                            </span>
-                        </MuiLink>
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px' }}>
+            <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
+                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
+                        <span>
+                            <b>
+                                GD
+                            </b>
+                        </span>
+                        <span style={{ color: 'gray' }}>
+                            ATMs
+                        </span>
+                    </MuiLink>
+                    <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px' }}>
+                        {isNormalOrBigScreen ? (
                             <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem', background: 'white' }}>
                                 <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</MuiLink>
                                 <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
                             </div>
-                        </div>
-                        <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
-                            <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-            ) : (
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid grey', borderRadius: '50px', gap: '1rem', width: '39%', margin: 'auto', marginTop: '3%' }}>
-                    <div style={{ display: 'flex', justifyContent: 'flex-start', width: '80%', paddingLeft: '8%' }}>
-                        <IconButton
-                            onClick={handleMenuOpen}
-                            edge="start"
-                            aria-controls="menu"
-                            aria-haspopup="true"
-                            aria-label="menu"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu"
-                            anchorEl={anchorEl}
-                            open={Boolean(anchorEl)}
-                            onClose={handleMenuClose}
-                        >
-                            <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
-                            <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
-                        </Menu>
+                        ) : (
+                            <IconButton
+                                onClick={handleMenuOpen}
+                                edge="start"
+                                aria-controls="menu"
+                                aria-haspopup="true"
+                                aria-label="menu"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        )}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.9rem', }}>
-                            <span>
-                                <b>
-                                    GD
-                                </b>
-                            </span>
-                            <span style={{ color: 'gray' }}>
-                                ATMs
-                            </span>
-                        </MuiLink>
-                    </div>
-                    <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%' }}>
-                        <AccountCircleIcon />
+                    <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
+                        {isLoggedIn ? <span>Logout</span> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
                     </IconButton>
-
-                </div>
+                </Toolbar>
+            </AppBar>
+            {isNormalOrBigScreen ? null : (
+                <Menu
+                    id="menu"
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleMenuClose}
+                >
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
+                </Menu>
             )}
             {/* Render Login component as modal if showLoginModal is true */}
             <Login open={showLoginModal} onClose={() => setShowLoginModal(false)} />
