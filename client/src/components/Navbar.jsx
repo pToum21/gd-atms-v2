@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -27,7 +27,7 @@ const NavBar = () => {
             {isNormalOrBigScreen ? (
                 <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'transparent' }}>
                     <Toolbar sx={{ display: 'flex', justifyContent: 'space-around', height: '6.5vh' }}>
-                        <Link variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
+                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
                             <span>
                                 <b>
                                     GD
@@ -36,11 +36,11 @@ const NavBar = () => {
                             <span style={{ color: 'gray' }}>
                                 ATMs
                             </span>
-                        </Link>
+                        </MuiLink>
                         <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px' }}>
                             <div style={{ padding: '5%', border: '1px solid grey', borderRadius: '50px', display: 'flex', justifyContent: 'center', gap: '1rem', background: 'white' }}>
-                                <Link component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</Link>
-                                <Link component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</Link>
+                                <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Reviews</MuiLink>
+                                <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' } }}>Contact</MuiLink>
                             </div>
                         </div>
                         <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
@@ -71,7 +71,7 @@ const NavBar = () => {
                         </Menu>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Link variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.9rem', }}>
+                        <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '.9rem', }}>
                             <span>
                                 <b>
                                     GD
@@ -80,7 +80,7 @@ const NavBar = () => {
                             <span style={{ color: 'gray' }}>
                                 ATMs
                             </span>
-                        </Link>
+                        </MuiLink>
                     </div>
                     <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%' }}>
                         <AccountCircleIcon />
@@ -88,7 +88,7 @@ const NavBar = () => {
 
                 </div>
             )}
-            {/* login modal */}
+            {/* Render Login component as modal if showLoginModal is true */}
             <Login open={showLoginModal} onClose={() => setShowLoginModal(false)} />
         </>
     );
