@@ -9,14 +9,22 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { username, email, password }) => {
+        createUser: async (parent, { email, password, username }) => {
             try {
-                const user = await User.create({ username, email, password });
+                const user = await User.create({ email, password, username });
                 const token = signToken(user);
-                return { token, user };
-            } catch (err) {
-                console.log(err);
-                throw new AuthenticationError('Something went wrong!');
+
+                return { user, token };
+
+            } catch (error) {
+                if (error.code === 11000) {
+                    // Duplicate key error
+                    throw new Error('Email or username already exists', 'DUPLICATE_USER');
+                } else {
+                    // Other errors
+                    console.log(error);
+                    throw new ApolloError('Error creating user', 'UNKNOWN_ERROR');
+                }
             }
         },
 
@@ -51,7 +59,7 @@ const resolvers = {
                 // Create the review and associate it with the user
                 const review = await Review.create({
                     reviewText,
-                    username: user.username 
+                    username: user.username
                 });
 
                 return review;
