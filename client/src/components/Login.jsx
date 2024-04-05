@@ -158,9 +158,6 @@ const Login = ({ open, onClose }) => {
                             <CloseIcon color="action" className="close" sx={{ color: 'black' }} />
                         </IconButton>
                         <Grid align="center">
-                            <Avatar style={{ backgroundColor: '#8abbb1' }}>
-                                <MenuBook style={{ color: 'black' }} />
-                            </Avatar>
                             <Typography variant="h5" sx={{ color: 'darkslategray', margin: '8px 0' }}>
                                 Log In
                             </Typography>

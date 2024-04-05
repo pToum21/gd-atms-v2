@@ -16,22 +16,6 @@ import { useState } from 'react';
 import Auth from '../utils/auth';
 
 
-
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-
-      Liber&nbsp;
-
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 export default function SignUp() {
   const [formState, setFormstate] = useState({
     username: '',
@@ -185,9 +169,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: '#8abbb1' }}>
-            <MenuBook style={{ color: 'black' }} />
-          </Avatar>
+          
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
@@ -269,7 +251,7 @@ export default function SignUp() {
 
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        
       </Container>
     </ThemeProvider>
   );
