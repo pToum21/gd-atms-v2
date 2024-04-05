@@ -3,8 +3,8 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as Mui
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Login from './Login';
-import Auth from '../utils/auth';
+import Login from './Login'; // Make sure Login component is properly imported
+import Auth from '../utils/auth'; // Make sure Auth utility is properly imported
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -28,6 +28,11 @@ const NavBar = () => {
             // If user is not logged in, open the login modal
             setShowLoginModal(true);
         }
+    };
+
+    const handleLogout = () => {
+        Auth.logout();
+        handleMenuClose();
     };
 
     return (
