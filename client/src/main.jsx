@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Error from './pages/Error.jsx';
 import Home from './pages/Home.jsx';
-import Reviews from './pages/Reviews.jsx';  
+import Reviews from './pages/Reviews.jsx';
 import AcceptedPayments from './pages/AcceptedPayments.jsx';
 import Contact from './pages/Contact.jsx';
+import Signup from './pages/Signup.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // this establishes pages component structure and their paths
@@ -22,16 +23,20 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
+        path: '/signup',
+        element: <Signup />
+      },
+      {
         path: '/reviews',
-        element: < Reviews/>
+        element: < Reviews />
       },
       {
         path: '/accepted-payment',
-        element: < AcceptedPayments/>
+        element: < AcceptedPayments />
       },
       {
         path: '/contact',
-        element: < Contact/>
+        element: < Contact />
       },
     ]
   }
