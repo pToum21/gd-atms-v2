@@ -1,9 +1,6 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
 
-* need to fix mobile navbar
-
-* find a better img for home then begin working on the credit cards section 
 
 red color
 #eb7e95
