@@ -1,4 +1,3 @@
-import MenuBook from '@mui/icons-material/MenuBook';
 import React, { useState } from 'react';
 import {
     Grid,
@@ -12,8 +11,7 @@ import {
     Modal,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
-import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
@@ -71,80 +69,23 @@ const Login = ({ open, onClose }) => {
         margin: '20px auto',
         position: 'relative',
         overflow: 'auto',
-        backgroundColor: '#f3f3ec',
+        backgroundColor: 'black',
     };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const btnStyle = { margin: '8px 0', backgroundColor: '#8abbb1' };
-    const textFieldStyle = { marginBottom: '16px' };
+    const btnStyle = { margin: '8px 0', backgroundColor: '#eb7e95' }; 
+    const textFieldStyle = { marginBottom: '16px', color: 'white' };
 
-    // modify outline of textfield
-    const customTheme = (outerTheme) =>
-        createTheme({
-            palette: {
-                mode: outerTheme.palette.mode,
+    const customTheme = createTheme({
+        palette: {
+            mode: 'dark',
+            primary: {
+                main: '#fff',
             },
-            components: {
-                MuiTextField: {
-                    styleOverrides: {
-                        root: {
-                            '--TextField-brandBorderColor': '#E0E3E7',
-                            '--TextField-brandBorderHoverColor': '#B2BAC2',
-                            '--TextField-brandBorderFocusedColor': '#6F7E8C',
-                            '& label.Mui-focused': {
-                                color: 'var(--TextField-brandBorderFocusedColor)',
-                            },
-                        },
-                    },
-                },
-                MuiOutlinedInput: {
-                    styleOverrides: {
-                        notchedOutline: {
-                            borderColor: 'var(--TextField-brandBorderColor)',
-                        },
-                        root: {
-                            [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-                                borderColor: 'var(--TextField-brandBorderHoverColor)',
-                            },
-                            [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
-                                borderColor: 'var(--TextField-brandBorderFocusedColor)',
-                            },
-                        },
-                    },
-                },
-                MuiFilledInput: {
-                    styleOverrides: {
-                        root: {
-                            '&::before, &::after': {
-                                borderBottom: '2px solid var(--TextField-brandBorderColor)',
-                            },
-                            '&:hover:not(.Mui-disabled, .Mui-error):before': {
-                                borderBottom: '2px solid var(--TextField-brandBorderHoverColor)',
-                            },
-                            '&.Mui-focused:after': {
-                                borderBottom: '2px solid var(--TextField-brandBorderFocusedColor)',
-                            },
-                        },
-                    },
-                },
-                MuiInput: {
-                    styleOverrides: {
-                        root: {
-                            '&::before': {
-                                borderBottom: '2px solid var(--TextField-brandBorderColor)',
-                            },
-                            '&:hover:not(.Mui-disabled, .Mui-error):before': {
-                                borderBottom: '2px solid var(--TextField-brandBorderHoverColor)',
-                            },
-                            '&.Mui-focused:after': {
-                                borderBottom: '2px solid var(--TextField-brandBorderFocusedColor)',
-                            },
-                        },
-                    },
-                },
+            secondary: {
+                main: '#eb7e95', 
             },
-        });
-
-    const outerTheme = useTheme();
+        },
+    });
 
     return (
         <Modal open={open} onClose={onClose}>
@@ -153,18 +94,17 @@ const Login = ({ open, onClose }) => {
                     <Paper elevation={10} style={paperStyle}>
                         <IconButton
                             onClick={onClose}
-                            style={{ position: 'absolute', right: '8px', top: '8px', zIndex: 1, color: 'black' }}
+                            style={{ position: 'absolute', right: '8px', top: '8px', zIndex: 1, color: 'white' }}
                         >
-                            <CloseIcon color="action" className="close" sx={{ color: 'black' }} />
+                            <CloseIcon color="action" className="close" sx={{ color: 'white' }} />
                         </IconButton>
                         <Grid align="center">
-                            <Typography variant="h5" sx={{ color: 'darkslategray', margin: '8px 0' }}>
+                            <Typography variant="h5" sx={{ color: 'white', margin: '8px 0' }}>
                                 Log In
                             </Typography>
                         </Grid>
-                        <ThemeProvider theme={customTheme(outerTheme)}>
+                        <ThemeProvider theme={customTheme}>
                             <TextField
-                                className="input-override"
                                 label="Email"
                                 name="email"
                                 placeholder="Enter Email"
@@ -178,7 +118,6 @@ const Login = ({ open, onClose }) => {
                                 onFocus={clearError}
                             />
                             <TextField
-                                className="input-override"
                                 label="Password"
                                 name="password"
                                 placeholder="Enter password"
@@ -193,9 +132,9 @@ const Login = ({ open, onClose }) => {
                         <Button type="submit" color="primary" variant="contained" style={btnStyle} fullWidth>
                             Log in
                         </Button>
-                        <Typography sx={{ color: 'darkslategray' }}>
+                        <Typography sx={{ color: 'white' }}>
                             Do you have an account?&nbsp;
-                            <Link component={RouterLink} to="/signup" onClick={onClose} sx={{ color: '#8abbb1', textDecoration: 'none' }}>
+                            <Link component={RouterLink} to="/signup" onClick={onClose} sx={{ color: '#eb7e95', textDecoration: 'none' }}>
                                 Sign Up
                             </Link>
                         </Typography>
