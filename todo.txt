@@ -1,4 +1,6 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
+
+* fix accpeted cards header when viewing on mobile
 red color
 #eb7e95
