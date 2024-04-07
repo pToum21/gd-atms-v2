@@ -1,6 +1,6 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-
+* need to change the display of login and sign up
 
 red color
 #eb7e95
