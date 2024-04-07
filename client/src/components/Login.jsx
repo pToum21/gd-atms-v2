@@ -70,6 +70,7 @@ const Login = ({ open, onClose }) => {
         position: 'relative',
         overflow: 'auto',
         backgroundColor: 'black',
+        borderRadius: '30px',
     };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnStyle = { margin: '8px 0', backgroundColor: '#eb7e95' }; 
@@ -89,7 +90,7 @@ const Login = ({ open, onClose }) => {
 
     return (
         <Modal open={open} onClose={onClose}>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} >
                 <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <IconButton
