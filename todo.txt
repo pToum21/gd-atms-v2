@@ -1,17 +1,11 @@
 
-* also allows users to write reviews / fix this part its broken
 
-
-
-
-------------------------------------------------------------------------
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
 
-
-* make the home page fully done in terms of layout the next time you work on this
-
 *need to fix mobile navbar
+
+* find a better img for home then begin working on the credit cards section 
 
 
 #eb7e95
