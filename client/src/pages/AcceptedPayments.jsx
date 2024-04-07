@@ -5,7 +5,7 @@ const AcceptedPayments = () => {
     
 
     return (
-        <div>
+        <div style={{height: '90vh'}}>
             <h1>Accepted Payments</h1>
             
             <p>
