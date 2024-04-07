@@ -70,12 +70,9 @@ export default function SignUp() {
 
   const theme = createTheme({
     palette: {
-      type: 'dark',
+      type: 'light', // Light mode
       primary: {
-        main: '#FF0000', // Red color for button
-      },
-      background: {
-        default: '#000000', // Black background
+        main: '#eb7e95', // Red color for button
       },
       text: {
         primary: '#FFFFFF', // White text color
@@ -85,17 +82,23 @@ export default function SignUp() {
 
   const customTheme = createTheme({
     palette: {
-      type: 'dark',
-      primary: {
-        main: '#FF0000', // Red color for button
-      },
+      type: 'light', // Light mode
     },
     components: {
       MuiTextField: {
         styleOverrides: {
           root: {
-            '& .MuiOutlinedInput-root': {
-              borderColor: '#FF0000', // Red outline
+            '& .MuiInputLabel-root': {
+              color: '#eb7e95', // Red label color
+            },
+            '& .MuiOutlinedInput-input': {
+              color: '#FFFFFF', // White text color for input
+            },
+            '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#FFFFFF', // White border color for input outline
+            },
+            '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#eb7e95', // Red border color for input outline on hover
             },
           },
         },
@@ -103,60 +106,51 @@ export default function SignUp() {
     },
   });
 
-  const outerTheme = useTheme();
-
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Typography component="h1" variant="h5">
+      <CssBaseline />
+      <Container component="main" sx={{height: '84vh', maxWidth: '70%'}}>
+        <Box sx={{ mt: 8, mx: 'auto', bgcolor: '#000000', p: 3, borderRadius: 4 }}>
+          <Typography component="h1" variant="h5" align="center" color="primary">
             Sign up
           </Typography>
           {error && (
-            <div style={{ color: 'red' }}>
-              {error.message || error.toString()} {/* Use error.message or toString() */}
-            </div>
+            <Typography variant="body1" color="error" align="center">
+              {error.message || error.toString()}
+            </Typography>
           )}
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            {!formValid && (
-              <Typography variant="body2" color="error" align="center" sx={{ mb: 2 }}>
-                Please fill in all required fields. <br />
-                Username takes alphanumeric (a-zA-Z0-9) characters,<br />
-                and email should contain '@' and '.'.<br />
-                Password Requires (Uppercase, number, special character, and must be 8 characters long)
-              </Typography>
-            )}
-            <Grid container spacing={2}>
+          <form onSubmit={handleSubmit} noValidate>
+            <Grid container spacing={2} mt={2}>
               <ThemeProvider theme={customTheme}>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                   <TextField
-                    className="input-override"
-                    autoComplete="given-name"
-                    name="username"
+                    variant="outlined"
                     required
                     fullWidth
                     id="username"
                     label="User Name"
-                    autoFocus
+                    name="username"
+                    autoComplete="username"
+                    value={formState.username}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    className="input-override"
+                    variant="outlined"
                     required
                     fullWidth
                     id="email"
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    value={formState.email}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    className="input-override"
+                    variant="outlined"
                     required
                     fullWidth
                     name="password"
@@ -164,6 +158,7 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    value={formState.password}
                     onChange={handleChange}
                   />
                 </Grid>
@@ -173,14 +168,12 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{
-                mt: 3,
-                mb: 2,
-              }}
+              color="primary"
+              sx={{ mt: 2 }}
             >
               Sign Up
             </Button>
-          </Box>
+          </form>
         </Box>
       </Container>
     </ThemeProvider>
