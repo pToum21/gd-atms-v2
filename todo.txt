@@ -2,5 +2,8 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 
 * fix accpeted cards header when viewing on mobile
+
+* make footer more unique
+
 red color
 #eb7e95
