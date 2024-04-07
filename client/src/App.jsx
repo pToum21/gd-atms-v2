@@ -31,7 +31,10 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
+        <div style={{marginBottom: '10%'}}>
         <Navbar />
+        </div>
+        
         <Chat />
         <div style={{ minHeight: '75vh' }} >
           <Outlet />
