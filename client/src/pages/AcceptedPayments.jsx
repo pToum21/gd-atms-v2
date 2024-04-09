@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const AcceptedPayments = () => {
-    
+    // credit card icons
 
     return (
         <div style={{height: '90vh'}}>
