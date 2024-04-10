@@ -14,6 +14,7 @@ function Home() {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
 
+  // home page with 3d rendered atm machine
   return (
     <div onMouseMove={handleMouseMove}>
       <WelcomePage />
