@@ -53,6 +53,7 @@ function Home() {
             <h1
               style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
             >
+              {/* text header for image */}
               Accepted Cards
             </h1>
           </div>
