@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@mui/material';
 import twoCheckout from '/images/card-icons/2checkout-curved-64px.png';
 import americanExpress from '/images/card-icons/american-express-curved-64px.png';
 import cirrus from '/images/card-icons/cirrus-curved-64px.png';
