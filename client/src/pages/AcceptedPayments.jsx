@@ -44,7 +44,7 @@ const AcceptedPayments = () => {
     ];
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: '80vh', marginTop: '10vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: '90vh', marginTop: '10vh' }}>
             <Paper style={{ backgroundColor: 'black', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', width: '70vw', height: '70vh', overflowY: 'auto' }}>
                 <div style={{ padding: '20px', textAlign: 'center' }}>
                     <h1 style={{ color: 'white' }}>Accepted Payments</h1>
