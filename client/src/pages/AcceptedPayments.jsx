@@ -17,6 +17,7 @@ import solo from '/images/card-icons/solo-curved-64px.png';
 import visa from '/images/card-icons/visa-curved-64px.png';
 import visaElectron from '/images/card-icons/visa-electron-curved-64px.png';
 import westernUnion from '/images/card-icons/western-union-curved-64px.png';
+import EBT from '/images/card-icons/16777460562579.jpg';
 
 const AcceptedPayments = () => {
     // Array of credit card logo paths
@@ -37,7 +38,8 @@ const AcceptedPayments = () => {
         solo,
         visa,
         visaElectron,
-        westernUnion
+        westernUnion,
+        EBT
     ];
 
     return (
