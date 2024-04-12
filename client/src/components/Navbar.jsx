@@ -62,7 +62,7 @@ const NavBar = () => {
                         </span>
                     </MuiLink>
                     {isNormalOrBigScreen && (
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px', border: 'solid 1px gray', borderRadius: '50px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', marginRight: '80px', border: 'solid 1px gray', borderRadius: '50px', backgroundColor: 'white' }}>
                             <MuiLink component={Link} to="/reviews" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' }, borderRadius: '50px', padding: '8px' }}>Reviews</MuiLink>
                             <MuiLink component={Link} to="/contact" sx={{ textDecoration: 'none', fontSize: '1.1rem', color: 'black', '&:hover': { backgroundColor: 'rgba(128, 128, 128, 0.2)', borderRadius: '50px', padding: '2%' }, padding: '8px' }}>Contact</MuiLink>
                         </div>
