@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
+// Import credit card logos
 import twoCheckout from '/images/card-icons/2checkout-curved-64px.png';
 import americanExpress from '/images/card-icons/american-express-curved-64px.png';
 import cirrus from '/images/card-icons/cirrus-curved-64px.png';
@@ -43,25 +44,27 @@ const AcceptedPayments = () => {
     ];
 
     return (
-        <div>
-            <h1>Accepted Payments</h1>
-            
-            <p>
-                GD ATMs accept all major credit cards at all locations. You can use your Visa, Mastercard, American Express, or Discover card to withdraw cash or check your bank balance at any GD ATM.
-            </p>
-            <p>
-                In addition to withdrawing cash, GD ATMs also provide the convenience of checking your bank balance directly from the ATM interface.
-            </p>
+        <Paper style={{ backgroundColor: 'black', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', height: '90vh' }}>
+            <div style={{ padding: '20px' }}>
+                <h1 style={{ color: 'white' }}>Accepted Payments</h1>
 
-            {/* Grid container for credit card logos */}
-            <Grid container spacing={2} justify="center">
-                {cardLogos.map((logo, index) => (
-                    <Grid item xs={6} sm={3} md={2} key={index}>
-                        <img src={logo} alt={`Card Logo ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
-                    </Grid>
-                ))}
-            </Grid>
-        </div>
+                <p style={{ color: 'white' }}>
+                    GD ATMs accept all major credit cards at all locations. You can use your Visa, Mastercard, American Express, or Discover card to withdraw cash or check your bank balance at any GD ATM.
+                </p>
+                <p style={{ color: 'white' }}>
+                    In addition to withdrawing cash, GD ATMs also provide the convenience of checking your bank balance directly from the ATM interface.
+                </p>
+
+                {/* Grid container for credit card logos */}
+                <Grid container spacing={2} justify="center">
+                    {cardLogos.map((logo, index) => (
+                        <Grid item xs={6} sm={3} md={2} key={index}>
+                            <img src={logo} alt={`Card Logo ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </div>
+        </Paper>
     );
 };
 
