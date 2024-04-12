@@ -60,7 +60,7 @@ const AcceptedPayments = () => {
                     <Grid container spacing={2} justifyContent="center">
                         {cardLogos.map((logo, index) => (
                             <Grid item xs={6} sm={4} md={2} key={index}>
-                                <img src={logo} alt={`Card Logo ${index}`} style={{ maxWidth: '100%', height: 'auto' }} />
+                                <img src={logo} alt={`Card Logo ${index}`} style={{ maxWidth: '100%', height: 'auto', borderRadius: '10px' }} />
                             </Grid>
                         ))}
                     </Grid>
