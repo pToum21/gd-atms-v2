@@ -51,7 +51,7 @@ function Home() {
           {/* Inserting the title div */}
           <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
             <h1
-              style={{ color: 'white', fontSize: '2rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
+              style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
             >
               {/* text header for image */}
               Accepted Cards
