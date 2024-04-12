@@ -36,7 +36,7 @@ function Home() {
       >
         <div style={{ flex: '1', marginRight: '20px' }}>
           {/* description */}
-          <h1 style={{ color: 'white', fontSize: '3rem', marginBottom: '10px' }}>At GD ATMs we focus on getting you cash easier than ever.</h1>
+          <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>At GD ATMs we focus on getting you cash easier than ever.</h1>
         </div>
         <div style={{ flex: '1' }}>
           <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
