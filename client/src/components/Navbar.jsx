@@ -51,7 +51,7 @@ const NavBar = () => {
                             <MenuIcon />
                         </IconButton>
                     )}
-                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', }}>
+                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', backgroundColor: 'white', borderRadius: '50px'}}>
                         <span>
                             <b>
                                 GD
@@ -68,7 +68,7 @@ const NavBar = () => {
                         </div>
                     )}
                     {isNormalOrBigScreen && (
-                        <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px' }}>
+                        <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', borderRadius: '50%', height: '50px', width: '50px', backgroundColor: 'white', borderRadius: '50px' }}>
                             {isLoggedIn ? <span>Logout</span> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
                         </IconButton>
                     )}
@@ -80,6 +80,7 @@ const NavBar = () => {
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleMenuClose}
+                    sx={{backgroundColor: 'white'}}
                 >
                     <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
