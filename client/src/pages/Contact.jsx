@@ -39,7 +39,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#ff0000' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
@@ -60,7 +60,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#ff0000' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
@@ -83,7 +83,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#ff0000' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
