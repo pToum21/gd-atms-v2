@@ -11,7 +11,7 @@ import {
     Modal,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { createTheme, ThemeProvider} from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
@@ -73,7 +73,7 @@ const Login = ({ open, onClose }) => {
         borderRadius: '30px',
     };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const btnStyle = { margin: '8px 0', backgroundColor: '#eb7e95' }; 
+    const btnStyle = { margin: '8px 0', backgroundColor: '#eb7e95' };
     const textFieldStyle = { marginBottom: '16px', color: 'white' };
 
     const customTheme = createTheme({
@@ -83,7 +83,7 @@ const Login = ({ open, onClose }) => {
                 main: '#fff',
             },
             secondary: {
-                main: '#eb7e95', 
+                main: '#eb7e95',
             },
         },
     });

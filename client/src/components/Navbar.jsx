@@ -3,8 +3,8 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as Mui
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Login from './Login'; // Make sure Login component is properly imported
-import Auth from '../utils/auth'; // Make sure Auth utility is properly imported
+import Login from './Login'; 
+import Auth from '../utils/auth'; 
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -51,7 +51,7 @@ const NavBar = () => {
                             <MenuIcon />
                         </IconButton>
                     )}
-                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', backgroundColor: 'white', borderRadius: '50px'}}>
+                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', backgroundColor: 'white', borderRadius: '50px' }}>
                         <span>
                             <b>
                                 GD
@@ -80,7 +80,7 @@ const NavBar = () => {
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleMenuClose}
-                    sx={{backgroundColor: 'white'}}
+                    sx={{ backgroundColor: 'white' }}
                 >
                     <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -7,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
@@ -109,7 +107,7 @@ export default function SignUp() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component="main" sx={{height: '84vh', maxWidth: '70%', }}>
+      <Container component="main" sx={{ height: '84vh', maxWidth: '70%', }}>
         <Box sx={{ mt: 8, mx: 'auto', bgcolor: '#000000', p: 3, borderRadius: 4, boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
           <Typography component="h1" variant="h5" align="center" color="white">
             Sign up
