@@ -24,7 +24,7 @@ function Contact() {
   }
 
   return (
-    <div style={{height: '90vh'}}>
+    <div style={{ height: '90vh' }}>
       <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '70vw' }}>
         <Typography variant="h3" className="contact-me-header">Contact Us 👇</Typography>
 
@@ -94,7 +94,7 @@ function Contact() {
           />
 
           <Box mt={2}>
-            <Button type="submit" disabled={state.submitting} sx={{ backgroundColor: '#ff0000', color: '#fff' }}>Send</Button>
+            <Button type="submit" disabled={state.submitting} sx={{ backgroundColor: '#eb7e95', color: '#fff' }}>Send</Button>
           </Box>
         </form>
 
