@@ -25,7 +25,7 @@ function Contact() {
 
   return (
     <div style={{ height: '90vh' }}>
-      <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '70vw' }}>
+      <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '70vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
         <Typography variant="h3" className="contact-me-header">Contact Us 👇</Typography>
 
         <form onSubmit={handleSubmit}>
