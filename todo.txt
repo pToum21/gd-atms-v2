@@ -1,8 +1,5 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-
-* should make it so the logo in the nav changes colors based on the background color that way it is viewable on the screen all the time
-
 * make footer more unique
 
 red color
