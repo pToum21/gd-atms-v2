@@ -2,5 +2,9 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * make footer more unique
 
+* still need to make reviews work
+
+* maybe consider calling reviews support tickets
+
 red color
 #eb7e95
