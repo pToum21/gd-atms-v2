@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Paper } from '@mui/material';
 // Import credit card logos
 import twoCheckout from '/images/card-icons/2checkout-curved-64px.png';
@@ -42,6 +42,11 @@ const AcceptedPayments = () => {
         westernUnion,
         EBT
     ];
+
+    useEffect(() => {
+        // Scroll to the top of the page when component is mounted
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: '90vh', marginTop: '15vh' }}>
