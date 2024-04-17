@@ -6,5 +6,7 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * maybe consider calling reviews support tickets
 
+* on accepted payments when visiting the page the scroll bar starts at the bottom it should open u up at the top of the page
+
 red color
 #eb7e95
