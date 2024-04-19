@@ -19,11 +19,11 @@ const Footer = () => {
                             </span>
                         </strong>
                         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-                            <li><Link component={RouterLink} to="/faq" color="inherit" underline="none">FAQ</Link></li>
-                            <li><Link component={RouterLink} to="/about" color="inherit" underline="none">About</Link></li>
-                            <li><Link component={RouterLink} to="/contact" color="inherit" underline="none">Contact</Link></li>
-                            <li><Link component={RouterLink} to="/our-csr" color="inherit" underline="none">Our CSR</Link></li>
-                            <li><Link component={RouterLink} to="/privacy-policy" color="inherit" underline="none">Privacy Policy</Link></li>
+                            <li><Link component={RouterLink} to="/faq" color="inherit" underline="none">FAQ  ↗</Link></li>
+                            <li><Link component={RouterLink} to="/about" color="inherit" underline="none">About  ↗</Link></li>
+                            <li><Link component={RouterLink} to="/contact" color="inherit" underline="none">Contact  ↗</Link></li>
+                            <li><Link component={RouterLink} to="/our-csr" color="inherit" underline="none">Our CSR  ↗</Link></li>
+                            <li><Link component={RouterLink} to="/privacy-policy" color="inherit" underline="none">Privacy Policy  ↗</Link></li>
                         </ul>
                     </Typography>
                 </Paper>
