@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from '@formspree/react';
 import { TextField, InputAdornment, Button, Typography, Container, Box } from '@mui/material';
 
@@ -22,6 +22,11 @@ function Contact() {
       </Container>
     );
   }
+
+  useEffect(() => {
+    // Scroll to the top of the page when component is mounted
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div style={{ height: '90vh' }}>
