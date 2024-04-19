@@ -8,7 +8,16 @@ const Footer = () => {
             <Box display="flex" justifyContent="space-between" maxWidth="800px" margin="0 auto" sx={{ backgroundColor: 'black' }}>
                 <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginRight: '10px', marginTop: '10px', }}>
                     <Typography variant="body1" style={{ color: 'white' }}>
-                        <strong>GD ATMs</strong>
+                        <strong>
+                            <span>
+                                <b>
+                                    GD
+                                </b>
+                            </span>
+                            <span style={{ color: 'gray' }}>
+                                ATMs
+                            </span>
+                        </strong>
                         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
                             <li><Link component={RouterLink} to="/faq" color="inherit" underline="none">FAQ</Link></li>
                             <li><Link component={RouterLink} to="/about" color="inherit" underline="none">About</Link></li>
