@@ -5,8 +5,8 @@ import { Link as RouterLink } from 'react-router-dom'; // Assuming you are using
 const Footer = () => {
     return (
         <footer style={{ backgroundColor: 'black' }}>
-            <Box display="flex" justifyContent="space-between" maxWidth="800px" margin="0 auto" sx={{ backgroundColor: 'black' }}>
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginRight: '10px', marginTop: '10px', }}>
+            <Box display="flex" justifyContent="space-between" maxWidth="800px" margin="0 auto " sx={{ backgroundColor: 'black' }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginRight: '10px', marginTop: '10px', marginBottom: '20px'}}>
                     <Typography variant="body1" style={{ color: 'white' }}>
                         <strong>
                             <span>
@@ -27,7 +27,7 @@ const Footer = () => {
                         </ul>
                     </Typography>
                 </Paper>
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginLeft: '10px', marginTop: '10px', }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginLeft: '10px', marginTop: '10px', marginBottom: '20px'}}>
                     <Typography variant="body1" style={{ color: 'white' }}>
                         <strong>Cities</strong>
                         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
