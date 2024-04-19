@@ -4,12 +4,21 @@ import { Paper, Box, Typography } from '@mui/material';
 const Footer = () => {
     return (
         <footer>
-            <Box display="flex" justifyContent="space-between">
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'black', flex: 1, marginRight: '10px' }}>
-                    <Typography variant="body1" style={{ color: 'white' }}>
-                        <strong>Useful Links:</strong>
-                        <ul>
-                            <li><a href="#">FAQ</a></li>
+            <Box display="flex" justifyContent="space-between" sx={{ backgroundColor: 'black' }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'lightgray', flex: 1, marginRight: '10px' }}>
+                    <Typography variant="body1" style={{ color: 'black' }}>
+                        <strong>
+                            <span>
+                                <b>
+                                    GD
+                                </b>
+                            </span>
+                            <span style={{ color: 'gray' }}>
+                                ATMs
+                            </span>
+                        </strong>
+                        <ul >
+                            <li ><a href="#">FAQ</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Our CSR</a></li>
@@ -17,8 +26,8 @@ const Footer = () => {
                         </ul>
                     </Typography>
                 </Paper>
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'black', flex: 1, marginLeft: '10px' }}>
-                    <Typography variant="body1" style={{ color: 'white' }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'lightgray', flex: 1, marginLeft: '10px' }}>
+                    <Typography variant="body1" style={{ color: 'black' }}>
                         <strong>Cities:</strong>
                         <ul>
                             <li>College Park, MD</li>
