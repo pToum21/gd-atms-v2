@@ -5,8 +5,8 @@ const Footer = () => {
     return (
         <footer>
             <Box display="flex" justifyContent="space-between" sx={{ backgroundColor: 'black' }}>
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'lightgray', flex: 1, marginRight: '10px' }}>
-                    <Typography variant="body1" style={{ color: 'black' }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginRight: '10px' }}>
+                    <Typography variant="body1" style={{ color: 'white' }}>
                         <strong>
                             <span>
                                 <b>
@@ -24,10 +24,13 @@ const Footer = () => {
                             <li><a href="#">Our CSR</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                         </ul>
+                        <Typography variant="body1" style={{ color: 'white' }}>
+                            &copy; {new Date().getFullYear()} GD ATMs
+                        </Typography>
                     </Typography>
                 </Paper>
-                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: 'lightgray', flex: 1, marginLeft: '10px' }}>
-                    <Typography variant="body1" style={{ color: 'black' }}>
+                <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginLeft: '10px' }}>
+                    <Typography variant="body1" style={{ color: 'white' }}>
                         <strong>Cities:</strong>
                         <ul>
                             <li>College Park, MD</li>
@@ -38,11 +41,6 @@ const Footer = () => {
                     </Typography>
                 </Paper>
             </Box>
-            <Paper elevation={3} style={{ borderRadius: '15px', borderTopLeftRadius: 0, borderTopRightRadius: 0, padding: '20px', backgroundColor: 'black' }}>
-                <Typography variant="body1" style={{ color: 'white' }}>
-                    &copy; {new Date().getFullYear()} GD ATMs
-                </Typography>
-            </Paper>
         </footer>
     );
 };
