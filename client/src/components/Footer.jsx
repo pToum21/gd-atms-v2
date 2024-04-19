@@ -29,13 +29,14 @@ const Footer = () => {
                 </Paper>
                 <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginLeft: '10px', marginTop: '10px', }}>
                     <Typography variant="body1" style={{ color: 'white' }}>
-                        <strong>Cities:</strong>
+                        <strong>Cities</strong>
                         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
                             <li>College Park, MD</li>
                             <li>Los Angeles, CA</li>
                             <li>Olney, MD</li>
                             <li>Big Bear, CA</li>
                         </ul>
+                        <strong>For Everyone, Everywhere ♡</strong>
                     </Typography>
                 </Paper>
             </Box>
