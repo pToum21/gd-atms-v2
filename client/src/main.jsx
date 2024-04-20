@@ -9,6 +9,7 @@ import Contact from './pages/Contact.jsx';
 import Signup from './pages/Signup.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import FAQ from './pages/FAQ.jsx';
+import About from './pages/About.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
         path: '/FAQ',
         element: < FAQ />
       },
+      {
+        path: '/about',
+        element: < About />
+      },
+      
     ]
   }
 ]);
