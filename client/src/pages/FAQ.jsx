@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, IconButton, Paper } from '@mui/material';
-import { AddCircleOutline } from '@mui/icons-material';
+import { AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material'; // Import the RemoveCircleOutline icon
 
 const containerStyle = {
     display: 'flex',
@@ -54,7 +54,7 @@ const FAQ = () => {
                     Is this page completed yet?
                 </Typography>
                 <IconButton onClick={handleToggle}>
-                    <AddCircleOutline />
+                    {open ? <RemoveCircleOutline /> : <AddCircleOutline />} {/* Conditional rendering of the icon */}
                 </IconButton>
             </div>
             {open && (
