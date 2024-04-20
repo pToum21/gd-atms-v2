@@ -42,7 +42,7 @@ const FAQ = () => {
     return (
         <div style={containerStyle}>
             <div style={contentContainerStyle}>
-                <Typography sx={{ fontSize: "3rem", marginBottom: '4%', fontWeight: '900' }}>
+                <Typography sx={{ fontSize: "3rem", marginBottom: '4%', marginTop: '10%', fontWeight: '500' }}>
                     The answer to money is abundance, financial success, and everything is 8
                 </Typography>
                 <Typography sx={{ fontSize: "1.7rem", marginBottom: '10%' }}>
