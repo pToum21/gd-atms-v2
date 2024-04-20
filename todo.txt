@@ -1,7 +1,5 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-* make footer more unique
-
 * still need to make reviews work
 
 * maybe consider calling reviews support tickets
