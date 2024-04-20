@@ -51,7 +51,7 @@ const NavBar = () => {
                             <MenuIcon />
                         </IconButton>
                     )}
-                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', backgroundColor: 'white', borderRadius: '50px' }}>
+                    <MuiLink variant="h6" component={Link} to="/" sx={{ color: 'black', textDecoration: 'none', fontSize: '1.5rem', backgroundColor: 'white', borderRadius: '50px', padding: '2px' }}>
                         <span>
                             <b>
                                 GD
