@@ -10,6 +10,7 @@ import Signup from './pages/Signup.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import FAQ from './pages/FAQ.jsx';
 import About from './pages/About.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: < About />
+      },
+      {
+        path: '/privacy-policy',
+        element: < PrivacyPolicy />
       },
       
     ]
