@@ -1,7 +1,15 @@
 import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
+import { useEffect } from 'react';
 
 const PrivacyPolicy = () => {
+
+    useEffect(() => {
+        // Scroll to the top of the page when component is mounted
+        window.scrollTo(0, 0);
+      }, []);
+
+
     return (
         <div style={{ padding: '20px' }}>
             <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', fontSize: '2.5rem' }}> Privacy Policy</Typography>
