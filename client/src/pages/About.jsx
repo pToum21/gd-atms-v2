@@ -11,7 +11,7 @@ const About = () => {
                 <Grid item xs={12} md={6}>
                     <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4} height="100%">
                         <Typography variant="body1" paragraph color="white">
-                            Welcome to [Your Company Name], a trusted provider of ATM solutions with a network of seven locations across [Your Region/Country]. At [Your Company Name], we specialize in providing top-of-the-line ATM machines tailored to meet the diverse needs of businesses and communities.
+                            Welcome to GDATMs, a trusted provider of ATM solutions with a network of seven locations across the United States. At GDATMs, we specialize in providing top-of-the-line ATM machines tailored to meet the diverse needs of businesses and communities.
                         </Typography>
                         <Typography variant="body1" paragraph color="white">
                             With years of experience in the industry, we understand the importance of seamless transactions and reliable service. That's why our team is dedicated to delivering cutting-edge ATM technology coupled with exceptional customer support.
@@ -36,19 +36,20 @@ const About = () => {
                             For inquiries about our products and services, or to schedule a consultation, please contact us at:
                         </Typography>
                         <Typography variant="body1" color="white" style={{ marginTop: '10px' }}>
-                            [Your Contact Information]
+                            gravediggeratms@gmail.com
+                        </Typography>
+                        <Typography variant="body1" color="white" style={{ marginTop: '10px' }}>
+                            or explore our contact section and complete the form to get in touch with us.
                         </Typography>
                     </Box>
                 </Grid>
             </Grid>
-            {/* Image placeholders */}
+            
             <Grid container justifyContent="center" mt={5}>
                 <Grid item xs={12} md={6}>
-                    {/* Image Placeholder 1 */}
                     <img src={atmig2} alt="ATM" style={{ marginTop: '3%',width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    {/* Image Placeholder 2 */}
                     <img src={atmig1} alt="ATM" style={{ marginTop: '3%',width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
             </Grid>
