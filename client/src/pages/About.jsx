@@ -45,11 +45,11 @@ const About = () => {
             <Grid container justifyContent="center" mt={5}>
                 <Grid item xs={12} md={6}>
                     {/* Image Placeholder 1 */}
-                    <img src={atmig2} alt="ATM" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
+                    <img src={atmig2} alt="ATM" style={{ marginTop: '3%', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     {/* Image Placeholder 2 */}
-                    <img src={atmig1} alt="ATM" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
+                    <img src={atmig1} alt="ATM" style={{ marginTop: '3%', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
             </Grid>
         </div>
