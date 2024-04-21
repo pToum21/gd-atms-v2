@@ -9,10 +9,16 @@ const PrivacyPolicy = () => {
                 <Grid item xs={12}>
                     <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4}>
                         <Typography variant="body1" paragraph color="white">
-                            Our privacy policy goes here...
+                            Privacy Policy
+                            GDATMs we operate the GDATM website.
+
+                            This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
+
+                            We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.
                         </Typography>
                         <Typography variant="body1" paragraph color="white">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum orci vel dolor consequat, eu rutrum libero volutpat. Ut vel pharetra turpis. Nullam luctus leo a libero accumsan, sit amet sodales ligula vehicula. Integer nec quam eget elit congue auctor sit amet et est. Nullam ullamcorper augue ut metus molestie, ac mattis magna vestibulum. Proin bibendum, tortor id maximus fermentum, orci nisl scelerisque libero, id rhoncus ex eros at magna. Integer nec tristique neque, vel tempor magna. Fusce sed nunc diam. Cras tempor leo id erat maximus, nec vestibulum libero feugiat. Mauris id dapibus urna.
+                            Information Collection and Use
+                            We collect several different types of information for various purposes to provide and improve our Service to you.
                         </Typography>
                         <Typography variant="body1" paragraph color="white">
                             Fusce dapibus, ipsum eu commodo consectetur, lorem dolor vestibulum justo, nec pharetra odio libero non nunc. Vivamus nec lectus vitae odio lobortis ultrices. Integer consectetur tellus nec risus luctus, vel fringilla odio mattis. Donec non nunc vehicula, malesuada eros ut, congue urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum scelerisque urna a dictum pretium. Nulla ac ultricies risus, a tempus orci. Morbi ac dui vel arcu malesuada consectetur. In hac habitasse platea dictumst.
