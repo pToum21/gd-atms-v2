@@ -2,8 +2,16 @@ import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
 import atmig1 from '/images/100630-F-5759C-111.jfif';
 import atmig2 from '/images/210305-usingatm-stock.jpg';
+import { useEffect } from 'react';
 
 const About = () => {
+
+    useEffect(() => {
+        // Scroll to the top of the page when component is mounted
+        window.scrollTo(0, 0);
+      }, []);
+
+
     return (
         <div style={{ padding: '20px' }}>
             <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', fontSize: '2.5rem' }}> About Us</Typography>
