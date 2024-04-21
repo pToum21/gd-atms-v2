@@ -1,13 +1,15 @@
 import React from 'react';
 import { Typography, Grid, Box } from '@mui/material';
+import atmig1 from '/images/100630-F-5759C-111.jfif';
+import atmig2 from '/images/210305-usingatm-stock.jpg';
 
 const About = () => {
     return (
         <div style={{ padding: '20px' }}>
-            <Typography variant="h4" gutterBottom sx={{textAlign: 'center', fontSize: '2.5rem'}}> About Us</Typography>
+            <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', fontSize: '2.5rem' }}> About Us</Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4}>
+                    <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4} height="100%">
                         <Typography variant="body1" paragraph color="white">
                             Welcome to [Your Company Name], a trusted provider of ATM solutions with a network of seven locations across [Your Region/Country]. At [Your Company Name], we specialize in providing top-of-the-line ATM machines tailored to meet the diverse needs of businesses and communities.
                         </Typography>
@@ -20,7 +22,7 @@ const About = () => {
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4}>
+                    <Box bgcolor="black" boxShadow={3} p={3} borderRadius={4} height="100%">
                         <Typography variant="h6" gutterBottom color="white">Why Choose Us?</Typography>
                         <ul style={{ color: 'white' }}>
                             <li>Wide Range of ATM Machines</li>
@@ -37,6 +39,17 @@ const About = () => {
                             [Your Contact Information]
                         </Typography>
                     </Box>
+                </Grid>
+            </Grid>
+            {/* Image placeholders */}
+            <Grid container justifyContent="center" mt={5}>
+                <Grid item xs={12} md={6}>
+                    {/* Image Placeholder 1 */}
+                    <img src={atmig2} alt="ATM" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    {/* Image Placeholder 2 */}
+                    <img src={atmig1} alt="ATM" style={{ width: '100%', height: '300px', objectFit: 'cover' }} />
                 </Grid>
             </Grid>
         </div>
