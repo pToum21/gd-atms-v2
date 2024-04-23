@@ -46,7 +46,7 @@ const NavBar = () => {
                             aria-controls="menu"
                             aria-haspopup="true"
                             aria-label="menu"
-                            sx={{ marginRight: '10px' }}
+                            sx={{ marginRight: '10px', backgroundColor: 'white'}}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -80,7 +80,7 @@ const NavBar = () => {
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleMenuClose}
-                    sx={{ backgroundColor: 'white' }}
+                    
                 >
                     <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
