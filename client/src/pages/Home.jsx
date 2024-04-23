@@ -70,7 +70,7 @@ function Home() {
             onMouseLeave={() => setIsHovering(false)}
           />
         </Link>
-        <div style={{ position: 'absolute', bottom: '10%', left: '50%', transform: 'translate(-50%, 0)', zIndex: '1' }}>
+        <div style={{ position: 'absolute', top: cursorPosition.y - 500, left: '50%', transform: 'translateX(-50%)', zIndex: '1', color: 'white', fontSize: '1rem' }}>
           <h2 style={{ color: 'white' }}>View All accepted payment methods</h2>
         </div>
       </div>
