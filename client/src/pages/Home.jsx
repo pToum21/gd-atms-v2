@@ -45,49 +45,33 @@ function Home() {
         </div>
       </Box>
       {/* this div holds the credit card image*/}
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto' }}>
-
-        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
-          {/* Inserting the title div */}
-          <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
-            <h1
-              style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
-            >
-              {/* text header for image */}
-              Accepted Cards
-            </h1>
-          </div>
-          <Link to="/accepted-payment"> {/* Link to payment page */}
-            <img
-              src={creditCards}
-              style={{
-                filter: 'grayscale(100%)',
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                borderRadius: '50px',
-                position: 'relative',
-                transition: 'filter 0.3s ease-in-out',
-              }}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            />
-          </Link>
-          {isHovering && (
-            <div
-              style={{
-                position: 'absolute',
-                top: cursorPosition.y + 1,
-                left: cursorPosition.x + 1,
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                padding: '10px',
-                borderRadius: '5px',
-                zIndex: '2',
-              }}
-            >
-              <p>View Accepted Payments</p>
-            </div>
-          )}
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto', position: 'relative' }}>
+        <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
+          <h1
+            style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#eb7e95', borderRadius: '50px' }}
+          >
+            {/* text header for image */}
+            Accepted Cards
+          </h1>
+        </div>
+        <Link to="/accepted-payment"> {/* Link to payment page */}
+          <img
+            src={creditCards}
+            style={{
+              filter: 'grayscale(100%)',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '50px',
+              position: 'relative',
+              transition: 'filter 0.3s ease-in-out',
+            }}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          />
+        </Link>
+        <div style={{ position: 'absolute', bottom: '10%', left: '50%', transform: 'translate(-50%, 0)', zIndex: '1' }}>
+          <h2 style={{ color: 'white' }}>View All accepted payment methods</h2>
         </div>
       </div>
 
