@@ -10,6 +10,8 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * support chat is broken
 
+* fix kommunicate
+
 
 red color
 #eb7e95
