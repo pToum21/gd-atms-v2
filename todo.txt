@@ -12,6 +12,8 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * fix kommunicate
 
+*finsh the support tickets
+
 
 red color
 #eb7e95
