@@ -5,7 +5,10 @@ const { AuthenticationError, signToken } = require('../utils/auth');
 const resolvers = {
 
     Query: {
-        // add query for getting all users
+        reviews: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Review.find(params).sort({ createdAt: -1 });
+        },
     },
 
     Mutation: {
