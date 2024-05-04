@@ -1,11 +1,8 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-* still need to make reviews work
+* finsh the support tickets
 
-* the user should only be able to access support if they are logged in
-
-*finsh the support tickets
-
+* 
 
 red color
 #eb7e95
