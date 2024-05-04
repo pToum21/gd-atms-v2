@@ -37,8 +37,6 @@ type Mutation {
     updateReview(_id: ID!, reviewText: String!): Review
     removeReview(_id: ID!): Review
 }
-
-
 `;
 
 module.exports = typeDefs;
