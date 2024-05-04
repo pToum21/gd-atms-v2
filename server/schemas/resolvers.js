@@ -41,28 +41,30 @@ const resolvers = {
             return { token, user };
         },
 
-        // addreview is broken
-        addReview: async (parent, { reviewText, userId }, context) => {
+        addReview: async (parent, { reviewText }, context) => {
             try {
                 // Check if the user is authenticated
                 if (!context.user) {
                     throw new AuthenticationError('You need to be logged in to add a review');
                 }
 
-                // Find the user who is creating the review
-                const user = await User.findById(userId);
-                if (!user) {
-                    throw new Error(`User not found for ID: ${userId}`);
-                }
-
-                // Create the review and associate it with the user
+                // Create the review and associate it with the authenticated user
                 const review = await Review.create({
                     reviewText,
-                    username: user.username, // Set the username from the user object
-                    user: userId // Associate the review with the user
+                    createdAt: new Date().toISOString(),
+                    user: context.user._id 
                 });
 
-                return review;
+                // Fetch the associated user document
+                const user = await User.findById(context.user._id);
+
+                // Return the review object with the username
+                return {
+                    _id: review._id,
+                    reviewText: review.reviewText,
+                    createdAt: review.createdAt,
+                    username: user.username 
+                };
             } catch (err) {
                 console.error(err);
                 throw new Error('Failed to add review');
