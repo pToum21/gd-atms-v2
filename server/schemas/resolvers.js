@@ -42,24 +42,24 @@ const resolvers = {
         },
 
         // addreview is broken
-        // is says user._id is not defined
-        addReview: async (parent, { reviewText }, context) => {
+        addReview: async (parent, { reviewText, userId }, context) => {
             try {
                 // Check if the user is authenticated
                 if (!context.user) {
-                    console.log('You need to be logged in to add a review');
+                    throw new AuthenticationError('You need to be logged in to add a review');
                 }
 
                 // Find the user who is creating the review
-                const user = await User.findById(context.user._id);
+                const user = await User.findById(userId);
                 if (!user) {
-                    throw new Error('User not found');
+                    throw new Error(`User not found for ID: ${userId}`);
                 }
 
                 // Create the review and associate it with the user
                 const review = await Review.create({
                     reviewText,
-                    username: user.username
+                    username: user.username,
+                    user: userId // Associate the review with the user
                 });
 
                 return review;
