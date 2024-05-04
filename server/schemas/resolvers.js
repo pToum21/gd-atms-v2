@@ -6,8 +6,27 @@ const resolvers = {
 
     Query: {
         reviews: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Review.find(params).sort({ createdAt: -1 });
+            try {
+               // filter reviews by username
+                const params = username ? { username } : {};
+
+                // Fetch all reviews matching the provided parameters
+                const reviews = await Review.find(params).sort({ createdAt: -1 });
+
+                // For each review, fetch the associated user document
+                const populatedReviews = await Promise.all(reviews.map(async review => {
+                    const user = await User.findById(review.user);
+                    return {
+                        ...review.toObject(),
+                        username: user.username
+                    };
+                }));
+
+                return populatedReviews;
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to fetch reviews');
+            }
         },
     },
 
@@ -55,7 +74,7 @@ const resolvers = {
                 const review = await Review.create({
                     reviewText,
                     createdAt: new Date().toISOString(),
-                    user: context.user._id 
+                    user: context.user._id
                 });
 
                 // Fetch the associated user document
@@ -66,7 +85,7 @@ const resolvers = {
                     _id: review._id,
                     reviewText: review.reviewText,
                     createdAt: review.createdAt,
-                    username: user.username 
+                    username: user.username
                 };
             } catch (err) {
                 console.error(err);
