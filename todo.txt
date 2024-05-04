@@ -2,7 +2,7 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * finsh the support tickets
 
-* 
+* need to query data from the db to the front end now
 
 red color
 #eb7e95
