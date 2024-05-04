@@ -2,9 +2,7 @@ notes: support tickets are reviews the review system is actually a support ticke
 
 * still need to make reviews work
 
-
 * the user should only be able to access support if they are logged in
-
 
 *finsh the support tickets
 
