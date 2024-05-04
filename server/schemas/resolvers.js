@@ -58,7 +58,7 @@ const resolvers = {
                 // Create the review and associate it with the user
                 const review = await Review.create({
                     reviewText,
-                    username: user.username,
+                    username: user.username, // Set the username from the user object
                     user: userId // Associate the review with the user
                 });
 
@@ -68,6 +68,7 @@ const resolvers = {
                 throw new Error('Failed to add review');
             }
         }
+
     }
 
 };
