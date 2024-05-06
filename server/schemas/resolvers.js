@@ -226,6 +226,37 @@ const resolvers = {
             }
         },
 
+        updateReview: async (parent, { _id, reviewText }, context) => {
+            try {
+                // Check if the user is authenticated
+                if (!context.user) {
+                    throw new Error('You need to be logged in to update a review');
+                }
+
+                // Find the review by ID
+                const review = await Review.findById(_id);
+
+                // Check if the review exists
+                if (!review) {
+                    throw new Error('Review not found');
+                }
+
+                // Check if the review belongs to the authenticated user
+                if (review.user.toString() !== context.user._id) {
+                    throw new Error('You can only update your own reviews');
+                }
+
+                // Update the review
+                review.reviewText = reviewText;
+                await review.save();
+
+                return review;
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to update review');
+            }
+        },
+
 
 
     }
