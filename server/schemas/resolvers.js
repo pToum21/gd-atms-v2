@@ -102,6 +102,28 @@ const resolvers = {
                 throw new Error('Failed to fetch user');
             }
         },
+        me: async (parent, args, context) => {
+            try {
+                // Check if the user is authenticated
+                if (!context.user) {
+                    throw new AuthenticationError('You need to be logged in!');
+                }
+        
+                // Fetch the authenticated user
+                const user = await User.findById(context.user._id);
+        
+                // Fetch the reviews associated with the user
+                const reviews = await Review.find({ user: context.user._id }).sort({ createdAt: -1 });
+        
+                // Attach the reviews to the user object
+                user.reviews = reviews;
+        
+                return user;
+            } catch (error) {
+                console.error(error);
+                throw new Error('Failed to fetch user data');
+            }
+        },
     },
 
     Mutation: {
