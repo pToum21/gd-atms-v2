@@ -194,7 +194,39 @@ const resolvers = {
                 console.error(err);
                 throw new Error('Failed to add review');
             }
-        }
+        },
+
+        removeReview: async (parent, { _id }, context) => {
+            try {
+                // Check if the user is authenticated
+                if (!context.user) {
+                    throw new Error('You need to be logged in to remove a review');
+                }
+
+                // Find the review by ID
+                const review = await Review.findById(_id);
+
+                // Check if the review exists
+                if (!review) {
+                    throw new Error('Review not found');
+                }
+
+                // Check if the review belongs to the authenticated user
+                if (review.user.toString() !== context.user._id) {
+                    throw new Error('You can only remove your own reviews');
+                }
+
+                // Remove the review
+                await Review.deleteOne({ _id }); // Use deleteOne instead of remove
+
+                return review;
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to remove review');
+            }
+        },
+
+
 
     }
 
