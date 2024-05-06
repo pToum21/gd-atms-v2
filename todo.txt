@@ -1,6 +1,6 @@
 notes: support tickets are reviews the review system is actually a support ticket sytem
 
-* finsh the support tickets
+* display support tickets to the fron end 
 
 * need to query data from the db to the front end now
 
