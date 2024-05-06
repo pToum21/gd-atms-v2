@@ -4,6 +4,8 @@ const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
 
+    // Queries
+
     Query: {
 
         // query to get all the reviews ever made 
@@ -126,6 +128,10 @@ const resolvers = {
         },
 
     },
+
+
+
+    // Mutations 
 
     Mutation: {
         createUser: async (parent, { email, password, username }) => {
