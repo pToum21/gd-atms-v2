@@ -75,6 +75,33 @@ const resolvers = {
                 throw new Error('Failed to fetch users');
             }
         },
+        user: async (parent, { username }) => {
+            try {
+                // Find a single user by their username
+                const user = await User.findOne({ username });
+
+                // If the user isn't found, return an error message
+                if (!user) {
+                    throw new Error('Cannot find a user with this username');
+                }
+
+                // Populate the user's reviews
+                const reviews = await Review.find({ user: user._id }).sort({ createdAt: -1 });
+
+                // Return the user object with the reviews populated
+                return {
+                    ...user.toObject(),
+                    reviews: reviews.map(review => ({
+                        _id: review._id,
+                        reviewText: review.reviewText,
+                        createdAt: review.createdAt
+                    }))
+                };
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to fetch user');
+            }
+        },
     },
 
     Mutation: {
