@@ -11,6 +11,7 @@ query Reviews {
 }
 `;
 
+// by review id
 export const QUERY_SINGLE_REVIEW = gql`
 query Review($id: ID!) {
   review(_id: $id) {
