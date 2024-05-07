@@ -58,5 +58,17 @@ query User($username: String!) {
 
 // query your self
 export const QUERY_ME = gql`
-
+query Me {
+  me {
+    _id
+    email
+    reviews {
+      _id
+      createdAt
+      reviewText
+      username
+    }
+    username
+  }
+}
 `;
