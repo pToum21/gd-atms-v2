@@ -241,7 +241,6 @@ const resolvers = {
                     throw new Error('Review not found');
                 }
 
-                // Check if the review belongs to the authenticated user
                 if (review.user.toString() !== context.user._id) {
                     throw new Error('You can only update your own reviews');
                 }
