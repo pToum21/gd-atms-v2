@@ -57,3 +57,8 @@ query User($username: String!) {
   }
 }
 `;
+
+// query your self
+export const QUERY_ME = gql`
+
+`;
