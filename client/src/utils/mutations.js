@@ -39,3 +39,14 @@ mutation AddReview($reviewText: String!) {
   }
 }
 `;
+
+export const REMOVE_REVIEW = gql`
+mutation RemoveReview($id: ID!) {
+  removeReview(_id: $id) {
+    _id
+    createdAt
+    reviewText
+    username
+  }
+}
+`;
