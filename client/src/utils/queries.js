@@ -38,7 +38,8 @@ query Users {
   }
 }
  `;
- 
+
+//  gets by user name
 export const QUERY_SINGLE_USER = gql`
 query User($username: String!) {
   user(username: $username) {
