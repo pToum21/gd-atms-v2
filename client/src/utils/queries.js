@@ -21,3 +21,37 @@ query Review($id: ID!) {
   }
 }
 `;
+
+export const QUERY_ALL_USERS = gql`
+query Users {
+  users {
+    _id
+    email
+    username
+    password
+    reviews {
+      _id
+      createdAt
+      reviewText
+      username
+    }
+  }
+}
+ `;
+ 
+export const QUERY_SINGLE_USER = gql`
+query User($username: String!) {
+  user(username: $username) {
+    _id
+    email
+    password
+    reviews {
+      _id
+      createdAt
+      reviewText
+      username
+    }
+    username
+  }
+}
+`;
