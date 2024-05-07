@@ -28,3 +28,14 @@ mutation Login($email: String!, $password: String!) {
   }
 }
 `;
+
+export const ADD_REVIEW = gql`
+mutation AddReview($reviewText: String!) {
+  addReview(reviewText: $reviewText) {
+    _id
+    createdAt
+    reviewText
+    username
+  }
+}
+`;
