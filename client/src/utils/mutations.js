@@ -50,3 +50,14 @@ mutation RemoveReview($id: ID!) {
   }
 }
 `;
+
+export const UPDATE_REVIEW = gql`
+mutation UpdateReview($id: ID!, $reviewText: String!) {
+  updateReview(_id: $id, reviewText: $reviewText) {
+    _id
+    createdAt
+    reviewText
+    username
+  }
+}
+`;
