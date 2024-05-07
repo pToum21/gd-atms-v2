@@ -29,7 +29,6 @@ query Users {
     _id
     email
     username
-    password
     reviews {
       _id
       createdAt
@@ -46,7 +45,6 @@ query User($username: String!) {
   user(username: $username) {
     _id
     email
-    password
     reviews {
       _id
       createdAt
