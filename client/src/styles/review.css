@@ -1,18 +1,55 @@
-.scale-enter {
-    transform: scale(0);
-  }
-  
-  .scale-enter-active {
-    transform: scale(1);
-    transition: transform 300ms ease-in-out;
-  }
-  
-  .scale-exit {
-    transform: scale(1);
-  }
-  
-  .scale-exit-active {
-    transform: scale(0);
-    transition: transform 300ms ease-in-out;
-  }
-  
+.reviews-container {
+  background-color: #f3f3f3;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.reviews-content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.reviews-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #673ab7; /* Purple color */
+}
+
+.reviews-search {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.reviews-transition-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.review-username {
+  color: #009688; /* Teal color */
+}
+
+.review-text {
+  color: #f44336; /* Red color */
+}
+
+.review-date {
+  color: #9c27b0; /* Deep Purple color */
+}
+
+.no-matching-reviews {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

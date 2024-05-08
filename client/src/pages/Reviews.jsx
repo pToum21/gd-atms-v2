@@ -25,31 +25,31 @@ function Reviews() {
   }) : [];
 
   return (
-    <div style={{ backgroundColor: '#f3f3f3', minHeight: '100vh', padding: '20px', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ maxWidth: '800px', width: '100%' }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Reviews</h1>
+    <div className="reviews-container">
+      <div className="reviews-content">
+        <h1 className="reviews-title">Reviews</h1>
         <TextField
-          label="Search by User or Review Content"
+          label="Search by User or Review"
           variant="outlined"
           value={searchInput}
           onChange={handleSearchInputChange}
-          style={{ marginBottom: '20px', width: '100%' }}
+          className="reviews-search"
         />
-        <TransitionGroup>
+        <TransitionGroup className="reviews-transition-group">
           {filteredReviews.map((review) => (
             <CSSTransition key={review._id} timeout={300} classNames="scale">
-              <Card style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+              <Card className="review-card">
                 <CardContent>
-                  <p><strong>Username:</strong> {review.username}</p>
-                  <p><strong>Review:</strong> {review.reviewText}</p>
-                  <p><strong>Created At:</strong> {review.createdAt}</p>
+                  <p className="review-username"><strong>Username:</strong> {review.username}</p>
+                  <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
+                  <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
                 </CardContent>
               </Card>
             </CSSTransition>
           ))}
         </TransitionGroup>
         {filteredReviews.length === 0 && (
-          <Box style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+          <Box className="no-matching-reviews">
             <p>No matching reviews found.</p>
           </Box>
         )}
