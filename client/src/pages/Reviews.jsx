@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Button, Box } from '@mui/material';
+import { TextField, Button, Box, Card, CardContent } from '@mui/material';
 import { QUERY_ALL_REVIEWS } from '../utils/queries'; // Update the path as necessary
 
 function Reviews() {
@@ -26,41 +26,43 @@ function Reviews() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div style={{ backgroundColor: '#1f1f1f', minHeight: '100vh', padding: '20px' }}>
-      <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '20px' }}>Reviews</h1>
-      <TextField
-        label="Search by User or Review Content"
-        variant="outlined"
-        value={searchInput}
-        onChange={handleSearchInputChange}
-        style={{ marginBottom: '20px', width: '100%', maxWidth: '400px' }}
-        InputProps={{ style: { color: 'white' } }}
-        InputLabelProps={{ style: { color: 'white' } }}
-      />
-      <Button variant="contained" onClick={handleSearch} style={{ marginBottom: '20px', backgroundColor: '#eb7e95', color: 'white' }}>
-        Search
-      </Button>
-      <Box sx={{ color: 'white' }}>
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
+    <div style={{ backgroundColor: '#f3f3f3', minHeight: '100vh', padding: '20px', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ maxWidth: '800px', width: '100%' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Reviews</h1>
+        <TextField
+          label="Search by User or Review Content"
+          variant="outlined"
+          value={searchInput}
+          onChange={handleSearchInputChange}
+          style={{ marginBottom: '20px', width: '100%' }}
+        />
+        <Button variant="contained" onClick={handleSearch} style={{ marginBottom: '20px', backgroundColor: '#eb7e95', color: 'white' }}>
+          Search
+        </Button>
+        <Box>
           {filteredReviews.length > 0 ? (
             filteredReviews.map((review) => (
-              <li key={review._id} style={{ marginBottom: '20px' }}>
-                <p>Username: {review.username}</p>
-                <p>Review: {review.reviewText}</p>
-                <p>Created At: {review.createdAt}</p>
-              </li>
+              <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+                <CardContent>
+                  <p><strong>Username:</strong> {review.username}</p>
+                  <p><strong>Review:</strong> {review.reviewText}</p>
+                  <p><strong>Created At:</strong> {review.createdAt}</p>
+                </CardContent>
+              </Card>
             ))
           ) : (
             data.reviews.map((review) => (
-              <li key={review._id} style={{ marginBottom: '20px' }}>
-                <p>Username: {review.username}</p>
-                <p>Review: {review.reviewText}</p>
-                <p>Created At: {review.createdAt}</p>
-              </li>
+              <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+                <CardContent>
+                  <p><strong>Username:</strong> {review.username}</p>
+                  <p><strong>Review:</strong> {review.reviewText}</p>
+                  <p><strong>Created At:</strong> {review.createdAt}</p>
+                </CardContent>
+              </Card>
             ))
           )}
-        </ul>
-      </Box>
+        </Box>
+      </div>
     </div>
   );
 }
