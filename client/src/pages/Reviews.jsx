@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Button, Box, Card, CardContent } from '@mui/material';
-import { QUERY_ALL_REVIEWS } from '../utils/queries'; // Update the path as necessary
+import { TextField, Button, Box, Card, CardContent, CircularProgress } from '@mui/material';
+import { QUERY_ALL_REVIEWS } from '../utils/queries';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import '../styles/review.css';
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
@@ -11,7 +13,7 @@ function Reviews() {
     setSearchInput(event.target.value);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
   if (error) return <p>Error: {error.message}</p>;
 
   // Check if data exists before accessing its properties
@@ -33,23 +35,24 @@ function Reviews() {
           onChange={handleSearchInputChange}
           style={{ marginBottom: '20px', width: '100%' }}
         />
-        <Box>
-          {filteredReviews.length > 0 ? (
-            filteredReviews.map((review) => (
-              <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+        <TransitionGroup>
+          {filteredReviews.map((review) => (
+            <CSSTransition key={review._id} timeout={300} classNames="scale">
+              <Card style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
                 <CardContent>
                   <p><strong>Username:</strong> {review.username}</p>
                   <p><strong>Review:</strong> {review.reviewText}</p>
                   <p><strong>Created At:</strong> {review.createdAt}</p>
                 </CardContent>
               </Card>
-            ))
-          ) : (
-            <Box style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
-              <p>No matching reviews found.  Cant Find One??? Make it Yourself!</p>
-            </Box>
-          )}
-        </Box>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+        {filteredReviews.length === 0 && (
+          <Box style={{ textAlign: 'center', padding: '20px', backgroundColor: 'white', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+            <p>No matching reviews found.</p>
+          </Box>
+        )}
       </div>
     </div>
   );
