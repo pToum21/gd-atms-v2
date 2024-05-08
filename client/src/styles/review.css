@@ -14,7 +14,7 @@
 .reviews-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #673ab7; /* Purple color */
+  color: #5F46F8; 
 }
 
 .reviews-search {
@@ -32,18 +32,19 @@
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  background-color: #eb7e95; 
 }
 
 .review-username {
-  color: #009688; /* Teal color */
+  color: #eb7e95;
 }
 
 .review-text {
-  color: #f44336; /* Red color */
+  color: #5F46F8; 
 }
 
 .review-date {
-  color: #9c27b0; /* Deep Purple color */
+  color: black;
 }
 
 .no-matching-reviews {
