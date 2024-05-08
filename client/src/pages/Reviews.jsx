@@ -6,21 +6,17 @@ import { QUERY_ALL_REVIEWS } from '../utils/queries'; // Update the path as nece
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
-  const [filteredReviews, setFilteredReviews] = useState([]);
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
   };
 
-  const handleSearch = () => {
-    const filtered = data.reviews.filter((review) => {
-      return (
-        review.username.toLowerCase().includes(searchInput.toLowerCase()) ||
-        review.reviewText.toLowerCase().includes(searchInput.toLowerCase())
-      );
-    });
-    setFilteredReviews(filtered);
-  };
+  const filteredReviews = data.reviews.filter((review) => {
+    return (
+      review.username.toLowerCase().includes(searchInput.toLowerCase()) ||
+      review.reviewText.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -36,31 +32,16 @@ function Reviews() {
           onChange={handleSearchInputChange}
           style={{ marginBottom: '20px', width: '100%' }}
         />
-        <Button variant="contained" onClick={handleSearch} style={{ marginBottom: '20px', backgroundColor: '#eb7e95', color: 'white' }}>
-          Search
-        </Button>
         <Box>
-          {filteredReviews.length > 0 ? (
-            filteredReviews.map((review) => (
-              <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                <CardContent>
-                  <p><strong>Username:</strong> {review.username}</p>
-                  <p><strong>Review:</strong> {review.reviewText}</p>
-                  <p><strong>Created At:</strong> {review.createdAt}</p>
-                </CardContent>
-              </Card>
-            ))
-          ) : (
-            data.reviews.map((review) => (
-              <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
-                <CardContent>
-                  <p><strong>Username:</strong> {review.username}</p>
-                  <p><strong>Review:</strong> {review.reviewText}</p>
-                  <p><strong>Created At:</strong> {review.createdAt}</p>
-                </CardContent>
-              </Card>
-            ))
-          )}
+          {filteredReviews.map((review) => (
+            <Card key={review._id} style={{ marginBottom: '20px', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}>
+              <CardContent>
+                <p><strong>Username:</strong> {review.username}</p>
+                <p><strong>Review:</strong> {review.reviewText}</p>
+                <p><strong>Created At:</strong> {review.createdAt}</p>
+              </CardContent>
+            </Card>
+          ))}
         </Box>
       </div>
     </div>
