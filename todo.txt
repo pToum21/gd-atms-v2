@@ -6,7 +6,7 @@ change reviews to be called support tickets
 
 create the portion to allow users to make edit and remove a support ticket once they are logged in
 
-create the adim login and give the admin the ability to mark completed and remove support tickets
+create the admin login and give the admin the ability to mark completed and remove support tickets
 
 all users to comment on reviews
 
