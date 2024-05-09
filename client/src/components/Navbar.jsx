@@ -82,7 +82,7 @@ const NavBar = () => {
                     onClose={handleMenuClose}
                     
                 >
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Reviews</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Support</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
                     {isLoggedIn ? (
                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
