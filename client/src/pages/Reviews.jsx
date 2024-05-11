@@ -9,7 +9,7 @@ function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
   const [componentLoaded, setComponentLoaded] = useState(false);
-  const [openSidebar, setOpenSidebar] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(true); // Set initial state to true
 
   useEffect(() => {
     setComponentLoaded(true);
@@ -40,6 +40,7 @@ function Reviews() {
         <Drawer
           open={openSidebar}
           onClose={toggleSidebar}
+          variant="persistent" // Keep the sidebar open
         >
           <List>
             <ListItem button>

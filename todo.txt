@@ -10,6 +10,8 @@ create the admin login and give the admin the ability to mark completed and remo
 
 all users to comment on reviews
 
+review dates need to be formatted correctly
+
 
 
 
