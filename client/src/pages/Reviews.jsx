@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
-import { QUERY_ALL_REVIEWS } from '../utils/queries';
+import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade, AppBar, Toolbar, Typography } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import '../styles/review.css';
+import { QUERY_ALL_REVIEWS } from '../utils/queries'
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
@@ -32,6 +32,14 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              My Tickets
+            </Typography>
+            <Button color="inherit">Create Ticket</Button>
+          </Toolbar>
+        </AppBar>
         <div className="reviews-content">
           <h1 className="reviews-title">Reviews</h1>
           <TextField
