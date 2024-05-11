@@ -10,7 +10,6 @@ create the admin login and give the admin the ability to mark completed and remo
 
 all users to comment on reviews
 
-change reviews to support tickets in the navbar
 
 
 
