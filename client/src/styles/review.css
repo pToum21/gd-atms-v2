@@ -1,3 +1,18 @@
+/* Adjustments for sidebar */
+.drawer {
+  width: 250px; /* Set the width of the sidebar */
+}
+
+.drawer-paper {
+  width: 250px; /* Set the width of the sidebar */
+  background-color: #f3f3f3; /* Match the background color of the main container */
+}
+
+.list-item-text {
+  color: #5F46F8; /* Match the text color of other elements */
+}
+
+/* Keep the existing styling for .reviews-container, .reviews-content, etc. */
 .reviews-container {
   background-color: #f3f3f3;
   min-height: 100vh;

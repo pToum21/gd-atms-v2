@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade, AppBar, Toolbar, Typography } from '@mui/material';
+import { TextField, Box, Card, CardContent, CircularProgress, Fade, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { QUERY_ALL_REVIEWS } from '../utils/queries'; // Import QUERY_ALL_REVIEWS
 import '../styles/review.css';
-import { QUERY_ALL_REVIEWS } from '../utils/queries'
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
   const [componentLoaded, setComponentLoaded] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   useEffect(() => {
     setComponentLoaded(true);
@@ -16,6 +17,10 @@ function Reviews() {
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
+  };
+
+  const toggleSidebar = () => {
+    setOpenSidebar(!openSidebar);
   };
 
   if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
@@ -32,16 +37,20 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              My Tickets
-            </Typography>
-            <Button color="inherit">Create Ticket</Button>
-          </Toolbar>
-        </AppBar>
+        <Drawer
+          open={openSidebar}
+          onClose={toggleSidebar}
+        >
+          <List>
+            <ListItem button>
+              <ListItemText primary="My Tickets" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Create Ticket" />
+            </ListItem>
+          </List>
+        </Drawer>
         <div className="reviews-content">
-          <h1 className="reviews-title">Reviews</h1>
           <TextField
             label="Search by User or Review"
             variant="outlined"
