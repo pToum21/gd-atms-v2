@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Box, Card, CardContent, CircularProgress, Fade, Toolbar } from '@mui/material';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import '../styles/review.css';
-
-const drawerWidth = 240;
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
-  const [open, setOpen] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
 
   useEffect(() => {
     setComponentLoaded(true);
   }, []);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
@@ -32,6 +21,7 @@ function Reviews() {
   if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
   if (error) return <p>Error: {error.message}</p>;
 
+  // Check if data exists before accessing its properties
   const filteredReviews = data && data.reviews ? data.reviews.filter((review) => {
     return (
       review.username.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -41,26 +31,9 @@ function Reviews() {
 
   return (
     <Fade in={componentLoaded}>
-      <Box sx={{ display: 'flex' }}>
-        <div style={{ width: drawerWidth, height: '100vh', backgroundColor: '#f0f0f0', borderRight: '1px solid #ccc' }}>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '8px' }}>
-            <button onClick={handleDrawerClose}>Close</button>
-          </div>
-          <div>
-            {/* Sidebar content goes here */}
-            <ul>
-              <li>Inbox</li>
-              <li>Starred</li>
-              <li>Send email</li>
-              <li>Drafts</li>
-              <li>All mail</li>
-              <li>Trash</li>
-              <li>Spam</li>
-            </ul>
-          </div>
-        </div>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Toolbar />
+      <div className="reviews-container">
+        <div className="reviews-content">
+          <h1 className="reviews-title">Reviews</h1>
           <TextField
             label="Search by User or Review"
             variant="outlined"
@@ -86,8 +59,8 @@ function Reviews() {
               <p>No matching reviews found.</p>
             </Box>
           )}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Fade>
   );
 }
