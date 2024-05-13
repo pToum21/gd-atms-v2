@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
-import Sidebar from '../components/Sidebar'; // Import the Sidebar component
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import '../styles/review.css';
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [componentLoaded, setComponentLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,10 +16,6 @@ function Reviews() {
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
-  };
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
   };
 
   if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
@@ -38,9 +32,6 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
-        {/* Sidebar */}
-        <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-        {/* Main Content */}
         <div className="reviews-content">
           <h1 className="reviews-title">Reviews</h1>
           <TextField
