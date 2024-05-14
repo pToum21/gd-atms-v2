@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { TextField, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import Sidebar from '../components/Sidebar';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
+import Sidebar from '../components/Sidebar';
 import '../styles/review.css';
 
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
   const [componentLoaded, setComponentLoaded] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   useEffect(() => {
     setComponentLoaded(true);
@@ -17,6 +18,11 @@ function Reviews() {
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
+  };
+
+  // Toggle mobile navigation
+  const toggleMobileNav = () => {
+    setShowMobileNav(!showMobileNav);
   };
 
   if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
@@ -33,7 +39,11 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
-        <Sidebar />
+        {/* Desktop sidebar */}
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+
         <div className="reviews-content">
           <h1 className="reviews-title">Reviews</h1>
           <TextField

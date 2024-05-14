@@ -22,3 +22,10 @@ body::-webkit-scrollbar-thumb {
     background: linear-gradient(#191b1b, #eb7e95);
     border-radius: 10px;
 }
+
+/* Styles for mobile screens */
+@media only screen and (max-width: 600px) {
+    .sidebar {
+      display: none; /* Hide the sidebar on mobile screens */
+    }
+  }
