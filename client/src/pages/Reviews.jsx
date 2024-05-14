@@ -6,6 +6,12 @@ import { QUERY_ALL_REVIEWS } from '../utils/queries';
 import Sidebar from '../components/Sidebar';
 import '../styles/review.css';
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
 function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
@@ -45,9 +51,9 @@ function Reviews() {
         </div>
 
         <div className="reviews-content">
-          <h1 className="reviews-title">Reviews</h1>
+          <h1 className="reviews-title">Support Hub</h1>
           <TextField
-            label="Search by User or Review"
+            label="Search by Username or Ticket Content"
             variant="outlined"
             value={searchInput}
             onChange={handleSearchInputChange}
@@ -60,7 +66,7 @@ function Reviews() {
                   <CardContent>
                     <p className="review-username"><strong>Username:</strong> {review.username}</p>
                     <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
-                    <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
+                    <p className="review-date"><strong>Created At:</strong> {formatDate(review.createdAt)}</p>
                   </CardContent>
                 </Card>
               </CSSTransition>
