@@ -1,7 +1,8 @@
 .sidebar {
-    height: 100vh;
+    height: 30vh;
     width: 300px;
     background-color: gray;
+    border-radius: 30px;
 }
 
 .sidebar-list {
@@ -26,6 +27,10 @@ font-family: poppins;
 
 .sidebar-list .row:hover {
     cursor: pointer;
+    background-color: black;
+}
+
+.sidebar-list #active {
     background-color: black;
 }
 
