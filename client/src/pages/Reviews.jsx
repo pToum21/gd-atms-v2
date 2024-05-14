@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { TextField, Button, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Sidebar from '../components/Sidebar';
 import '../styles/review.css';
 
 function Reviews() {
@@ -30,38 +31,42 @@ function Reviews() {
   }) : [];
 
   return (
-    <Fade in={componentLoaded}>
-      <div className="reviews-container">
-        <div className="reviews-content">
-          <h1 className="reviews-title">Reviews</h1>
-          <TextField
-            label="Search by User or Review"
-            variant="outlined"
-            value={searchInput}
-            onChange={handleSearchInputChange}
-            className="reviews-search"
-          />
-          <TransitionGroup className="reviews-transition-group">
-            {filteredReviews.map((review) => (
-              <CSSTransition key={review._id} timeout={300} classNames="scale">
-                <Card className="review-card">
-                  <CardContent>
-                    <p className="review-username"><strong>Username:</strong> {review.username}</p>
-                    <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
-                    <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
-                  </CardContent>
-                </Card>
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
-          {filteredReviews.length === 0 && (
-            <Box className="no-matching-reviews">
-              <p>No matching reviews found.</p>
-            </Box>
-          )}
+    <>
+      <Sidebar />
+      <Fade in={componentLoaded}>
+        <div className="reviews-container">
+          <div className="reviews-content">
+            <h1 className="reviews-title">Reviews</h1>
+            <TextField
+              label="Search by User or Review"
+              variant="outlined"
+              value={searchInput}
+              onChange={handleSearchInputChange}
+              className="reviews-search"
+            />
+            <TransitionGroup className="reviews-transition-group">
+              {filteredReviews.map((review) => (
+                <CSSTransition key={review._id} timeout={300} classNames="scale">
+                  <Card className="review-card">
+                    <CardContent>
+                      <p className="review-username"><strong>Username:</strong> {review.username}</p>
+                      <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
+                      <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
+                    </CardContent>
+                  </Card>
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
+            {filteredReviews.length === 0 && (
+              <Box className="no-matching-reviews">
+                <p>No matching reviews found.</p>
+              </Box>
+            )}
+          </div>
         </div>
-      </div>
-    </Fade>
+      </Fade>
+    </>
+
   );
 }
 
