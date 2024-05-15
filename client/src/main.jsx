@@ -11,6 +11,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import FAQ from './pages/FAQ.jsx';
 import About from './pages/About.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import CreateATicket from './components/CreateATicket.jsx';
+import ViewYourTickets from './components/ViewYourTickets.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -50,10 +52,18 @@ const router = createBrowserRouter([
         element: < About />
       },
       {
+        path: 'create-a-ticket',
+        element: <CreateATicket />
+      },
+      {
+        path: 'view-your-tickets',
+        element: <ViewYourTickets />
+      },
+      {
         path: '/privacy-policy',
         element: < PrivacyPolicy />
       },
-      
+
     ]
   }
 ]);
