@@ -14,6 +14,7 @@ type Review {
     reviewText: String
     createdAt: String
     username: String
+    status: String
 }
 
 type Auth {

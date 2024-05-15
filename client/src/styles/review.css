@@ -1,13 +1,4 @@
 /* Adjustments for sidebar */
-.drawer {
-  width: 250px; 
-}
-
-.drawer-paper {
-  width: 250px; 
-  background-color: #f3f3f3; 
-}
-
 .list-item-text {
   color: #5F46F8; 
 }
@@ -22,7 +13,7 @@
 .reviews-content {
   max-width: 800px;
   width: 100%;
-  margin: 50px;
+  margin: 30px;
 }
 
 .reviews-title {

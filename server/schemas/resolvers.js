@@ -22,7 +22,8 @@ const resolvers = {
                     const user = await User.findById(review.user);
                     return {
                         ...review.toObject(),
-                        username: user.username
+                        username: user.username,
+                        status: review.status // Populate the status field
                     };
                 }));
 
@@ -42,10 +43,11 @@ const resolvers = {
                 // Find the associated user by ID
                 const user = await User.findById(review.user);
 
-                // Return the review object with the username populated
+                // Return the review object with the username and status populated
                 return {
                     ...review.toObject(),
-                    username: user.username
+                    username: user.username,
+                    status: review.status // Populate the status field
                 };
             } catch (err) {
                 console.error(err);
@@ -177,6 +179,7 @@ const resolvers = {
                 const review = await Review.create({
                     reviewText,
                     createdAt: new Date().toISOString(),
+                    status: 'open', // Set the status field to 'open'
                     user: context.user._id
                 });
 
@@ -188,7 +191,8 @@ const resolvers = {
                     _id: review._id,
                     reviewText: review.reviewText,
                     createdAt: review.createdAt,
-                    username: user.username
+                    username: user.username,
+                    status: review.status // Include the status field in the returned object
                 };
             } catch (err) {
                 console.error(err);
@@ -241,15 +245,23 @@ const resolvers = {
                     throw new Error('Review not found');
                 }
 
+                // Check if the review belongs to the authenticated user
                 if (review.user.toString() !== context.user._id) {
                     throw new Error('You can only update your own reviews');
                 }
+
+                // Preserve the status field
+                const status = review.status;
 
                 // Update the review
                 review.reviewText = reviewText;
                 await review.save();
 
-                return review;
+                // Return the updated review object with the preserved status field
+                return {
+                    ...review.toObject(),
+                    status // Preserve the status field in the returned object
+                };
             } catch (err) {
                 console.error(err);
                 throw new Error('Failed to update review');

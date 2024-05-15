@@ -13,6 +13,11 @@ const reviewSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    status: {
+        type: String,
+        enum: ['open', 'closed'],
+        default: 'open'
     }
 }, {
     timestamps: true
