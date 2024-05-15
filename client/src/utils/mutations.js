@@ -34,6 +34,7 @@ mutation AddReview($reviewText: String!) {
     createdAt
     reviewText
     username
+    status
   }
 }
 `;
@@ -56,6 +57,7 @@ mutation UpdateReview($id: ID!, $reviewText: String!) {
     createdAt
     reviewText
     username
+    status
   }
 }
 `;

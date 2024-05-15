@@ -61,6 +61,7 @@ function Reviews() {
                     <p className="review-username"><strong>Username:</strong> {review.username}</p>
                     <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
                     <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
+                    <p className="review-status"><strong>Status:</strong>{review.status}</p>
                   </CardContent>
                 </Card>
               </CSSTransition>

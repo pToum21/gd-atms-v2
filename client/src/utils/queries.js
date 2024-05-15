@@ -7,6 +7,7 @@ query Reviews {
     createdAt
     reviewText
     username
+    status
   }
 }
 `;
@@ -19,6 +20,7 @@ query Review($id: ID!) {
     createdAt
     reviewText
     username
+    status
   }
 }
 `;
@@ -34,6 +36,7 @@ query Users {
       createdAt
       reviewText
       username
+      status
     }
   }
 }
@@ -50,6 +53,7 @@ query User($username: String!) {
       createdAt
       reviewText
       username
+      status
     }
     username
   }
@@ -67,6 +71,7 @@ query Me {
       createdAt
       reviewText
       username
+      status
     }
     username
   }
