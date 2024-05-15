@@ -1,6 +1,6 @@
 /* Adjustments for sidebar */
 .list-item-text {
-  color: #5F46F8; 
+  color: #5F46F8;
 }
 
 .reviews-container {
@@ -19,7 +19,7 @@
 .reviews-title {
   text-align: center;
   margin-bottom: 20px;
-  color: #5F46F8; 
+  color: #5F46F8;
 }
 
 .reviews-search {
@@ -37,19 +37,46 @@
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  background-color: #eb7e95; 
+  background-color: #eb7e95;
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  /* Add your profile icon background */
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .review-username {
-  color: #eb7e95;
+  color: #5F46F8;
+  font-size: 1.2rem;
 }
 
 .review-text {
-  color: #5F46F8; 
+  color: black;
+  font-size: 1.5rem;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
 }
 
 .review-date {
   color: black;
+}
+
+.review-status {
+  color: #eb7e95;
 }
 
 .no-matching-reviews {

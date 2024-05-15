@@ -58,10 +58,15 @@ function Reviews() {
               <CSSTransition key={review._id} timeout={300} classNames="scale">
                 <Card className="review-card">
                   <CardContent>
-                    <p className="review-username"><strong>Username:</strong> {review.username}</p>
-                    <p className="review-text"><strong>Review:</strong> {review.reviewText}</p>
-                    <p className="review-date"><strong>Created At:</strong> {review.createdAt}</p>
-                    <p className="review-status"><strong>Status:</strong>{review.status}</p>
+                    <div className="ticket-header">
+                      <div className="profile-icon"></div>
+                      <p className="review-username">{review.username}</p>
+                    </div>
+                    <p className="review-text">{review.reviewText}</p>
+                    <div className="ticket-footer">
+                      <p className="review-date">{review.createdAt}</p>
+                      <p className="review-status">{review.status}</p>
+                    </div>
                   </CardContent>
                 </Card>
               </CSSTransition>
