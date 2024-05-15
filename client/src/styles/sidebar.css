@@ -33,7 +33,8 @@ font-family: poppins;
 }
 
 .sidebar-list #active {
-    background-color: black;
+    background-color: rgb(72, 73, 75);
+    border-radius: 30px;
 }
 
 .row #icon {
