@@ -6,5 +6,7 @@ create the admin login and give the admin the ability to mark completed and remo
 
 review dates need to be formatted correctly
 
+need to build the pages for adding a ticket and viewing your tickets 
+
 red color
 #eb7e95
