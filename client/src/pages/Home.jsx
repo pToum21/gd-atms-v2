@@ -14,7 +14,15 @@ function Home() {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
 
-  // home page with 3d rendered atm machine and canvas
+  // Function to calculate the rotation based on cursor position
+  const calculateRotation = (x, y) => {
+    const rotateX = (window.innerHeight / 2 - y) / 20;
+    const rotateY = (window.innerWidth / 2 - x) / 20;
+    return { rotateX, rotateY };
+  };
+
+  const { rotateX, rotateY } = calculateRotation(cursorPosition.x, cursorPosition.y);
+
   return (
     <div onMouseMove={handleMouseMove}>
       <WelcomePage />
@@ -67,7 +75,8 @@ function Home() {
                 objectFit: 'cover',
                 borderRadius: '50px',
                 position: 'relative',
-                transition: 'filter 0.3s ease-in-out',
+                transition: 'transform 0.1s ease-out, filter 0.3s ease-in-out',
+                transform: isHovering ? `rotateX(${rotateX}deg) rotateY(${rotateY}deg)` : 'none',
               }}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
