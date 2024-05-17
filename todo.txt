@@ -12,10 +12,6 @@ all users to comment on reviews
 
 review dates need to be formatted correctly
 
-
-
-the sidebar should have a view my tickets, a add tickets, and a view all community tickets options
-
 sidebar should also have a toggle on and off button opne/closed
 
 
