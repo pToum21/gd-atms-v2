@@ -30,7 +30,7 @@ const CreateATicket = () => {
                 </Box>
             )}
             <Box flex={1} p={2}>
-                <Paper elevation={3} style={{ padding: '20px' }}>
+                <Paper elevation={3} style={{ padding: '20px', borderRadius: '30px' }}>
                     <Typography variant="h4" gutterBottom>
                         Create a Support Ticket
                     </Typography>
