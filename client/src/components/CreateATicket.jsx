@@ -33,18 +33,12 @@ const CreateATicket = () => {
             )}
             <Box flex={1} p={2}>
                 <Paper elevation={3} style={{ padding: '20px' }}>
-                    <Typography variant="h4" gutterBottom>
-                        Create a Review
-                    </Typography>
+                    <h1 className='reviews-title'>
+                        Create a Support Ticket
+                    </h1>
+
+
                     <form onSubmit={handleSubmit}>
-                        <TextField
-                            fullWidth
-                            label="Title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            required
-                            margin="normal"
-                        />
                         <TextField
                             fullWidth
                             label="Tell us about your experience..."
