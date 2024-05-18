@@ -5,7 +5,6 @@ import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
 
 const CreateATicket = () => {
-    const [title, setTitle] = useState('');
     const [reviewText, setReviewText] = useState('');
     const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW);
 
@@ -14,7 +13,6 @@ const CreateATicket = () => {
         try {
             await addReview({ variables: { reviewText } });
             // Clear form after submission
-            setTitle('');
             setReviewText('');
         } catch (err) {
             console.error(err);
@@ -33,11 +31,9 @@ const CreateATicket = () => {
             )}
             <Box flex={1} p={2}>
                 <Paper elevation={3} style={{ padding: '20px' }}>
-                    <h1 className='reviews-title'>
+                    <Typography variant="h4" gutterBottom>
                         Create a Support Ticket
-                    </h1>
-
-
+                    </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
                             fullWidth
@@ -52,9 +48,14 @@ const CreateATicket = () => {
                         <Button
                             type="submit"
                             variant="contained"
-                            color="primary"
                             disabled={loading}
-                            style={{ marginTop: '20px' }}
+                            sx={{
+                                marginTop: '20px',
+                                backgroundColor: '#5F46F8',
+                                '&:hover': {
+                                    backgroundColor: '#4D38C5',
+                                }
+                            }}
                         >
                             {loading ? 'Submitting...' : 'Submit Review'}
                         </Button>
