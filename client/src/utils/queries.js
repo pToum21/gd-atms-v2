@@ -77,3 +77,15 @@ query Me {
   }
 }
 `;
+
+export const QUERY_MY_REVIEWS = gql`
+query MyReviews {
+  myReviews {
+    _id
+    createdAt
+    reviewText
+    status
+    username
+  }
+}
+`;
