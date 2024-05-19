@@ -135,13 +135,23 @@ const resolvers = {
                     return []; // Returning an empty array if user is not authenticated
                 }
 
-                const { username } = context.user;
-                console.log(`Fetching reviews for user: ${username}`);
+                const userId = context.user._id;
+                console.log(`Fetching reviews for user ID: ${userId}`);
 
-                const reviews = await Review.find({ username });
-                console.log(`Found reviews for ${username}: ${JSON.stringify(reviews)}`);
+                // Fetch reviews associated with the user's ID
+                const reviews = await Review.find({ user: userId }).populate('user', 'username');
+                console.log(`Found reviews for user ID ${userId}: ${JSON.stringify(reviews)}`);
 
-                return reviews;
+                // Map reviews to include the username
+                const populatedReviews = reviews.map(review => ({
+                    _id: review._id,
+                    reviewText: review.reviewText,
+                    createdAt: review.createdAt,
+                    username: review.user.username,
+                    status: review.status,
+                }));
+
+                return populatedReviews;
             } catch (error) {
                 console.error('Error fetching reviews:', error);
                 return []; // Returning an empty array in case of an error
