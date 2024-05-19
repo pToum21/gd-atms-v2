@@ -128,6 +128,26 @@ const resolvers = {
                 throw new Error('Failed to fetch user data');
             }
         },
+        myReviews: async (parent, args, context) => {
+            try {
+                if (!context.user) {
+                    console.log('No user in context');
+                    return []; // Returning an empty array if user is not authenticated
+                }
+
+                const { username } = context.user;
+                console.log(`Fetching reviews for user: ${username}`);
+
+                const reviews = await Review.find({ username });
+                console.log(`Found reviews for ${username}: ${JSON.stringify(reviews)}`);
+
+                return reviews;
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+                return []; // Returning an empty array in case of an error
+            }
+        },
+
 
     },
 

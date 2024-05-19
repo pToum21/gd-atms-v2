@@ -28,6 +28,7 @@ type Query {
     user(username: String!): User
     reviews(username: String): [Review]
     review(_id: ID!): Review
+    myReviews: [Review]
 }
 
 type Mutation {
