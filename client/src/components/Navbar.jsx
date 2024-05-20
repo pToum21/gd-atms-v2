@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as Mui
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Login from './Login'; 
 import Auth from '../utils/auth'; 
 
@@ -69,7 +70,7 @@ const NavBar = () => {
                     )}
                     {isNormalOrBigScreen && (
                         <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', height: '50px', width: '50px', backgroundColor: 'white', borderRadius: '50px' }}>
-                            {isLoggedIn ? <span style={{fontSize: '1.3rem'}}>Logout</span> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
+                            {isLoggedIn ? <IconButton><LogoutIcon/></IconButton> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
                         </IconButton>
                     )}
                 </Toolbar>
