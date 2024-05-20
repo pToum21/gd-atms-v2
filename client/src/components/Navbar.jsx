@@ -70,7 +70,7 @@ const NavBar = () => {
                     )}
                     {isNormalOrBigScreen && (
                         <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', height: '50px', width: '50px', backgroundColor: 'white', borderRadius: '50px' }}>
-                            {isLoggedIn ? <IconButton><LogoutIcon/></IconButton> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
+                            {isLoggedIn ? <LogoutIcon/> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
                         </IconButton>
                     )}
                 </Toolbar>
