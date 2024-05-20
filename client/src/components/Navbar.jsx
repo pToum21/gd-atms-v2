@@ -83,8 +83,10 @@ const NavBar = () => {
                     onClose={handleMenuClose}
                     
                 >
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Support</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Support Hub</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/view-your-tickets">My Tickets</MenuItem>
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/create-a-ticket">Create A Ticket</MenuItem>
                     {isLoggedIn ? (
                         <MenuItem onClick={handleLogout}>Logout</MenuItem>
                     ) : (

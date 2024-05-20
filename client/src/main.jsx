@@ -52,11 +52,11 @@ const router = createBrowserRouter([
         element: < About />
       },
       {
-        path: 'create-a-ticket',
+        path: '/create-a-ticket',
         element: <CreateATicket />
       },
       {
-        path: 'view-your-tickets',
+        path: '/view-your-tickets',
         element: <ViewYourTickets />
       },
       {
