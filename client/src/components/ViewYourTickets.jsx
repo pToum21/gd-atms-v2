@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Sidebar from './Sidebar';
 import { QUERY_MY_REVIEWS } from '../utils/queries';
 import { UPDATE_REVIEW } from '../utils/mutations';
+import AuthService from '../utils/auth';  // Import AuthService
 import '../styles/review.css';
 
 const ViewYourTickets = () => {
@@ -18,8 +19,12 @@ const ViewYourTickets = () => {
         setComponentLoaded(true);
     }, []);
 
+    if (!AuthService.loggedIn()) {
+        return <p>You must be logged in to view your tickets.</p>;
+    }
+
     if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
-    if (error) return <p>You must be logged in to view your tickets.</p>;
+    if (error) return <p>Error loading tickets. Please try again.</p>;
 
     const reviews = data?.myReviews || [];
 
