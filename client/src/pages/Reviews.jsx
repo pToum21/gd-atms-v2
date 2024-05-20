@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Box, Card, CardContent, CircularProgress, Fade } from '@mui/material';
+import { TextField, Box, Card, CardContent, CircularProgress, Fade, Pagination } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
 import Sidebar from '../components/Sidebar';
@@ -10,7 +10,10 @@ function Reviews() {
   const { loading, error, data } = useQuery(QUERY_ALL_REVIEWS);
   const [searchInput, setSearchInput] = useState('');
   const [componentLoaded, setComponentLoaded] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
   const [showMobileNav, setShowMobileNav] = useState(false);
+
+  const reviewsPerPage = 8;
 
   useEffect(() => {
     setComponentLoaded(true);
@@ -25,16 +28,25 @@ function Reviews() {
     setShowMobileNav(!showMobileNav);
   };
 
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
   if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
   if (error) return <p>Error: {error.message}</p>;
 
   // Check if data exists before accessing its properties
-  const filteredReviews = data && data.reviews ? data.reviews.filter((review) => {
-    return (
+  const filteredReviews = data && data.reviews ? data.reviews
+    .filter((review) => (
       review.username.toLowerCase().includes(searchInput.toLowerCase()) ||
       review.reviewText.toLowerCase().includes(searchInput.toLowerCase())
-    );
-  }) : [];
+    ))
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by most recent first
+    : [];
+
+  const indexOfLastReview = currentPage * reviewsPerPage;
+  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
+  const currentReviews = filteredReviews.slice(indexOfFirstReview, indexOfLastReview);
 
   const formatDate = (timestamp) => {
     const date = new Date(parseInt(timestamp));
@@ -66,7 +78,7 @@ function Reviews() {
             className="reviews-search"
           />
           <TransitionGroup className="reviews-transition-group">
-            {filteredReviews.map((review) => (
+            {currentReviews.map((review) => (
               <CSSTransition key={review._id} timeout={300} classNames="scale">
                 <Card className="review-card">
                   <CardContent>
@@ -84,11 +96,18 @@ function Reviews() {
               </CSSTransition>
             ))}
           </TransitionGroup>
-          {filteredReviews.length === 0 && (
+          {currentReviews.length === 0 && (
             <Box className="no-matching-reviews">
               <p>No matching reviews found.</p>
             </Box>
           )}
+          <Pagination
+            count={Math.ceil(filteredReviews.length / reviewsPerPage)}
+            page={currentPage}
+            onChange={handlePageChange}
+            className="reviews-pagination"
+            style={{ marginTop: '20px', justifyContent: 'center', display: 'flex'}}
+          />
         </div>
       </div>
     </Fade>

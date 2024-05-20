@@ -1,5 +1,5 @@
 .sidebar {
-    height: 30vh;
+    height: 50vh;
     width: 210px;
     background-color: #5D3FD3;
     border-radius: 30px;
@@ -16,7 +16,7 @@
 width: 100%;
 height: 60px;
 list-style-type: none;
-margin: 0%;
+margin-bottom: 10%;
 display: flex;
 flex-direction: row;
 color: white;
