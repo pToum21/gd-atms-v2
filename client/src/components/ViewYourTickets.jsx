@@ -82,8 +82,21 @@ const ViewYourTickets = () => {
                                                     multiline
                                                     rows={4}
                                                 />
-                                                <Button onClick={handleSaveClick} color="primary" variant="contained" style={{ marginRight: '10px' }}>Save</Button>
-                                                <Button onClick={handleCancelClick} color="secondary" variant="outlined">Cancel</Button>
+                                                <Button onClick={handleSaveClick} color="primary" variant="contained"  sx={{
+                                                            backgroundColor: '#5F46F8',
+                                                            marginRight: '10px',
+                                                            '&:hover': {
+                                                                backgroundColor: '#4D38C5',
+                                                            }
+                                                        }}>Save</Button>
+                                                <Button onClick={handleCancelClick} color="secondary"  sx={{
+                                                    backgroundColor: "#eb7e95",
+                                                    color: "white",
+                                                    '&:hover': {
+                                                        backgroundColor: "#d67086",
+                                                    }
+
+                                                }} variant="outlined">Cancel</Button>
                                             </>
                                         ) : (
                                             <>
