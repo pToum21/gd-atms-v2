@@ -36,6 +36,11 @@ function Reviews() {
     );
   }) : [];
 
+  const formatDate = (timestamp) => {
+    const date = new Date(parseInt(timestamp));
+    return date.toLocaleDateString();
+  };
+
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
@@ -64,7 +69,7 @@ function Reviews() {
                     </div>
                     <p className="review-text">{review.reviewText}</p>
                     <div className="ticket-footer">
-                      <p className="review-date">{review.createdAt}</p>
+                      <p className="review-date">{formatDate(review.createdAt)}</p>
                       <p className="review-status">{review.status}</p>
                     </div>
                   </CardContent>
