@@ -47,6 +47,18 @@ const ViewYourTickets = () => {
         setEditReviewText('');
     };
 
+    const formatDate = (timestamp) => {
+        const date = new Date(parseInt(timestamp));
+        return date.toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        });
+    };
+
     return (
         <Fade in={componentLoaded}>
             <div className="reviews-container">
@@ -81,7 +93,7 @@ const ViewYourTickets = () => {
                                                 </div>
                                                 <p className="review-text">{review.reviewText}</p>
                                                 <div className="ticket-footer">
-                                                    <p className="review-date">{new Date(review.createdAt).toLocaleString()}</p>
+                                                    <p className="review-date">{formatDate(review.createdAt)}</p>
                                                     <p className="review-status">{review.status}</p>
                                                     <Button
                                                         onClick={() => handleEditClick(review)}
