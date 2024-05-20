@@ -50,7 +50,12 @@
   width: 30px;
   height: 30px;
   background-color: #ccc;
-  /* Add your profile icon background */
+  background-image: url('https://www.w3schools.com/howto/img_avatar.png');
+  /* Add this line */
+  background-size: cover;
+  /* Ensure the image covers the entire element */
+  background-position: center;
+  /* Center the image */
   border-radius: 50%;
   margin-right: 10px;
 }
