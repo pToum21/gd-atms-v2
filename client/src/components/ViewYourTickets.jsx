@@ -100,7 +100,6 @@ const ViewYourTickets = () => {
                                                         color="primary"
                                                         variant="contained"
                                                         sx={{
-                                                            marginTop: '20px',
                                                             backgroundColor: '#5F46F8',
                                                             '&:hover': {
                                                                 backgroundColor: '#4D38C5',
