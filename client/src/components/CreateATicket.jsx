@@ -62,7 +62,7 @@ const CreateATicket = () => {
                                 }
                             }}
                         >
-                            {loading ? 'Submitting...' : 'Submit Review'}
+                            {loading ? 'Submitting...' : 'Submit A Ticket'}
                         </Button>
                     </form>
                     {error && <Typography color="error">Error submitting the review: {error.message}</Typography>}
