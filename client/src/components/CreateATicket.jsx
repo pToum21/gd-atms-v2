@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
+import AuthService from '../utils/auth';  // Import AuthService
 
 const CreateATicket = () => {
     const [reviewText, setReviewText] = useState('');
@@ -21,6 +22,10 @@ const CreateATicket = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    if (!AuthService.loggedIn()) {
+        return <Typography variant="h6">You must be logged in to create a ticket.</Typography>;
+    }
 
     return (
         <Box display="flex" flexDirection={isMobile ? 'column' : 'row'}>
