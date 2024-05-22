@@ -3,7 +3,6 @@ create the admin login and give the admin the ability to mark completed and remo
 
 add a little more life styling wise to reviews pages maybe images
 
-add a remove ticket option
 
 red color
 #eb7e95
