@@ -1,12 +1,7 @@
 notes:
-
-figure out how to allow users to add photos to reviews
-
 create the admin login and give the admin the ability to mark completed and remove support tickets
 
-review dates need to be formatted correctly
 
-need to build the pages for adding a ticket and viewing your tickets 
 
 red color
 #eb7e95
