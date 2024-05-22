@@ -13,6 +13,7 @@ import About from './pages/About.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import CreateATicket from './components/CreateATicket.jsx';
 import ViewYourTickets from './components/ViewYourTickets.jsx';
+import TerminalNews from './components/TerminalNews.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/privacy-policy',
         element: < PrivacyPolicy />
+      },
+      {
+        path: '/terminal-news',
+        element: < TerminalNews />
       },
 
     ]
