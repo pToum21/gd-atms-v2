@@ -4,16 +4,18 @@ import { Box, Card, CardContent, CircularProgress, Fade, Button, TextField } fro
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Sidebar from './Sidebar';
 import { QUERY_MY_REVIEWS } from '../utils/queries';
-import { UPDATE_REVIEW } from '../utils/mutations';
-import AuthService from '../utils/auth';  
+import { UPDATE_REVIEW, REMOVE_REVIEW } from '../utils/mutations';
+import AuthService from '../utils/auth';
 import '../styles/review.css';
 
 const ViewYourTickets = () => {
     const { loading, error, data } = useQuery(QUERY_MY_REVIEWS);
     const [updateReview] = useMutation(UPDATE_REVIEW);
+    const [removeReview] = useMutation(REMOVE_REVIEW);
     const [componentLoaded, setComponentLoaded] = useState(false);
     const [editingReviewId, setEditingReviewId] = useState(null);
     const [editReviewText, setEditReviewText] = useState('');
+    const [deletingReviewId, setDeletingReviewId] = useState(null);
 
     useEffect(() => {
         setComponentLoaded(true);
@@ -45,6 +47,18 @@ const ViewYourTickets = () => {
     const handleCancelClick = () => {
         setEditingReviewId(null);
         setEditReviewText('');
+    };
+
+    const handleRemoveClick = async (id) => {
+        setDeletingReviewId(id);
+        try {
+            await removeReview({ variables: { id } });
+            // Optionally, you can refetch the reviews or update the local cache to remove the deleted review
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setDeletingReviewId(null);
+        }
     };
 
     const formatDate = (timestamp) => {
@@ -82,27 +96,55 @@ const ViewYourTickets = () => {
                                                     multiline
                                                     rows={4}
                                                 />
-                                                <Button onClick={handleSaveClick} color="primary" variant="contained"  sx={{
-                                                            backgroundColor: '#5F46F8',
-                                                            marginRight: '10px',
-                                                            '&:hover': {
-                                                                backgroundColor: '#4D38C5',
-                                                            }
-                                                        }}>Save</Button>
-                                                <Button onClick={handleCancelClick} color="secondary"  sx={{
-                                                    backgroundColor: "#eb7e95",
-                                                    color: "white",
-                                                    '&:hover': {
-                                                        backgroundColor: "#d67086",
-                                                    }
-
-                                                }} variant="outlined">Cancel</Button>
+                                                <Button
+                                                    onClick={handleSaveClick}
+                                                    color="primary"
+                                                    variant="contained"
+                                                    sx={{
+                                                        backgroundColor: '#5F46F8',
+                                                        marginRight: '10px',
+                                                        '&:hover': {
+                                                            backgroundColor: '#4D38C5',
+                                                        }
+                                                    }}
+                                                >
+                                                    Save
+                                                </Button>
+                                                <Button
+                                                    onClick={handleCancelClick}
+                                                    color="secondary"
+                                                    sx={{
+                                                        backgroundColor: "#eb7e95",
+                                                        color: "white",
+                                                        '&:hover': {
+                                                            backgroundColor: "#d67086",
+                                                        }
+                                                    }}
+                                                    variant="outlined"
+                                                >
+                                                    Cancel
+                                                </Button>
                                             </>
                                         ) : (
                                             <>
                                                 <div className="ticket-header">
                                                     <div className="profile-icon"></div>
                                                     <p className="review-username">{review.username}</p>
+                                                    <Button
+                                                        onClick={() => handleRemoveClick(review._id)}
+                                                        color="secondary"
+                                                        variant="contained"
+                                                        sx={{
+                                                            backgroundColor: '#eb7e95',
+                                                            marginLeft: 'auto',
+                                                            '&:hover': {
+                                                                backgroundColor: '#CC0000',
+                                                            }
+                                                        }}
+                                                        disabled={deletingReviewId === review._id}
+                                                    >
+                                                        {deletingReviewId === review._id ? 'Removing...' : 'Remove Ticket'}
+                                                    </Button>
                                                 </div>
                                                 <p className="review-text">{review.reviewText}</p>
                                                 <div className="ticket-footer">
@@ -117,7 +159,9 @@ const ViewYourTickets = () => {
                                                             '&:hover': {
                                                                 backgroundColor: '#4D38C5',
                                                             }
-                                                        }}>Edit
+                                                        }}
+                                                    >
+                                                        Edit
                                                     </Button>
                                                 </div>
                                             </>
