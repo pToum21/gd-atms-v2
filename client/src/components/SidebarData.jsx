@@ -2,6 +2,7 @@
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PreviewIcon from '@mui/icons-material/Preview';
 import HomeIcon from '@mui/icons-material/Home';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 export const SidebarData = [
     {
@@ -19,5 +20,10 @@ export const SidebarData = [
         title: "View Your Tickets",
         icon: <PreviewIcon />,
         link: "/view-your-tickets"
+    },
+    {
+        title: "Terminal News",
+        icon: <NewspaperIcon/>,
+        link: "/terminal-news"
     }
 ]
