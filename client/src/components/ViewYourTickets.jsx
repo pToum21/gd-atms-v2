@@ -9,17 +9,24 @@ import AuthService from '../utils/auth';
 import '../styles/review.css';
 
 const ViewYourTickets = () => {
-    const { loading, error, data } = useQuery(QUERY_MY_REVIEWS);
+    const { loading, error, data, refetch } = useQuery(QUERY_MY_REVIEWS);
     const [updateReview] = useMutation(UPDATE_REVIEW);
     const [removeReview] = useMutation(REMOVE_REVIEW);
     const [componentLoaded, setComponentLoaded] = useState(false);
     const [editingReviewId, setEditingReviewId] = useState(null);
     const [editReviewText, setEditReviewText] = useState('');
     const [deletingReviewId, setDeletingReviewId] = useState(null);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         setComponentLoaded(true);
     }, []);
+
+    useEffect(() => {
+        if (data && data.myReviews) {
+            setReviews(data.myReviews);
+        }
+    }, [data]);
 
     if (!AuthService.loggedIn()) {
         return <p>You must be logged in to view your tickets.</p>;
@@ -27,8 +34,6 @@ const ViewYourTickets = () => {
 
     if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
     if (error) return <p>Error loading tickets. Please try again.</p>;
-
-    const reviews = data?.myReviews || [];
 
     const handleEditClick = (review) => {
         setEditingReviewId(review._id);
@@ -39,6 +44,7 @@ const ViewYourTickets = () => {
         try {
             await updateReview({ variables: { id: editingReviewId, reviewText: editReviewText } });
             setEditingReviewId(null);
+            refetch();
         } catch (err) {
             console.error(err);
         }
@@ -53,7 +59,7 @@ const ViewYourTickets = () => {
         setDeletingReviewId(id);
         try {
             await removeReview({ variables: { id } });
-            // Optionally, you can refetch the reviews or update the local cache to remove the deleted review
+            setReviews(reviews.filter(review => review._id !== id));
         } catch (err) {
             console.error(err);
         } finally {
