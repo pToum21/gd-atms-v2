@@ -6,3 +6,5 @@ add a little more life styling wise to reviews pages maybe images
 
 red color
 #eb7e95
+
+

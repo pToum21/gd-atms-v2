@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { Container, Typography } from '@mui/material';
 
@@ -27,7 +27,6 @@ const locations = [
         description: 'Status: Normal',
         position: { lat: 39.1532, lng: -77.0565 } // Coordinates for Olney, Maryland
     }
-
 ];
 
 const TerminalNews = () => {
@@ -42,34 +41,36 @@ const TerminalNews = () => {
     };
 
     return (
-        <Container className="terminal-news" style={{ height: '100vh' }}>
+        <Container className="terminal-news" style={{ height: '100vh', padding: '0' }}>
             <Typography variant="h1">News</Typography>
-            <LoadScript googleMapsApiKey="">
-                <GoogleMap
-                    mapContainerStyle={{ width: '100%', height: '90%' }}
-                    center={{ lat: 39.8283, lng: -98.5795 }}
-                    zoom={4}
-                >
-                    {locations.map((location) => (
-                        <Marker
-                            key={location.id}
-                            position={location.position}
-                            onClick={() => handleMarkerClick(location)}
-                        />
-                    ))}
-                    {selectedLocation && (
-                        <InfoWindow
-                            position={selectedLocation.position}
-                            onCloseClick={handleCloseClick}
-                        >
-                            <div>
-                                <Typography variant="h6">{selectedLocation.name}</Typography>
-                                <Typography variant="body1">{selectedLocation.description}</Typography>
-                            </div>
-                        </InfoWindow>
-                    )}
-                </GoogleMap>
-            </LoadScript>
+            <div style={{ height: 'calc(100% - 64px)', width: '100%' }}>
+                <LoadScript googleMapsApiKey="">
+                    <GoogleMap
+                        mapContainerStyle={{ height: '100%', width: '100%' }}
+                        center={locations[0].position}
+                        zoom={4}
+                    >
+                        {locations.map((location) => (
+                            <Marker
+                                key={location.id}
+                                position={location.position}
+                                onClick={() => handleMarkerClick(location)}
+                            />
+                        ))}
+                        {selectedLocation && (
+                            <InfoWindow
+                                position={selectedLocation.position}
+                                onCloseClick={handleCloseClick}
+                            >
+                                <div>
+                                    <Typography variant="h6">{selectedLocation.name}</Typography>
+                                    <Typography variant="body1">{selectedLocation.description}</Typography>
+                                </div>
+                            </InfoWindow>
+                        )}
+                    </GoogleMap>
+                </LoadScript>
+            </div>
         </Container>
     );
 };
