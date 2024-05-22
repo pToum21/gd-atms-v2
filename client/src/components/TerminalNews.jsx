@@ -41,10 +41,10 @@ const TerminalNews = () => {
     };
 
     return (
-        <Container className="terminal-news" style={{ height: '100vh', padding: '0' }}>
+        <Container className="terminal-news" style={{ height: '80vh', padding: '0' }}>
             <Typography variant="h1">News</Typography>
             <div style={{ height: 'calc(100% - 64px)', width: '100%' }}>
-                <LoadScript googleMapsApiKey="">
+                <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                     <GoogleMap
                         mapContainerStyle={{ height: '100%', width: '100%' }}
                         center={locations[0].position}
