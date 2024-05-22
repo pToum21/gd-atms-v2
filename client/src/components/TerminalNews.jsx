@@ -41,8 +41,8 @@ const TerminalNews = () => {
     };
 
     return (
-        <Container className="terminal-news" style={{ height: '80vh', padding: '0' }}>
-            <Typography variant="h1">News</Typography>
+        <Container className="terminal-news" style={{ height: '80vh', padding: '0', }}>
+            <h1 className="reviews-title">Terminal News</h1>
             <div style={{ height: 'calc(100% - 64px)', width: '100%' }}>
                 <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                     <GoogleMap
