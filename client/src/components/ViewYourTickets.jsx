@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Sidebar from './Sidebar';
 import { QUERY_MY_REVIEWS } from '../utils/queries';
 import { UPDATE_REVIEW } from '../utils/mutations';
-import AuthService from '../utils/auth';  // Import AuthService
+import AuthService from '../utils/auth';  
 import '../styles/review.css';
 
 const ViewYourTickets = () => {
