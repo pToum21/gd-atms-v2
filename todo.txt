@@ -8,3 +8,6 @@ red color
 #eb7e95
 
 
+"username": "admin1",
+  "email": "admin1@gmail.com",
+  "password": "Admin123!"
