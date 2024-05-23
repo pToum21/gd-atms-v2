@@ -62,6 +62,8 @@ mutation UpdateReview($id: ID!, $reviewText: String!) {
 }
 `;
 
+
+
 // ADMIN MUTATIONS
 export const DELETE_USER = gql`
 mutation DeleteUser($id: ID!) {
@@ -71,4 +73,16 @@ mutation DeleteUser($id: ID!) {
     username
   }
 } 
+`;
+
+export const UPDATE_REVIEW_STATUS = gql`
+mutation UpdateReviewStatus($id: ID!, $status: String!) {
+  updateReviewStatus(_id: $id, status: $status) {
+    _id
+    createdAt
+    reviewText
+    status
+    username
+  }
+}
 `;
