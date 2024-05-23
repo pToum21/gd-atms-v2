@@ -1,53 +1,44 @@
-const { User, Review } = require('../models')
-
+const { User, Review } = require('../models');
 const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
-
     // Queries
-
     Query: {
-
-        // query to get all the reviews ever made 
         reviews: async (parent, { username }) => {
             try {
-                // filter reviews by username
                 const params = username ? { username } : {};
-
-                // Fetch all reviews matching the provided parameters
                 const reviews = await Review.find(params).sort({ createdAt: -1 });
-
-                // For each review, fetch the associated user document
                 const populatedReviews = await Promise.all(reviews.map(async review => {
                     const user = await User.findById(review.user);
+                    if (!user) {
+                        // If the user isn't found, return null
+                        return null;
+                    }
                     return {
                         ...review.toObject(),
                         username: user.username,
-                        status: review.status // Populate the status field
+                        status: review.status
                     };
                 }));
-
-                return populatedReviews;
+                // Filter out reviews where the user wasn't found (i.e., review is null)
+                return populatedReviews.filter(review => review !== null);
             } catch (err) {
                 console.error(err);
                 throw new Error('Failed to fetch reviews');
             }
         },
 
-        // query to get a single review by the review's id
         review: async (parent, { _id }) => {
             try {
-                // Find the review by ID
                 const review = await Review.findById(_id);
-
-                // Find the associated user by ID
                 const user = await User.findById(review.user);
-
-                // Return the review object with the username and status populated
+                if (!user) {
+                    throw new Error('User not found');
+                }
                 return {
                     ...review.toObject(),
                     username: user.username,
-                    status: review.status // Populate the status field
+                    status: review.status
                 };
             } catch (err) {
                 console.error(err);
@@ -57,10 +48,7 @@ const resolvers = {
 
         users: async () => {
             try {
-                // Fetch all users
                 const users = await User.find();
-
-                // For each user, populate their reviews
                 const populatedUsers = await Promise.all(users.map(async user => {
                     const reviews = await Review.find({ user: user._id }).sort({ createdAt: -1 });
                     return {
@@ -72,27 +60,20 @@ const resolvers = {
                         }))
                     };
                 }));
-
                 return populatedUsers;
             } catch (err) {
                 console.error(err);
                 throw new Error('Failed to fetch users');
             }
         },
+
         user: async (parent, { username }) => {
             try {
-                // Find a single user by their username
                 const user = await User.findOne({ username });
-
-                // If the user isn't found, return an error message
                 if (!user) {
                     throw new Error('Cannot find a user with this username');
                 }
-
-                // Populate the user's reviews
                 const reviews = await Review.find({ user: user._id }).sort({ createdAt: -1 });
-
-                // Return the user object with the reviews populated
                 return {
                     ...user.toObject(),
                     reviews: reviews.map(review => ({
@@ -106,43 +87,32 @@ const resolvers = {
                 throw new Error('Failed to fetch user');
             }
         },
+
         me: async (parent, args, context) => {
             try {
-                // Check if the user is authenticated
                 if (!context.user) {
                     throw new Error('You need to be logged in!');
                 }
-
-                // Fetch the authenticated user
                 const user = await User.findById(context.user._id);
-
-                // Fetch the reviews associated with the user
                 const reviews = await Review.find({ user: context.user._id }).sort({ createdAt: -1 });
-
-                // Attach the reviews to the user object
                 user.reviews = reviews;
-
                 return user;
             } catch (error) {
                 console.error(error);
                 throw new Error('Failed to fetch user data');
             }
         },
+
         myReviews: async (parent, args, context) => {
             try {
                 if (!context.user) {
                     console.log('No user in context');
-                    return []; // Returning an empty array if user is not authenticated
+                    return [];
                 }
-
                 const userId = context.user._id;
                 console.log(`Fetching reviews for user ID: ${userId}`);
-
-                // Fetch reviews associated with the user's ID
                 const reviews = await Review.find({ user: userId }).populate('user', 'username');
                 console.log(`Found reviews for user ID ${userId}: ${JSON.stringify(reviews)}`);
-
-                // Map reviews to include the username
                 const populatedReviews = reviews.map(review => ({
                     _id: review._id,
                     reviewText: review.reviewText,
@@ -150,35 +120,25 @@ const resolvers = {
                     username: review.user.username,
                     status: review.status,
                 }));
-
                 return populatedReviews;
             } catch (error) {
                 console.error('Error fetching reviews:', error);
-                return []; // Returning an empty array in case of an error
+                return [];
             }
         },
-
-
     },
 
-
-
-    // Mutations 
-
+    // Mutations
     Mutation: {
         createUser: async (parent, { email, password, username }) => {
             try {
                 const user = await User.create({ email, password, username });
                 const token = signToken(user);
-
                 return { user, token };
-
             } catch (error) {
                 if (error.code === 11000) {
-                    // Duplicate key error
                     throw new Error('Email or username already exists', 'DUPLICATE_USER');
                 } else {
-                    // Other errors
                     console.log(error);
                     throw new ApolloError('Error creating user', 'UNKNOWN_ERROR');
                 }
@@ -200,29 +160,22 @@ const resolvers = {
 
         addReview: async (parent, { reviewText }, context) => {
             try {
-                // Check if the user is authenticated
                 if (!context.user) {
                     throw new AuthenticationError('You need to be logged in to add a review');
                 }
-
-                // Create the review and associate it with the authenticated user
                 const review = await Review.create({
                     reviewText,
                     createdAt: new Date().toISOString(),
-                    status: 'open', // Set the status field to 'open'
+                    status: 'open',
                     user: context.user._id
                 });
-
-                // Fetch the associated user document
                 const user = await User.findById(context.user._id);
-
-                // Return the review object with the username
                 return {
                     _id: review._id,
                     reviewText: review.reviewText,
                     createdAt: review.createdAt,
                     username: user.username,
-                    status: review.status // Include the status field in the returned object
+                    status: review.status
                 };
             } catch (err) {
                 console.error(err);
@@ -232,27 +185,17 @@ const resolvers = {
 
         removeReview: async (parent, { _id }, context) => {
             try {
-                // Check if the user is authenticated
                 if (!context.user) {
                     throw new Error('You need to be logged in to remove a review');
                 }
-
-                // Find the review by ID
                 const review = await Review.findById(_id);
-
-                // Check if the review exists
                 if (!review) {
                     throw new Error('Review not found');
                 }
-
-                // Check if the review belongs to the authenticated user
                 if (review.user.toString() !== context.user._id) {
                     throw new Error('You can only remove your own reviews');
                 }
-
-                // Remove the review
-                await Review.deleteOne({ _id }); // Use deleteOne instead of remove
-
+                await Review.deleteOne({ _id });
                 return review;
             } catch (err) {
                 console.error(err);
@@ -262,35 +205,22 @@ const resolvers = {
 
         updateReview: async (parent, { _id, reviewText }, context) => {
             try {
-                // Check if the user is authenticated
                 if (!context.user) {
                     throw new Error('You need to be logged in to update a review');
                 }
-
-                // Find the review by ID
                 const review = await Review.findById(_id);
-
-                // Check if the review exists
                 if (!review) {
                     throw new Error('Review not found');
                 }
-
-                // Check if the review belongs to the authenticated user
                 if (review.user.toString() !== context.user._id) {
                     throw new Error('You can only update your own reviews');
                 }
-
-                // Preserve the status field
                 const status = review.status;
-
-                // Update the review
                 review.reviewText = reviewText;
                 await review.save();
-
-                // Return the updated review object with the preserved status field
                 return {
                     ...review.toObject(),
-                    status // Preserve the status field in the returned object
+                    status
                 };
             } catch (err) {
                 console.error(err);
@@ -301,19 +231,14 @@ const resolvers = {
         // ADMIN RESOLVERS
         deleteUser: async (parent, { _id }, context) => {
             try {
-                // Check if the user is authenticated and is an admin
                 if (!context.user || context.user.role !== 'admin') {
                     throw new AuthenticationError('You need to be an admin to delete users');
                 }
-
-                // Find the user by ID and delete them
                 const user = await User.findByIdAndDelete(_id);
-
-                // If the user isn't found, return an error message
                 if (!user) {
                     throw new Error('User not found');
                 }
-
+                await Review.deleteMany({ user: _id });
                 return user;
             } catch (err) {
                 console.error(err);
@@ -323,33 +248,22 @@ const resolvers = {
 
         updateReviewStatus: async (parent, { _id, status }, context) => {
             try {
-                // Check if the user is authenticated and is an admin
                 if (!context.user || context.user.role !== 'admin') {
                     throw new AuthenticationError('You need to be an admin to update review status');
                 }
-
-                // Find the review by ID
                 const review = await Review.findById(_id);
-
-                // If the review isn't found, return an error message
                 if (!review) {
                     throw new Error('Review not found');
                 }
-
-                // Update the review status
                 review.status = status;
                 await review.save();
-
                 return review;
             } catch (err) {
                 console.error(err);
                 throw new Error('Failed to update review status');
             }
         },
-
-
-
-    }
-
+    },
 };
+
 module.exports = resolvers;
