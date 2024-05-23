@@ -298,6 +298,55 @@ const resolvers = {
             }
         },
 
+        // ADMIN RESOLVERS
+        deleteUser: async (parent, { _id }, context) => {
+            try {
+                // Check if the user is authenticated and is an admin
+                if (!context.user || context.user.role !== 'admin') {
+                    throw new AuthenticationError('You need to be an admin to delete users');
+                }
+
+                // Find the user by ID and delete them
+                const user = await User.findByIdAndDelete(_id);
+
+                // If the user isn't found, return an error message
+                if (!user) {
+                    throw new Error('User not found');
+                }
+
+                return user;
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to delete user');
+            }
+        },
+
+        updateReviewStatus: async (parent, { _id, status }, context) => {
+            try {
+                // Check if the user is authenticated and is an admin
+                if (!context.user || context.user.role !== 'admin') {
+                    throw new AuthenticationError('You need to be an admin to update review status');
+                }
+
+                // Find the review by ID
+                const review = await Review.findById(_id);
+
+                // If the review isn't found, return an error message
+                if (!review) {
+                    throw new Error('Review not found');
+                }
+
+                // Update the review status
+                review.status = status;
+                await review.save();
+
+                return review;
+            } catch (err) {
+                console.error(err);
+                throw new Error('Failed to update review status');
+            }
+        },
+
 
 
     }

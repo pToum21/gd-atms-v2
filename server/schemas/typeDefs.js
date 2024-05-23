@@ -6,6 +6,7 @@ type User {
     username: String
     email: String
     password: String
+    role: String
     reviews: [Review]
 }
 
@@ -38,6 +39,8 @@ type Mutation {
     updateUser(username: String!, email: String!, password: String!): User
     updateReview(_id: ID!, reviewText: String!): Review
     removeReview(_id: ID!): Review
+    deleteUser(_id: ID!): User
+    updateReviewStatus(_id: ID!, status: String!): Review
 }
 `;
 
