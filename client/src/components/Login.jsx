@@ -65,7 +65,7 @@ const Login = ({ open, onClose }) => {
     const paperStyle = {
         padding: 20,
         height: '70vh',
-        width: 400,
+        width: 370,
         margin: '20px auto',
         position: 'relative',
         overflow: 'auto',

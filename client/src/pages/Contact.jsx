@@ -30,7 +30,7 @@ function Contact() {
 
   return (
     <div style={{marginTop: '15%'}}>
-      <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '70vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
+      <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '95vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
         <Typography variant="h3" sx={{textAlign: 'center', fontSize: '3rem', marginBottom: '2%'}} className="contact-me-header">Ask Us Anything </Typography>
 
         <form onSubmit={handleSubmit}>
