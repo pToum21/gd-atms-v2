@@ -14,6 +14,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import CreateATicket from './components/CreateATicket.jsx';
 import ViewYourTickets from './components/ViewYourTickets.jsx';
 import TerminalNews from './components/TerminalNews.jsx';
+import Admin from './components/Admin.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
         path: '/terminal-news',
         element: < TerminalNews />
       },
+      {
+        path: '/admin',
+        element: <Admin />
+      }
 
     ]
   }
