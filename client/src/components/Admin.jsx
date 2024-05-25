@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { Button, Tab, Tabs, Typography, CircularProgress, Fade } from '@mui/material';
-import { QUERY_ALL_USERS, QUERY_ALL_REVIEWS } from '../utils/queries'; // Import your queries
+import { useMutation, useQuery } from '@apollo/client';
+import {
+    Button, Tab, Tabs, Typography, CircularProgress, Fade,
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, MenuItem
+} from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { pink } from '@mui/material/colors';
+import { DELETE_USER, UPDATE_USER } from '../utils/mutations';
+import { QUERY_ALL_USERS, QUERY_ALL_REVIEWS } from '../utils/queries';
+import Auth from '../utils/auth';
+import Error from '../pages/Error';
 import '../styles/review.css';
+
+const muipink = pink[300];
 
 const Admin = () => {
     const [tabValue, setTabValue] = useState(0);
     const [showReviews, setShowReviews] = useState(false);
 
-    const { loading: usersLoading, error: usersError, data: userData } = useQuery(QUERY_ALL_USERS);
+    const { loading: usersLoading, error: usersError, data: userData, refetch: refetchUsers } = useQuery(QUERY_ALL_USERS);
     const { loading: reviewsLoading, error: reviewsError, data: reviewsData } = useQuery(QUERY_ALL_REVIEWS);
+    const [updateUser] = useMutation(UPDATE_USER);
+    const [deleteUser] = useMutation(DELETE_USER);
 
     const handleTabChange = (event, newValue) => {
         setTabValue(newValue);
@@ -23,8 +35,37 @@ const Admin = () => {
         setShowReviews(false);
     };
 
+    const handleRoleChange = async (userId, newRole) => {
+        try {
+            await updateUser({
+                variables: {
+                    id: userId,
+                    role: newRole,
+                },
+            });
+            refetchUsers();
+        } catch (error) {
+            console.error('Error updating user:', error.message);
+        }
+    };
+
+    const handleDeleteUser = async (userId) => {
+        const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+        if (confirmDelete) {
+            try {
+                await deleteUser({ variables: { id: userId } });
+                refetchUsers();
+            } catch (error) {
+                console.error('Error deleting user:', error.message);
+            }
+        }
+    };
+
     if (usersLoading || reviewsLoading) return <CircularProgress style={{ margin: 'auto' }} />;
     if (usersError || reviewsError) return <p>Error :(</p>;
+
+    const authUser = Auth.getProfile();
+    const role = authUser.data.role;
 
     return (
         <Fade in={!reviewsLoading && !usersLoading}>
@@ -32,17 +73,54 @@ const Admin = () => {
                 <Typography variant="h4" gutterBottom>Admin</Typography>
                 {!showReviews && (
                     <div>
-                        <Typography variant="h5" gutterBottom>Users</Typography>
-                        {/* Display users */}
-                        {userData.users.map(user => (
-                            <div key={user._id}>
-                                <p>Email: {user.email}</p>
-                                <p>Username: {user.username}</p>
-                            </div>
-                        ))}
-                        <Button variant="contained" color="primary" onClick={handleReviewsButtonClick}>
-                            Reviews
-                        </Button>
+                        {role === 'admin' ? (
+                            <>
+                                <Typography variant="h5" gutterBottom>Users</Typography>
+                                <TableContainer component={Paper} sx={{ background: '#f3f3ec', maxHeight: '75vh', overflow: 'scroll' }}>
+                                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell sx={{ paddingLeft: '6rem' }}>USERNAME</TableCell>
+                                                <TableCell>EMAIL</TableCell>
+                                                <TableCell>ROLE</TableCell>
+                                                <TableCell>ACTION</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {userData.users.map((user) => (
+                                                <TableRow key={user._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                                    <TableCell sx={{ paddingLeft: '6rem' }}>{user.username}</TableCell>
+                                                    <TableCell>{user.email}</TableCell>
+                                                    <TableCell>
+                                                        Current status: {user.role.charAt(0).toUpperCase() + user.role.slice(1)}<br />
+                                                        <label>
+                                                            Change:
+                                                            <Select
+                                                                value={user.role}
+                                                                onChange={(e) => handleRoleChange(user._id, e.target.value)}
+                                                            >
+                                                                <MenuItem value="admin">Admin</MenuItem>
+                                                                <MenuItem value="user">User</MenuItem>
+                                                            </Select>
+                                                        </label>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <a onClick={() => handleDeleteUser(user._id)} href="#">
+                                                            <DeleteForeverIcon sx={{ color: muipink }} />
+                                                        </a>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                                <Button variant="contained" color="primary" onClick={handleReviewsButtonClick}>
+                                    Reviews
+                                </Button>
+                            </>
+                        ) : (
+                            <Error />
+                        )}
                     </div>
                 )}
                 {showReviews && (
@@ -58,28 +136,22 @@ const Admin = () => {
                             {tabValue === 0 && (
                                 <div>
                                     <Typography variant="h5" gutterBottom>Open Reviews</Typography>
-                                    {/* Display open reviews */}
-                                    {reviewsData.reviews.map(review => (
-                                        review.status === 'open' && (
-                                            <div key={review._id} className="review-card">
-                                                <p className="review-text">{review.reviewText}</p>
-                                                <p className="review-author">By: {review.username}</p>
-                                            </div>
-                                        )
+                                    {reviewsData.reviews.filter(review => review.status === 'open').map(review => (
+                                        <div key={review._id} className="review-card">
+                                            <p className="review-text">{review.reviewText}</p>
+                                            <p className="review-author">By: {review.username}</p>
+                                        </div>
                                     ))}
                                 </div>
                             )}
                             {tabValue === 1 && (
                                 <div>
                                     <Typography variant="h5" gutterBottom>Closed Reviews</Typography>
-                                    {/* Display closed reviews */}
-                                    {reviewsData.reviews.map(review => (
-                                        review.status === 'closed' && (
-                                            <div key={review._id} className="review-card">
-                                                <p className="review-text">{review.reviewText}</p>
-                                                <p className="review-author">By: {review.username}</p>
-                                            </div>
-                                        )
+                                    {reviewsData.reviews.filter(review => review.status === 'closed').map(review => (
+                                        <div key={review._id} className="review-card">
+                                            <p className="review-text">{review.reviewText}</p>
+                                            <p className="review-author">By: {review.username}</p>
+                                        </div>
                                     ))}
                                 </div>
                             )}
@@ -89,6 +161,6 @@ const Admin = () => {
             </div>
         </Fade>
     );
-}
+};
 
 export default Admin;
