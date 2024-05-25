@@ -93,7 +93,9 @@ const Admin = () => {
                                         </TableBody>
                                     </Table>
                                 </TableContainer>
-                                <Button variant="contained" color="primary" onClick={handleReviewsButtonClick}>
+                                <Button variant="contained" color="primary" sx={{
+                                    backgroundColor: '#5D3FD3 '
+                                }} onClick={handleReviewsButtonClick}>
                                     Reviews
                                 </Button>
                             </>
