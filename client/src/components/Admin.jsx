@@ -35,6 +35,7 @@ const Admin = () => {
     };
 
     const handleDeleteUser = async (userId) => {
+        console.log('Deleting user with ID:', userId); // Debugging statement
         const confirmDelete = window.confirm('Are you sure you want to delete this user?');
         if (confirmDelete) {
             try {
@@ -51,6 +52,9 @@ const Admin = () => {
 
     const authUser = Auth.getProfile();
     const role = authUser.data.role;
+
+    // Add console log here to debug userData
+    console.log('User Data:', userData);
 
     return (
         <Fade in={!reviewsLoading && !usersLoading}>
@@ -76,7 +80,7 @@ const Admin = () => {
                                                 <TableRow key={user._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                                     <TableCell sx={{ paddingLeft: '6rem' }}>{user.username}</TableCell>
                                                     <TableCell>{user.email}</TableCell>
-                                                    <TableCell>{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</TableCell>
+                                                    <TableCell>{user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'N/A'}</TableCell>
                                                     <TableCell>
                                                         <a onClick={() => handleDeleteUser(user._id)} href="#">
                                                             <DeleteForeverIcon sx={{ color: muipink }} />

@@ -31,6 +31,7 @@ query Users {
     _id
     email
     username
+    role
     reviews {
       _id
       createdAt
@@ -48,6 +49,7 @@ query User($username: String!) {
   user(username: $username) {
     _id
     email
+    role
     reviews {
       _id
       createdAt
@@ -66,6 +68,7 @@ query Me {
   me {
     _id
     email
+    role
     reviews {
       _id
       createdAt
