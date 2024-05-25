@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { pink } from '@mui/material/colors';
-import { DELETE_USER } from '../utils/mutations';
+import { DELETE_USER, UPDATE_REVIEW_STATUS } from '../utils/mutations';
 import { QUERY_ALL_USERS, QUERY_ALL_REVIEWS } from '../utils/queries';
 import Auth from '../utils/auth';
 import Error from '../pages/Error';
@@ -23,6 +23,7 @@ const Admin = () => {
     const [deleteUserMutation] = useMutation(DELETE_USER, {
         refetchQueries: [{ query: QUERY_ALL_USERS }],
     });
+    const [updateReviewStatus] = useMutation(UPDATE_REVIEW_STATUS);
 
     const handleTabChange = (event, newValue) => {
         setTabValue(newValue);
@@ -40,15 +41,16 @@ const Admin = () => {
         try {
             const { data } = await deleteUserMutation({ variables: { id: userId } });
             console.log('User deleted:', data.deleteUser);
-
-            // Manually update cache to remove deleted user
-            const updatedUsers = userData.users.filter(user => user._id !== userId);
-            cache.writeQuery({
-                query: QUERY_ALL_USERS,
-                data: { users: updatedUsers },
-            });
         } catch (error) {
             console.error('Error deleting user:', error.message);
+        }
+    };
+
+    const handleReviewStatusChange = async (reviewId, status) => {
+        try {
+            await updateReviewStatus({ variables: { id: reviewId, status: status } });
+        } catch (error) {
+            console.error('Error updating review status:', error.message);
         }
     };
 
@@ -123,6 +125,9 @@ const Admin = () => {
                                             <div key={review._id} className="review-card">
                                                 <p className="review-text">{review.reviewText}</p>
                                                 <p className="review-author">By: {review.username}</p>
+                                                <p className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</p>
+                                                <Button onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Review</Button>
+                                                <Button onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
                                             </div>
                                         ))}
                                 </div>
@@ -136,6 +141,9 @@ const Admin = () => {
                                             <div key={review._id} className="review-card">
                                                 <p className="review-text">{review.reviewText}</p>
                                                 <p className="review-author">By: {review.username}</p>
+                                                <p className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</p>
+                                                <Button onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Review</Button>
+                                                <Button onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
                                             </div>
                                         ))}
                                 </div>

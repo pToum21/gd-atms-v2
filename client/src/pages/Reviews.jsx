@@ -36,13 +36,14 @@ function Reviews() {
   if (error) return <p>Error: {error.message}</p>;
 
   // Check if data exists before accessing its properties
-  const filteredReviews = data && data.reviews ? data.reviews
+  const reviews = data?.reviews || [];
+
+  const filteredReviews = reviews
     .filter((review) => (
-      review.username.toLowerCase().includes(searchInput.toLowerCase()) ||
-      review.reviewText.toLowerCase().includes(searchInput.toLowerCase())
+      review.username?.toLowerCase().includes(searchInput.toLowerCase()) ||
+      review.reviewText?.toLowerCase().includes(searchInput.toLowerCase())
     ))
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // Sort by most recent first
-    : [];
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort by most recent first
 
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
