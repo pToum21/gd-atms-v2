@@ -17,9 +17,12 @@ const muipink = pink[300];
 const Admin = () => {
     const [tabValue, setTabValue] = useState(0);
     const [showReviews, setShowReviews] = useState(false);
+
     const { loading: usersLoading, error: usersError, data: userData, refetch: refetchUsers } = useQuery(QUERY_ALL_USERS);
     const { loading: reviewsLoading, error: reviewsError, data: reviewsData } = useQuery(QUERY_ALL_REVIEWS);
-    const [deleteUserMutation] = useMutation(DELETE_USER); // Moved useMutation outside the component
+    const [deleteUserMutation] = useMutation(DELETE_USER, {
+        refetchQueries: [{ query: QUERY_ALL_USERS }],
+    });
 
     const handleTabChange = (event, newValue) => {
         setTabValue(newValue);
@@ -35,8 +38,15 @@ const Admin = () => {
 
     const handleDeleteUser = async (userId) => {
         try {
-            const { data } = await deleteUserMutation({ variables: { id: userId } }); // Calling the mutation directly
+            const { data } = await deleteUserMutation({ variables: { id: userId } });
             console.log('User deleted:', data.deleteUser);
+
+            // Manually update cache to remove deleted user
+            const updatedUsers = userData.users.filter(user => user._id !== userId);
+            cache.writeQuery({
+                query: QUERY_ALL_USERS,
+                data: { users: updatedUsers },
+            });
         } catch (error) {
             console.error('Error deleting user:', error.message);
         }
