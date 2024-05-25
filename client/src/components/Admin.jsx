@@ -35,15 +35,12 @@ const Admin = () => {
     };
 
     const handleDeleteUser = async (userId) => {
-        console.log('Deleting user with ID:', userId); // Debugging statement
-        const confirmDelete = window.confirm('Are you sure you want to delete this user?');
-        if (confirmDelete) {
-            try {
-                await deleteUser({ variables: { id: userId } });
-                refetchUsers();
-            } catch (error) {
-                console.error('Error deleting user:', error.message);
-            }
+        try {
+            const [deleteUserMutation] = useMutation(DELETE_USER);
+            const { data } = await deleteUserMutation({ variables: { id: userId } });
+            console.log('User deleted:', data.deleteUser);
+        } catch (error) {
+            console.error('Error deleting user:', error.message);
         }
     };
 
@@ -52,9 +49,6 @@ const Admin = () => {
 
     const authUser = Auth.getProfile();
     const role = authUser.data.role;
-
-    // Add console log here to debug userData
-    console.log('User Data:', userData);
 
     return (
         <Fade in={!reviewsLoading && !usersLoading}>
