@@ -22,7 +22,7 @@ export const SidebarData = [
         link: "/view-your-tickets"
     },
     {
-        title: "Terminal News",
+        title: "Terminal Map",
         icon: <NewspaperIcon/>,
         link: "/terminal-news"
     }
