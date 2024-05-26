@@ -3,6 +3,7 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PreviewIcon from '@mui/icons-material/Preview';
 import HomeIcon from '@mui/icons-material/Home';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import PhoneSupport from './PhoneSupport';
 
 export const SidebarData = [
     {
@@ -25,5 +26,10 @@ export const SidebarData = [
         title: "Terminal Map",
         icon: <NewspaperIcon/>,
         link: "/terminal-news"
+    },
+    {
+        title: "Phone Support",
+        icon: </>,
+        link: "/phone-support"
     }
 ]
