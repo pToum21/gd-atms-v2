@@ -3,7 +3,7 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PreviewIcon from '@mui/icons-material/Preview';
 import HomeIcon from '@mui/icons-material/Home';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
-import PhoneSupport from './PhoneSupport';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 
 export const SidebarData = [
     {
@@ -29,7 +29,7 @@ export const SidebarData = [
     },
     {
         title: "Phone Support",
-        icon: </>,
+        icon: <ContactPhoneIcon/>,
         link: "/phone-support"
     }
 ]
