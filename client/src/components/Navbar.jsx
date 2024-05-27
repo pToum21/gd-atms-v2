@@ -7,6 +7,14 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import CloseIcon from '@mui/icons-material/Close';
 import Login from './Login';
 import Auth from '../utils/auth';
+import { keyframes } from '@emotion/react';
+
+// Define the click animation
+const clickAnimation = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+`;
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -91,31 +99,31 @@ const NavBar = () => {
                     <ListItem button onClick={handleDrawerClose} sx={{ justifyContent: 'flex-end', padding: '10px' }}>
                         <CloseIcon sx={{ color: 'white' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/reviews" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="Support Hub" />
+                    <ListItem button component={Link} to="/reviews" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="Support Hub" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/contact" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="Contact" />
+                    <ListItem button component={Link} to="/contact" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="Contact" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/view-your-tickets" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="View My Tickets" />
+                    <ListItem button component={Link} to="/view-your-tickets" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="View My Tickets" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/create-a-ticket" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="Create A Ticket" />
+                    <ListItem button component={Link} to="/create-a-ticket" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="Create A Ticket" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="Terminal Map" />
+                    <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="Terminal Map" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                        <ListItemText primary="Phone Support" />
+                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                        <ListItemText primary="Phone Support" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
                     {isLoggedIn ? (
-                        <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                            <ListItemText primary="Logout" />
+                        <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                            <ListItemText primary="Logout" sx={{ fontSize: '1.5rem' }} />
                         </ListItem>
                     ) : (
-                        <ListItem button onClick={handleLoginButtonClick} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
-                            <ListItemText primary="Login" />
+                        <ListItem button onClick={handleLoginButtonClick} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
+                            <ListItemText primary="Login" sx={{ fontSize: '1.5rem' }} />
                         </ListItem>
                     )}
                 </List>
