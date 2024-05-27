@@ -73,7 +73,7 @@ const Login = ({ open, onClose }) => {
         borderRadius: '30px',
     };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const btnStyle = { margin: '8px 0', backgroundColor: '#eb7e95' };
+    const btnStyle = { margin: '8px 0', backgroundColor: '#5D3FD3' };
     const textFieldStyle = { marginBottom: '16px', color: 'white' };
 
     const customTheme = createTheme({

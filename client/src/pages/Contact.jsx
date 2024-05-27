@@ -30,8 +30,8 @@ function Contact() {
 
   return (
     <div style={{marginTop: '15%'}}>
-      <Container sx={{ backgroundColor: '#000', color: '#fff', padding: '16px', borderRadius: '30px', width: '95vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
-        <Typography variant="h3" sx={{textAlign: 'center', fontSize: '3rem', marginBottom: '2%'}} className="contact-me-header">Ask Us Anything </Typography>
+      <Container sx={{ backgroundColor: 'rgb(72, 73, 75)', color: '#fff', padding: '16px', borderRadius: '30px', width: '95vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
+        <Typography variant="h3" sx={{textAlign: 'center', fontSize: '2rem', marginBottom: '2%'}} className="contact-me-header">Contact </Typography>
 
         <form onSubmit={handleSubmit}>
           <TextField
@@ -44,7 +44,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#5D3FD3' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
@@ -65,7 +65,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#5D3FD3' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
@@ -88,7 +88,7 @@ function Contact() {
             sx={{
               marginBottom: '24px',
               '& .MuiInputBase-input': { color: '#fff' },
-              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#eb7e95' },
+              '& .MuiOutlinedInput-notchedOutline': { borderColor: '#5D3FD3' },
               '& .MuiFormLabel-root': { color: '#fff' },
               '& .MuiInputLabel-root.Mui-focused': { color: '#fff' },
             }}
@@ -99,7 +99,7 @@ function Contact() {
           />
 
           <Box mt={2}>
-            <Button type="submit" disabled={state.submitting} sx={{ backgroundColor: '#eb7e95', color: '#fff' }}>Send</Button>
+            <Button type="submit" disabled={state.submitting} sx={{ backgroundColor: '#5D3FD3', width: '100%', color: '#fff' }}>Send</Button>
           </Box>
         </form>
 
