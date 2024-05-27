@@ -69,7 +69,7 @@ const Login = ({ open, onClose }) => {
         margin: '20px auto',
         position: 'relative',
         overflow: 'auto',
-        backgroundColor: 'black',
+        backgroundColor: 'rgb(72, 73, 75)',
         borderRadius: '30px',
     };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
