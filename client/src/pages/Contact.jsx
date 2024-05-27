@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from '@formspree/react';
-import { TextField, InputAdornment, Button, Typography, Container, Box } from '@mui/material';
+import { TextField, InputAdornment, Button, Typography, Container, Box, Paper } from '@mui/material';
 
 function Contact() {
   const [state, handleSubmit] = useForm("xpzvworp");
@@ -29,9 +29,9 @@ function Contact() {
   }, []);
 
   return (
-    <div style={{marginTop: '15%'}}>
-      <Container sx={{ backgroundColor: 'rgb(72, 73, 75)', color: '#fff', padding: '16px', borderRadius: '30px', width: '95vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
-        <Typography variant="h3" sx={{textAlign: 'center', fontSize: '2rem', marginBottom: '2%'}} className="contact-me-header">Contact </Typography>
+    <div style={{ marginTop: '15%' }}>
+      <Container sx={{ backgroundColor: 'rgb(72, 73, 75)', color: '#fff', padding: '16px', borderRadius: '30px', width: '95vw', boxShadow: '10px 40px 50px rgba(0, 0, 0, 0.6)', marginBottom: '10%' }}>
+        <Typography variant="h3" sx={{ textAlign: 'center', fontSize: '2rem', marginBottom: '2%' }} className="contact-me-header">Contact</Typography>
 
         <form onSubmit={handleSubmit}>
           <TextField
@@ -104,18 +104,17 @@ function Contact() {
         </form>
 
         {/* Contact info area */}
-        <div className="contact-info">
-          <Typography variant="h5" className='contact-me-information'>Contact Information:</Typography>
-          <Typography variant="h6" className='con-info-titles'>Location</Typography>
-          <Typography>Los Angeles, CA</Typography>
-          <Typography variant="subtitle1" className='con-info-titles'>Email</Typography>
-          <Typography>gravediggeratms@gmail.com</Typography>
-          <Typography variant="subtitle2" className='con-info-titles'>Phone</Typography>
+        <Paper elevation={3} sx={{ backgroundColor: '#333', color: '#fff', padding: '16px', borderRadius: '15px', marginTop: '24px' }}>
+          <Typography variant="h5" sx={{ marginBottom: '12px' }} className='contact-me-information'>Contact Information:</Typography>
+          <Typography variant="h6" sx={{ marginBottom: '6px' }} className='con-info-titles'>Location</Typography>
+          <Typography sx={{ marginBottom: '12px' }}>Los Angeles, CA</Typography>
+          <Typography variant="h6" sx={{ marginBottom: '6px' }} className='con-info-titles'>Email</Typography>
+          <Typography sx={{ marginBottom: '12px' }}>gravediggeratms@gmail.com</Typography>
+          <Typography variant="h6" sx={{ marginBottom: '6px' }} className='con-info-titles'>Phone</Typography>
           <Typography>(240) 449-5594</Typography>
-        </div>
+        </Paper>
       </Container>
     </div>
-
   );
 }
 
