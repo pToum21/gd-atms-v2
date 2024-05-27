@@ -82,37 +82,39 @@ const NavBar = () => {
                     sx: {
                         width: '100%',
                         height: '100%',
+                        backgroundColor: '#5D3FD3', // Set background color
+                        color: 'white', // Set text color
                     },
                 }}
             >
                 <List sx={{ padding: 0 }}>
                     <ListItem button onClick={handleDrawerClose} sx={{ justifyContent: 'flex-end', padding: '10px' }}>
-                        <CloseIcon />
+                        <CloseIcon sx={{ color: 'white' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/reviews" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/reviews" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="Support Hub" />
                     </ListItem>
-                    <ListItem button component={Link} to="/contact" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/contact" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="Contact" />
                     </ListItem>
-                    <ListItem button component={Link} to="/view-your-tickets" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/view-your-tickets" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="View My Tickets" />
                     </ListItem>
-                    <ListItem button component={Link} to="/create-a-ticket" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/create-a-ticket" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="Create A Ticket" />
                     </ListItem>
-                    <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="Terminal Map" />
                     </ListItem>
-                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                         <ListItemText primary="Phone Support" />
                     </ListItem>
                     {isLoggedIn ? (
-                        <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                             <ListItemText primary="Logout" />
                         </ListItem>
                     ) : (
-                        <ListItem button onClick={handleLoginButtonClick} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItem button onClick={handleLoginButtonClick} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' } }}>
                             <ListItemText primary="Login" />
                         </ListItem>
                     )}
