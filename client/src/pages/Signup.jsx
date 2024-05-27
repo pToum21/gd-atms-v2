@@ -70,7 +70,7 @@ export default function SignUp() {
     palette: {
       type: 'light', // Light mode
       primary: {
-        main: '#eb7e95', // Red color for button
+        main: '#5D3FD3', // Red color for button
       },
       text: {
         primary: '#FFFFFF', // White text color
@@ -87,16 +87,16 @@ export default function SignUp() {
         styleOverrides: {
           root: {
             '& .MuiInputLabel-root': {
-              color: '#eb7e95', // Red label color
+              color: 'white', // Red label color
             },
             '& .MuiOutlinedInput-input': {
               color: '#FFFFFF', // White text color for input
             },
             '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#FFFFFF', // White border color for input outline
+              borderColor: '#5D3FD3', // White border color for input outline
             },
             '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#eb7e95', // Red border color for input outline on hover
+              borderColor: '#5D3FD3', // Red border color for input outline on hover
             },
           },
         },
