@@ -18,7 +18,7 @@ export const SidebarData = [
     },
 
     {
-        title: "View Your Tickets",
+        title: "View My Tickets",
         icon: <PreviewIcon />,
         link: "/view-your-tickets"
     },
