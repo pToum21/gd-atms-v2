@@ -91,7 +91,8 @@ const NavBar = () => {
                         width: '100%',
                         height: '100%',
                         backgroundColor: '#5D3FD3', // Set background color
-                        color: 'white', // Set text color
+                        color: 'white', 
+                        
                     },
                 }}
             >
