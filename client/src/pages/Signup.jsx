@@ -107,8 +107,8 @@ export default function SignUp() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component="main" sx={{ height: '84vh', maxWidth: '70%', }}>
-        <Box sx={{ mt: 8, mx: 'auto', bgcolor: '#000000', p: 3, borderRadius: 4, boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)' }}>
+      <Container component="main" sx={{ height: '100vh', maxWidth: '95%', }}>
+        <Box sx={{ mt: 8, mx: 'auto', bgcolor: 'rgb(72, 73, 75)', p: 3, borderRadius: 4, boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)', height: '70vh' }}>
           <Typography component="h1" variant="h5" align="center" color="white">
             Sign up
           </Typography>
