@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
-import Login from './Login'; 
-import Auth from '../utils/auth'; 
+import Login from './Login';
+import Auth from '../utils/auth';
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
@@ -47,7 +47,7 @@ const NavBar = () => {
                             aria-controls="menu"
                             aria-haspopup="true"
                             aria-label="menu"
-                            sx={{ marginRight: '10px', backgroundColor: 'white'}}
+                            sx={{ marginRight: '10px', backgroundColor: 'white' }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -70,7 +70,7 @@ const NavBar = () => {
                     )}
                     {isNormalOrBigScreen && (
                         <IconButton onClick={handleLoginButtonClick} sx={{ color: 'black', textDecoration: 'none', height: '50px', width: '50px', backgroundColor: 'white', borderRadius: '50px' }}>
-                            {isLoggedIn ? <LogoutIcon/> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
+                            {isLoggedIn ? <LogoutIcon /> : <AccountCircleIcon sx={{ height: '30px', width: '30px' }} />}
                         </IconButton>
                     )}
                 </Toolbar>
@@ -81,7 +81,7 @@ const NavBar = () => {
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleMenuClose}
-                    
+
                 >
                     <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Support Hub</MenuItem>
                     <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
