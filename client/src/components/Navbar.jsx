@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, useMediaQuery, Link as MuiLink } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CloseIcon from '@mui/icons-material/Close';
 import Login from './Login';
 import Auth from '../utils/auth';
 
 const NavBar = () => {
     const isNormalOrBigScreen = useMediaQuery('(min-width:601px)');
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false); // State to manage modal visibility
     const isLoggedIn = Auth.loggedIn(); // Check if the user is logged in
 
-    const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleDrawerOpen = () => {
+        setIsDrawerOpen(true);
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
+    const handleDrawerClose = () => {
+        setIsDrawerOpen(false);
     };
 
     const handleLoginButtonClick = () => {
@@ -33,19 +34,17 @@ const NavBar = () => {
 
     const handleLogout = () => {
         Auth.logout();
-        handleMenuClose();
+        handleDrawerClose();
     };
 
     return (
         <div>
-            <AppBar elevation={0} sx={{ backgroundColor: 'transparent', }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', height: '6.5vh', }}>
+            <AppBar elevation={0} sx={{ backgroundColor: 'transparent' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', height: '6.5vh' }}>
                     {!isNormalOrBigScreen && (
                         <IconButton
-                            onClick={handleMenuOpen}
+                            onClick={handleDrawerOpen}
                             edge="start"
-                            aria-controls="menu"
-                            aria-haspopup="true"
                             aria-label="menu"
                             sx={{ marginRight: '10px', backgroundColor: 'white' }}
                         >
@@ -75,27 +74,50 @@ const NavBar = () => {
                     )}
                 </Toolbar>
             </AppBar>
-            {!isNormalOrBigScreen && (
-                <Menu
-                    id="menu"
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleMenuClose}
-
-                >
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/reviews">Support Hub</MenuItem>
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/contact">Contact</MenuItem>
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/view-your-tickets">View My Tickets</MenuItem>
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/create-a-ticket">Create A Ticket</MenuItem>
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/terminal-news">Terminal Map</MenuItem>
-                    <MenuItem onClick={handleMenuClose} component={Link} to="/phone-support">Phone Support</MenuItem>
+            <Drawer
+                anchor="right"
+                open={isDrawerOpen}
+                onClose={handleDrawerClose}
+                PaperProps={{
+                    sx: {
+                        width: '100%',
+                        height: '100%',
+                    },
+                }}
+            >
+                <List sx={{ padding: 0 }}>
+                    <ListItem button onClick={handleDrawerClose} sx={{ justifyContent: 'flex-end', padding: '10px' }}>
+                        <CloseIcon />
+                    </ListItem>
+                    <ListItem button component={Link} to="/reviews" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="Support Hub" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/contact" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="Contact" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/view-your-tickets" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="View My Tickets" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/create-a-ticket" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="Create A Ticket" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="Terminal Map" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                        <ListItemText primary="Phone Support" />
+                    </ListItem>
                     {isLoggedIn ? (
-                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                        <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
                     ) : (
-                        <MenuItem onClick={handleLoginButtonClick}>Login</MenuItem>
+                        <ListItem button onClick={handleLoginButtonClick} sx={{ fontSize: '1.5rem', padding: '20px' }}>
+                            <ListItemText primary="Login" />
+                        </ListItem>
                     )}
-                </Menu>
-            )}
+                </List>
+            </Drawer>
             {/* Render Login component as modal if showLoginModal is true */}
             <Login open={showLoginModal} onClose={() => setShowLoginModal(false)} />
         </div>
