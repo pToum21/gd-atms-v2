@@ -90,7 +90,7 @@ const NavBar = () => {
                     sx: {
                         width: '100%',
                         height: '100%',
-                        backgroundColor: '#5D3FD3', // Set background color
+                        backgroundColor: '#5D3FD3',
                         color: 'white', 
                         
                     },
