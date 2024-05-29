@@ -8,19 +8,12 @@ import creditCards from '/images/creditcards.jpg';
 
 
 // six images for the bottom of the page
-import smilingman from'/images/smilingman.jpg';
-import smilingman2 from'/images/smilingman2.jpg';
-import smilingwomen from'/images/smilingwomen.jpg';
-import smilingwomen2 from'/images/smilingwomen2.jpg';
-import money1 from'/images/money1.jpg';
-import women3 from'/images/women3.avif';
-
-
-
-
-
-
-
+import smilingman from '/images/smilingman.jpg';
+import smilingman2 from '/images/smilingman2.jpg';
+import smilingwomen from '/images/smilingwomen.jpg';
+import smilingwomen2 from '/images/smilingwomen2.jpg';
+import money1 from '/images/money1.jpg';
+import women3 from '/images/women3.avif';
 
 
 const rainbowAnimation = keyframes`
@@ -165,7 +158,7 @@ function Home() {
           backgroundColor: 'black',
           padding: '20px',
           gap: '10px',
-          
+
         }}
       >
         {[...Array(6)].map((_, index) => (
