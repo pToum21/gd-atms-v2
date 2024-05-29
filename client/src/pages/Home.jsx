@@ -6,6 +6,23 @@ import Three from "../components/Three/Three";
 import { keyframes } from '@mui/system';
 import creditCards from '/images/creditcards.jpg';
 
+
+// six images for the bottom of the page
+import smilingman from'/images/smilingman.jpg';
+import smilingman2 from'/images/smilingman2.jpg';
+import smilingwomen from'/images/smilingwomen.jpg';
+import smilingwomen2 from'/images/smilingwomen2.jpg';
+import money1 from'/images/money1.jpg';
+import women3 from'/images/women3.avif';
+
+
+
+
+
+
+
+
+
 const rainbowAnimation = keyframes`
   0% { border-color: red; }
   71% { border-color: indigo; }
