@@ -6,15 +6,12 @@ import Three from "../components/Three/Three";
 import { keyframes } from '@mui/system';
 import creditCards from '/images/creditcards.jpg';
 
-
-// six images for the bottom of the page
 import smilingman from '/images/smilingman.jpg';
 import smilingman2 from '/images/smilingman2.jpg';
 import smilingwomen from '/images/smilingwomen.jpg';
 import smilingwomen2 from '/images/smilingwomen2.jpg';
 import money1 from '/images/money1.jpg';
 import women3 from '/images/women3.avif';
-
 
 const rainbowAnimation = keyframes`
   0% { border-color: red; }
@@ -158,22 +155,21 @@ function Home() {
           backgroundColor: 'black',
           padding: '20px',
           gap: '10px',
-
         }}
       >
-        {[...Array(6)].map((_, index) => (
+        {[smilingman, smilingman2, smilingwomen, smilingwomen2, money1, women3].map((image, index) => (
           <Box
             key={index}
             sx={{
               flex: '1 1 calc(33.333% - 20px)',
-              borderRadius: '10px',
+              borderRadius: '30px',
               overflow: 'hidden',
             }}
           >
             <img
-              src={`https://via.placeholder.com/300?text=Image+${index + 1}`}
+              src={image}
               alt={`Image ${index + 1}`}
-              style={{ width: '100%', height: 'auto' }}
+              style={{ width: '100%', height: 'auto', borderRadius: '30px' }}
             />
           </Box>
         ))}
