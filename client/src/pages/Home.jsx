@@ -141,10 +141,20 @@ function Home() {
           }}
         >
           <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
-            At GD ATMs we focus on getting you cash easier than ever.
+            The History of GD ATMs
           </h1>
           <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
-            Your premier destination for convenient and affordable cash access solutions. With multiple locations strategically positioned across diverse neighborhoods and commercial hubs, we pride ourselves on being the go-to choice for anyone in need of quick and reliable cash transactions. At GD ATMs, we understand the importance of financial accessibility, which is why we've made it our mission to offer our services at the lowest possible cost to our valued customers. Our commitment to providing competitive transaction fees and ensuring operational excellence underscores our dedication to delivering a seamless and hassle-free experience. From bustling urban centers to suburban communities, our network of ATMs is designed to serve you wherever you are, empowering individuals with the financial flexibility they deserve. Discover the convenience and reliability of GD today, and experience firsthand how we're revolutionizing cash access for everyone.
+            GD ATMs was established in 2021 by Peyton Touma. The idea sparked during a trip to Las Vegas to visit his sister,
+            a student at UNLV. Peyton noticed that all the casinos had ATMs with high withdrawal fees and wondered where
+            these fees were going. After about a year of research and development, GD ATMs was born.
+            <br />
+            GD ATMs is dedicated to providing the lowest possible fees for cash withdrawals. Our focus is on delivering
+            excellent customer service and the best possible experience. We continuously seek ways to improve and enhance
+            our services for our customers. Additionally, we are committed to expanding and growing our company, giving back
+            to the community, and making the world a better place.
+            <br />
+            We hope you feel at home when visiting our locations and experience a sense of family when ordering machines
+            from us.
           </p>
         </Box>
       </Box>
