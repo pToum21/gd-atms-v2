@@ -164,12 +164,21 @@ function Home() {
               flex: '1 1 calc(33.333% - 20px)',
               borderRadius: '30px',
               overflow: 'hidden',
+              height: '300px', // Set a fixed height
+              '@media screen and (min-width: 768px)': {
+                height: '300px', // Set the same fixed height for larger screens
+              },
             }}
           >
             <img
               src={image}
               alt={`Image ${index + 1}`}
-              style={{ width: '100%', height: 'auto', borderRadius: '30px' }}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '30px'
+              }}
             />
           </Box>
         ))}
