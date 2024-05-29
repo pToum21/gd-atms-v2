@@ -3,9 +3,22 @@ import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
-import TerminalNews from "../components/TerminalNews";
+import { keyframes } from '@mui/system';
 
 import creditCards from '/images/creditcards.jpg';
+
+
+
+const rainbowAnimation = keyframes`
+  0% { border-color: red; }
+  14% { border-color: orange; }
+  28% { border-color: yellow; }
+  42% { border-color: green; }
+  57% { border-color: blue; }
+  71% { border-color: indigo; }
+  85% { border-color: violet; }
+  100% { border-color: red; }
+`;
 
 function Home() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -105,7 +118,7 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           backgroundColor: 'black',
-          borderRadius: '0px 0px 0px 0px',
+          borderRadius: '0px',
           padding: '20px',
           height: 'auto',
           '@media screen and (min-width: 768px)': {
@@ -115,11 +128,16 @@ function Home() {
       >
         <Box
           sx={{
-            backgroundColor: 'grey',
+            backgroundColor: 'rgb(72, 73, 75)',
             borderRadius: '10px',
             padding: '20px',
             margin: '10px',
             flex: '1',
+            border: '5px solid transparent',
+            transition: 'border-color 0.5s',
+            '&:hover': {
+              animation: `${rainbowAnimation} 3s linear infinite`,
+            },
           }}
         >
           <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
