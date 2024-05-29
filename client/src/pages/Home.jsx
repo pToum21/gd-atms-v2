@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 import WelcomePage from "../components/WelcomePage";
 import Three from "../components/Three/Three";
 import { keyframes } from '@mui/system';
-
 import creditCards from '/images/creditcards.jpg';
-
-
 
 const rainbowAnimation = keyframes`
   0% { border-color: red; }
@@ -28,7 +25,6 @@ function Home() {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
 
-  // Function to calculate the rotation based on cursor position
   const calculateRotation = (x, y) => {
     const rotateX = (window.innerHeight / 2 - y) / 20;
     const rotateY = (window.innerWidth / 2 - x) / 20;
@@ -57,8 +53,9 @@ function Home() {
         }}
       >
         <div style={{ flex: '1', marginRight: '20px' }}>
-          {/* description */}
-          <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>At GD ATMs we focus on getting you cash easier than ever.</h1>
+          <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
+            At GD ATMs we focus on getting you cash easier than ever.
+          </h1>
         </div>
         <div style={{ flex: '1' }}>
           <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
@@ -66,20 +63,15 @@ function Home() {
           </p>
         </div>
       </Box>
-      {/* this div holds the credit card image*/}
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto' }}>
 
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto' }}>
         <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
-          {/* Inserting the title div */}
           <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
-            <h1
-              style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#5F46F8', borderRadius: '50px' }}
-            >
-              {/* text header for image */}
+            <h1 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#5F46F8', borderRadius: '50px' }}>
               Accepted Cards
             </h1>
           </div>
-          <Link to="/accepted-payment"> {/* Link to payment page */}
+          <Link to="/accepted-payment">
             <img
               src={creditCards}
               style={{
@@ -113,6 +105,7 @@ function Home() {
           )}
         </div>
       </div>
+
       <Box
         sx={{
           display: 'flex',
@@ -144,19 +137,41 @@ function Home() {
             The History of GD ATMs
           </h1>
           <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
-            GD ATMs was established in 2021 by Peyton Touma. The idea sparked during a trip to Las Vegas to visit his sister,
-            a student at UNLV. Peyton noticed that all the casinos had ATMs with high withdrawal fees and wondered where
-            these fees were going. After about a year of research and development, GD ATMs was born.
+            GD ATMs was established in 2021 by Peyton Touma. The idea sparked during a trip to Las Vegas to visit his sister, a student at UNLV. Peyton noticed that all the casinos had ATMs with high withdrawal fees and wondered where these fees were going. After about a year of research and development, GD ATMs was born.
             <br />
-            GD ATMs is dedicated to providing the lowest possible fees for cash withdrawals. Our focus is on delivering
-            excellent customer service and the best possible experience. We continuously seek ways to improve and enhance
-            our services for our customers. Additionally, we are committed to expanding and growing our company, giving back
-            to the community, and making the world a better place.
+            GD ATMs is dedicated to providing the lowest possible fees for cash withdrawals. Our focus is on delivering excellent customer service and the best possible experience. We continuously seek ways to improve and enhance our services for our customers. Additionally, we are committed to expanding and growing our company, giving back to the community, and making the world a better place.
             <br />
-            We hope you feel at home when visiting our locations and experience a sense of family when ordering machines
-            from us.
+            We hope you feel at home when visiting our locations and experience a sense of family when ordering machines from us.
           </p>
         </Box>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          backgroundColor: 'black',
+          padding: '20px',
+          gap: '10px',
+          
+        }}
+      >
+        {[...Array(6)].map((_, index) => (
+          <Box
+            key={index}
+            sx={{
+              flex: '1 1 calc(33.333% - 20px)',
+              borderRadius: '10px',
+              overflow: 'hidden',
+            }}
+          >
+            <img
+              src={`https://via.placeholder.com/300?text=Image+${index + 1}`}
+              alt={`Image ${index + 1}`}
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
+        ))}
       </Box>
     </div>
   );
