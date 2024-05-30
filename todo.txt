@@ -1,8 +1,5 @@
 notes:
-create the admin login and give the admin the ability to mark completed and remove support tickets
-
 add a little more life styling wise to reviews pages maybe images
-
 
 red color
 #eb7e95
