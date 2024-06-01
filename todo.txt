@@ -1,9 +1,16 @@
 notes:
 add a little more life styling wise to reviews pages maybe images
 
+look into reformatting the reviews page giving it a diffrent feel 
+
 red color
 #eb7e95
 
+grey color
+rgb(72, 73, 75)
+
+purple color
+#5D3FD3
 
 "username": "admin1",
   "email": "admin1@gmail.com",
