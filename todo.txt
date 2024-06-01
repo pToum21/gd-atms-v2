@@ -1,8 +1,6 @@
 notes:
 add a little more life styling wise to reviews pages maybe images
 
-look into reformatting the reviews page giving it a diffrent feel 
-
 red color
 #eb7e95
 
