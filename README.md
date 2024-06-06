@@ -95,13 +95,10 @@ In order to contribute, one must fork their repository and create a pull request
 In order to test, please run `N/A`.
 
 
-
 <a id="Questions"></a>
 ## Questions 📭
 
-Please enjoy our work at our respective GitHubs!
+GitHubs!
 - @[pToum21](https://github.com/pToum21)
-- @[SalGonzalez151](https://github.com/SalGonzalez151)
-- @[pashag123](https://github.com/pashag123)
 
 For any additional inquiries, please message any one of us.
