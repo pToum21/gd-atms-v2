@@ -26,7 +26,7 @@ Thank you for choosing GD ATMs – your premier destination for convenient and a
 
 
 [Please enjoy the deployed GD ATM Website!]()
-[GD Home](https://github.com/pToum21/gd-atms-v2/assets/138056441/4d30acb9-894c-46fd-a522-f581d22a23e3)
+![Untitled - Google Chrome 6_6_2024 11_28_35 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/3732ae68-1681-42b9-a4b0-2db89626da5c)
 
 
 
