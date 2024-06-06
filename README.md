@@ -57,30 +57,23 @@ In order to install, please run `npm i`.
 In order to use this app, please run `npm run develop in the root of the project`.
 
 
-From home, the user can navigate to use many features. Firstly, they are greeted with a slideshow, which describes Liber. Additionally, in the navigation bar, the user can view all books and search books. From there, home features all the books from our database, limited to 5 books per page. Under that hosts a Spotlight Read that features the most engaged-with book.
-![Spotlight Read](./client/src/assets/readmeimages/spotlight.png)
+From home, the user can navigate to use many features. They can view all execpted payments at our locations, they can navigate to support or they can directly contact us using contact in the main navigation menu.
+![Home](./client/src/assets/readmeimages/spotlight.png)
 
 To take advantage of some of the following features, users must log in. If on mobile, they can navigate through our mobile nav menu in order to log in.
 
 ![login](./client/src/assets/readmeimages/login.png)
 
-Upon viewing a single book, the user can comment on a book, rate a book, view other comments, keep book, or go ahead and instantly use our interactive e-reader.
+When creating a ticket they will show on support home as well as in the my tickets tab, from here you are bale to edit and delete your tickets.
+![GD Create and edit ticket](./client/src/assets/readmeimages/mylibrary.png)
 
-![Liber single book, comments](./client/src/assets/readmeimages/singlebook.png)
-
-When keeping a book, they are saved to your MyBookshelf in the user's MyLibrary page, where user can also see their account information.
-![Liber MyLibrary](./client/src/assets/readmeimages/mylibrary.png)
-
-Logged in or not, the main attraction of Liber is, of course, the interactive 3D reader! Have fun in there, and enjoy some easter eggs!
+Logged in or not, the users are able to do many features, such as view terminal maps using google maps api and view the status of terminals. They can also use the contact menu to get in touch.  As well as read about the company and view other users tickets.
 ![Liber 3D](./client/src/assets/readmeimages/3d.png)
 ![Liber reader](./client/src/assets/readmeimages/reader.png)
 
-Those who are special and logged in are admins, and admins can do some unwieldly things...
+Those who are employees they can log in using their admin accounts which allows them to open, close and respond to tickets
 (update users' roles or delete users)
-![Liber admin](./client/src/assets/readmeimages/admin.png)
-
-And before you leave the app, feel free to meet the team behind this project!
-![Meet the team](./client/src/assets/readmeimages/meetteam.png)
+![GD admin]()
 
 
 <a id="Contributing"></a>
