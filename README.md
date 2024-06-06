@@ -26,7 +26,8 @@ Thank you for choosing GD ATMs – your premier destination for convenient and a
 
 
 [Please enjoy the deployed GD ATM Website!]()
-![GD home]()
+[GD Home](https://github.com/pToum21/gd-atms-v2/assets/138056441/4d30acb9-894c-46fd-a522-f581d22a23e3)
+
 
 
 ## Table of Contents
@@ -58,22 +59,26 @@ In order to use this app, please run `npm run develop in the root of the project
 
 
 From home, the user can navigate to use many features. They can view all execpted payments at our locations, they can navigate to support or they can directly contact us using contact in the main navigation menu.
-![Home](./client/src/assets/readmeimages/spotlight.png)
+![Untitled - Google Chrome 6_6_2024 11_28_51 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/0e58536f-01e3-44f1-8529-693c9304ada4)
+![Untitled - Google Chrome 6_6_2024 11_29_14 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/4bba0df0-cb66-4d66-af8b-94fe3ff17e06)
 
 To take advantage of some of the following features, users must log in. If on mobile, they can navigate through our mobile nav menu in order to log in.
 
-![login](./client/src/assets/readmeimages/login.png)
-
 When creating a ticket they will show on support home as well as in the my tickets tab, from here you are bale to edit and delete your tickets.
-![GD Create and edit ticket](./client/src/assets/readmeimages/mylibrary.png)
+![Untitled - Google Chrome 6_6_2024 11_42_04 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/3d3b431c-2ee8-4b1a-801d-eebf598806f2)
+![Untitled - Google Chrome 6_6_2024 11_42_12 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/38ea499e-3d48-450a-bccb-291d7643d64a)
 
 Logged in or not, the users are able to do many features, such as view terminal maps using google maps api and view the status of terminals. They can also use the contact menu to get in touch.  As well as read about the company and view other users tickets.
-![Liber 3D](./client/src/assets/readmeimages/3d.png)
-![Liber reader](./client/src/assets/readmeimages/reader.png)
+![Untitled - Google Chrome 6_6_2024 11_29_31 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/a92d4401-728e-4088-888c-c41a07b3b809)
+![Untitled - Google Chrome 6_6_2024 11_28_44 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/f04980ee-8f1b-4689-9c6f-653e2499d92c)
+![Untitled - Google Chrome 6_6_2024 11_46_53 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/e4ba602f-a22f-4e4d-9db9-368878da94b0)
+
 
 Those who are employees they can log in using their admin accounts which allows them to open, close and respond to tickets
 (update users' roles or delete users)
-![GD admin]()
+![Untitled - Google Chrome 6_6_2024 11_42_24 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/7ab01b7d-8b3c-419f-ac43-42a27bd51cd3)
+![Untitled - Google Chrome 6_6_2024 11_42_46 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/e3a0cf51-10a9-4ebf-9e31-d777112f31ab)
+![Untitled - Google Chrome 6_6_2024 11_42_53 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/64013afd-d750-4589-9a60-e72ea25d9c6a)
 
 
 <a id="Contributing"></a>
