@@ -28,36 +28,6 @@ Thank you for choosing GD ATMs – your premier destination for convenient and a
 [Please enjoy the deployed GD ATM Website!]()
 ![Untitled - Google Chrome 6_6_2024 11_28_35 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/3732ae68-1681-42b9-a4b0-2db89626da5c)
 
-
-
-## Table of Contents
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Installation](#Installation)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Usage](#Usage)
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Contributing](#Contributing)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Tests](#Tests)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Credits](#Credits)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Questions](#Questions)
-
-
-<a id="Installation"></a>
-## Installation 🔌
-
-In order to install, please run `npm i`.
-
-
-<a id="Usage"></a>
-## Usage 🧮
-
-In order to use this app, please run `npm run develop in the root of the project`.
-
-
 From home, the user can navigate to use many features. They can view all execpted payments at our locations, they can navigate to support or they can directly contact us using contact in the main navigation menu.
 ![Untitled - Google Chrome 6_6_2024 11_28_51 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/0e58536f-01e3-44f1-8529-693c9304ada4)
 ![Untitled - Google Chrome 6_6_2024 11_29_14 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/4bba0df0-cb66-4d66-af8b-94fe3ff17e06)
@@ -81,17 +51,40 @@ Those who are employees they can log in using their admin accounts which allows 
 ![Untitled - Google Chrome 6_6_2024 11_42_53 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/64013afd-d750-4589-9a60-e72ea25d9c6a)
 
 
+## Table of Contents
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Installation](#Installation)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Usage](#Usage)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Contributing](#Contributing)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Tests](#Tests)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Credits](#Credits)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ➣ [Questions](#Questions)
+
+<a id="Installation"></a>
+## Installation 🔌
+
+In order to install, please run `npm i`.
+
+<a id="Usage"></a>
+## Usage 🧮
+
+In order to use this app, please run `npm run develop in the root of the project`.
+
 <a id="Contributing"></a>
 ## Contributing 🍴
 
 In order to contribute, one must fork their repository and create a pull request.
 
-
 <a id="Tests"></a>
 ## Tests ⚖️
 
 In order to test, please run `N/A`.
-
 
 <a id="Questions"></a>
 ## Questions 📭
@@ -99,4 +92,4 @@ In order to test, please run `N/A`.
 GitHubs!
 - @[pToum21](https://github.com/pToum21)
 
-For any additional inquiries, please message any one of us.
+For any additional inquiries, please message.
