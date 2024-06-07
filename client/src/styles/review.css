@@ -7,18 +7,32 @@
   background-color: #f3f3f3;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: 250px;
+  /* Adjust the width for sidebar */
 }
 
 .reviews-content {
-  max-width: 800px;
+  flex: 1;
+  max-width: 1200px; /* Increased max-width */
   width: 100%;
-  margin: 15px;
+  margin: 15px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .reviews-title {
-  text-align: center;
-  margin-bottom: 20px;
   color: #5F46F8;
 }
 
@@ -30,10 +44,11 @@
 .reviews-transition-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .review-card {
-  width: 100%;
+  flex: 0 0 48%; /* Two cards per row */
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -51,11 +66,8 @@
   height: 30px;
   background-color: #ccc;
   background-image: url('https://www.w3schools.com/howto/img_avatar.png');
-  /* Add this line */
   background-size: cover;
-  /* Ensure the image covers the entire element */
   background-position: center;
-  /* Center the image */
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -90,4 +102,12 @@
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+.reviews-footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #5F46F8;
+  color: white;
+  border-top: 1px solid #ddd;
 }
