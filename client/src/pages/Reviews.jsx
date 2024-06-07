@@ -64,22 +64,20 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
+        {/* Desktop sidebar */}
         <div className="sidebar">
           <Sidebar />
         </div>
 
         <div className="reviews-content">
-          <div className="header-section">
-            <h1 className="reviews-title">Support Hub</h1>
-            <TextField
-              label="Search by Username or Ticket Content"
-              variant="outlined"
-              value={searchInput}
-              onChange={handleSearchInputChange}
-              className="reviews-search"
-            />
-          </div>
-
+          <h1 className="reviews-title">Support Hub</h1>
+          <TextField
+            label="Search by Username or Ticket Content"
+            variant="outlined"
+            value={searchInput}
+            onChange={handleSearchInputChange}
+            className="reviews-search"
+          />
           <TransitionGroup className="reviews-transition-group">
             {currentReviews.map((review) => (
               <CSSTransition key={review._id} timeout={300} classNames="scale">
@@ -112,10 +110,6 @@ function Reviews() {
             style={{ marginTop: '20px', justifyContent: 'center', display: 'flex' }}
           />
         </div>
-
-        <footer className="reviews-footer">
-          <p>&copy; 2024 Support Hub. All rights reserved.</p>
-        </footer>
       </div>
     </Fade>
   );
