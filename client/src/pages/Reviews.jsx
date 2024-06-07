@@ -107,7 +107,6 @@ function Reviews() {
             page={currentPage}
             onChange={handlePageChange}
             className="reviews-pagination"
-            style={{ marginTop: '20px', justifyContent: 'center', display: 'flex' }}
           />
         </div>
       </div>
