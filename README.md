@@ -1,6 +1,5 @@
 # gd-atms-v2
 
-
 ## Description 📰
 GD ATMs
 Welcome to GD ATMs! Established in 2021 by Peyton Touma, GD ATMs was born from an idea that sparked during a trip to Las Vegas. While visiting his sister, a student at UNLV, Peyton noticed that all the casinos had ATMs with high withdrawal fees and wondered where these fees were going. After about a year of dedicated research and development, GD ATMs was launched with a mission to transform the ATM experience.
