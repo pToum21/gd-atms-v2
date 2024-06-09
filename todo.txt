@@ -1,5 +1,4 @@
-notes:
-add a little more life styling wise to reviews pages maybe images
+
 
 * color scheme
 red color
