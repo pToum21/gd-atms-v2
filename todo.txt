@@ -1,5 +1,7 @@
 * need to link schema to atlas and deploy on heroku
 
+* still add a little more life to reviews
+
 * color scheme
 red color
 #eb7e95
