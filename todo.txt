@@ -1,5 +1,4 @@
 * need to link schema to atlas and deploy on heroku
-* once db is connected think about adding more content to bland pages like reviews
 
 * color scheme
 red color
