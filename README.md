@@ -75,6 +75,8 @@ In order to install, please run `npm i`.
 
 In order to use this app, please run `npm run develop in the root of the project`.
 
+Or Visit the webpage
+
 <a id="Contributing"></a>
 ## Contributing 🍴
 
