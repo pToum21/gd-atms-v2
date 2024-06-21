@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Box, Card, CardContent, CircularProgress, Fade, Pagination, IconButton } from '@mui/material';
+import { TextField, Box, Card, CardContent, CircularProgress, Fade, Pagination } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
 import Sidebar from '../components/Sidebar';
-import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/review.css';
 
 function Reviews() {
@@ -22,10 +21,6 @@ function Reviews() {
 
   const handleSearchInputChange = (event) => {
     setSearchInput(event.target.value);
-  };
-
-  const toggleMobileNav = () => {
-    setShowMobileNav(!showMobileNav);
   };
 
   const handlePageChange = (event, value) => {
@@ -62,17 +57,11 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
-        <div className={`sidebar ${showMobileNav ? 'show' : ''}`}>
+        <div className="sidebar">
           <Sidebar />
         </div>
-
         <div className="reviews-content">
-          <div className="header-section">
-            <IconButton onClick={toggleMobileNav} className="menu-icon">
-              <MenuIcon />
-            </IconButton>
-            <h1 className="reviews-title">Support Hub</h1>
-          </div>
+          <h1 className="reviews-title">Support Hub</h1>
           <TextField
             label="Search by Username or Ticket Content"
             variant="outlined"
