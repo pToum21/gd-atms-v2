@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import WelcomePage from '../components/WelcomePage';
-import Three from '../components/Three/Three';
+import WelcomePage from "../components/WelcomePage";
+import Three from "../components/Three/Three";
 import { keyframes } from '@mui/system';
 import creditCards from '/images/creditcards.jpg';
 
@@ -19,12 +19,7 @@ const rainbowAnimation = keyframes`
   85% { border-color: violet; }
 `;
 
-const fadeIn = keyframes`
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-`;
-
-const Home = () => {
+function Home() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -41,7 +36,7 @@ const Home = () => {
   const { rotateX, rotateY } = calculateRotation(cursorPosition.x, cursorPosition.y);
 
   return (
-    <div onMouseMove={handleMouseMove} style={{ animation: `${fadeIn} 1.5s` }}>
+    <div onMouseMove={handleMouseMove}>
       <WelcomePage />
       <Three />
 
@@ -60,23 +55,23 @@ const Home = () => {
         }}
       >
         <div style={{ flex: '1', marginRight: '20px' }}>
-          <Typography variant="h1" sx={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
+          <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
             At GD ATMs we focus on getting you cash easier than ever.
-          </Typography>
+          </h1>
         </div>
         <div style={{ flex: '1' }}>
-          <Typography variant="body1" sx={{ color: 'white', fontSize: '1rem', marginBottom: '10px', maxWidth: '100%' }}>
+          <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
             Your premier destination for convenient and affordable cash access solutions. With multiple locations strategically positioned across diverse neighborhoods and commercial hubs, we pride ourselves on being the go-to choice for anyone in need of quick and reliable cash transactions. At GD ATMs, we understand the importance of financial accessibility, which is why we've made it our mission to offer our services at the lowest possible cost to our valued customers. Our commitment to providing competitive transaction fees and ensuring operational excellence underscores our dedication to delivering a seamless and hassle-free experience. From bustling urban centers to suburban communities, our network of ATMs is designed to serve you wherever you are, empowering individuals with the financial flexibility they deserve. Discover the convenience and reliability of GD today, and experience firsthand how we're revolutionizing cash access for everyone.
-          </Typography>
+          </p>
         </div>
       </Box>
 
-      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto', position: 'relative' }}>
-        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%' }}>
-          <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
-            <Typography variant="h1" sx={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#5F46F8', borderRadius: '50px', padding: '10px' }}>
+      <div style={{ backgroundColor: 'black', display: 'flex', justifyContent: 'center', height: 'auto' }}>
+        <div style={{ borderRadius: '50px', overflow: 'hidden', width: '100%', height: "80vh", padding: '1%', position: 'relative' }}>
+          <div style={{ position: 'absolute', top: '7%', left: '23%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: '1', width: '40%' }}>
+            <h1 style={{ color: 'white', fontSize: '1.5rem', marginBottom: '10px', backgroundColor: '#5F46F8', borderRadius: '50px' }}>
               Accepted Cards
-            </Typography>
+            </h1>
           </div>
           <Link to="/accepted-payment">
             <img
@@ -87,6 +82,7 @@ const Home = () => {
                 height: '100%',
                 objectFit: 'cover',
                 borderRadius: '50px',
+                position: 'relative',
                 transition: 'transform 0.1s ease-out, filter 0.3s ease-in-out',
                 transform: isHovering ? `rotateX(${rotateX}deg) rotateY(${rotateY}deg)` : 'none',
               }}
@@ -139,19 +135,20 @@ const Home = () => {
             },
           }}
         >
-          <Typography variant="h1" sx={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
+          <h1 style={{ color: 'white', fontSize: '2.6rem', marginBottom: '10px' }}>
             The History of GD ATMs
-          </Typography>
-          <Typography variant="body1" sx={{ color: 'white', fontSize: '1rem', marginBottom: '10px', maxWidth: '100%' }}>
+          </h1>
+          <p style={{ color: 'white', fontSize: '.9rem', marginBottom: '10px', maxWidth: '100%' }}>
             GD ATMs was established in 2021 by Peyton Touma. The idea sparked during a trip to Las Vegas to visit his sister, a student at UNLV. Peyton noticed that all the casinos had ATMs with high withdrawal fees and wondered where these fees were going. After about a year of research and development, GD ATMs was born.
             <br />
             GD ATMs is dedicated to providing the lowest possible fees for cash withdrawals. Our focus is on delivering excellent customer service and the best possible experience. We continuously seek ways to improve and enhance our services for our customers. Additionally, we are committed to expanding and growing our company, giving back to the community, and making the world a better place.
             <br />
             We hope you feel at home when visiting our locations and experience a sense of family when ordering machines from us.
-          </Typography>
+          </p>
         </Box>
       </Box>
 
+      
       <Box
         sx={{
           display: 'flex',
@@ -193,6 +190,6 @@ const Home = () => {
       </Box>
     </div>
   );
-};
+}
 
 export default Home;
