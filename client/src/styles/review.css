@@ -1,6 +1,31 @@
-/* Adjustments for sidebar */
-.list-item-text {
-  color: #5F46F8;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .reviews-container {
@@ -8,15 +33,18 @@
   background-color: #f3f3f3;
   min-height: 100vh;
   justify-content: center;
-  /* Center horizontally */
   align-items: flex-start;
-  /* Align items to start vertically */
+  position: relative;
 }
 
 .sidebar {
   width: 250px;
   background-color: #3f3f3f;
-  /* Update this to your desired sidebar color */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.show {
+  transform: translateX(0);
 }
 
 .reviews-content {
@@ -28,11 +56,17 @@
   background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  animation: fadeIn 1s;
 }
 
 .header-section {
-  text-align: center;
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.menu-icon {
+  margin-right: 10px;
 }
 
 .reviews-title {
@@ -42,6 +76,11 @@
 .reviews-search {
   margin-bottom: 20px;
   width: 100%;
+  transition: all 0.3s ease;
+}
+
+.reviews-search:focus-within {
+  transform: scale(1.05);
 }
 
 .reviews-transition-group {
@@ -52,11 +91,15 @@
 
 .review-card {
   flex: 0 0 48%;
-  /* Two cards per row */
   margin-bottom: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #eb7e95;
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
 }
 
 .ticket-header {
@@ -108,24 +151,29 @@
   border-radius: 10px;
 }
 
-.reviews-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #5F46F8;
-  color: white;
-  border-top: 1px solid #ddd;
-}
-
 .reviews-pagination {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  transition: all 0.3s ease;
 }
 
-/* Media queries for responsiveness */
+.reviews-pagination .Mui-selected {
+  background-color: #5F46F8 !important;
+  color: white !important;
+}
+
+.loading-spinner {
+  animation: spinner 1.5s linear infinite;
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .review-card {
     flex: 0 0 100%;
-    /* One card per row */
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
   }
 }

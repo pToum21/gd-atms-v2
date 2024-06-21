@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { TextField, Box, Card, CardContent, CircularProgress, Fade, Pagination } from '@mui/material';
+import { TextField, Box, Card, CardContent, CircularProgress, Fade, Pagination, IconButton } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { QUERY_ALL_REVIEWS } from '../utils/queries';
 import Sidebar from '../components/Sidebar';
+import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/review.css';
 
 function Reviews() {
@@ -23,7 +24,6 @@ function Reviews() {
     setSearchInput(event.target.value);
   };
 
-  // Toggle mobile navigation
   const toggleMobileNav = () => {
     setShowMobileNav(!showMobileNav);
   };
@@ -32,18 +32,16 @@ function Reviews() {
     setCurrentPage(value);
   };
 
-  if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
+  if (loading) return <CircularProgress className="loading-spinner" />;
   if (error) return <p>Error: {error.message}</p>;
 
-  // Check if data exists before accessing its properties
   const reviews = data?.reviews || [];
-
   const filteredReviews = reviews
     .filter((review) => (
       review.username?.toLowerCase().includes(searchInput.toLowerCase()) ||
       review.reviewText?.toLowerCase().includes(searchInput.toLowerCase())
     ))
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort by most recent first
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   const indexOfLastReview = currentPage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
@@ -64,13 +62,17 @@ function Reviews() {
   return (
     <Fade in={componentLoaded}>
       <div className="reviews-container">
-        {/* Desktop sidebar */}
-        <div className="sidebar">
+        <div className={`sidebar ${showMobileNav ? 'show' : ''}`}>
           <Sidebar />
         </div>
 
         <div className="reviews-content">
-          <h1 className="reviews-title">Support Hub</h1>
+          <div className="header-section">
+            <IconButton onClick={toggleMobileNav} className="menu-icon">
+              <MenuIcon />
+            </IconButton>
+            <h1 className="reviews-title">Support Hub</h1>
+          </div>
           <TextField
             label="Search by Username or Ticket Content"
             variant="outlined"
@@ -80,7 +82,7 @@ function Reviews() {
           />
           <TransitionGroup className="reviews-transition-group">
             {currentReviews.map((review) => (
-              <CSSTransition key={review._id} timeout={300} classNames="scale">
+              <CSSTransition key={review._id} timeout={300} classNames="fade">
                 <Card className="review-card">
                   <CardContent>
                     <div className="ticket-header">
