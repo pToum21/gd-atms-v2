@@ -1,5 +1,4 @@
 * need to link schema to atlas and deploy on heroku
-^ do that
 
 * color scheme
 red color
