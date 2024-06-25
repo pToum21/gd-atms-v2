@@ -2,6 +2,8 @@
 
 * need to fix chatbot
 
+* make the error page better
+
 * color scheme
 
     red color
