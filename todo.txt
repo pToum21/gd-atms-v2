@@ -1,6 +1,5 @@
 * need to link schema to atlas and deploy on heroku
 
-* update admin 
 
 * color scheme
 
