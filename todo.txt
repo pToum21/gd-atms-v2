@@ -10,9 +10,9 @@
     grey color
     rgb(72, 73, 75)
 
-purple color
-#5D3FD3
+    purple color
+    #5D3FD3
 
 "username": "admin1",
-  "email": "admin1@gmail.com",
-  "password": "Admin123!"
+"email": "admin1@gmail.com",
+"password": "Admin123!"
