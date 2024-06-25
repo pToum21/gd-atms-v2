@@ -23,7 +23,7 @@ export const SidebarData = [
     },
     {
         title: "Terminal Map",
-        icon: <NewspaperIcon/>,
+        icon: <NewspaperIcon />,
         link: "/terminal-news"
     },
 ]
