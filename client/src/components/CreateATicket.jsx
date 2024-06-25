@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
-import AuthService from '../utils/auth';  // Import AuthService
+import AuthService from '../utils/auth'; 
 
 const CreateATicket = () => {
     const [reviewText, setReviewText] = useState('');
@@ -36,7 +36,7 @@ const CreateATicket = () => {
             )}
             <Box flex={1} p={2} >
                 <Paper elevation={3} style={{ padding: '20px', borderRadius: '30px' }}>
-                <h1 className="reviews-title">Create A Ticket</h1>
+                    <h1 className="reviews-title">Create A Ticket</h1>
                     <form onSubmit={handleSubmit}>
                         <TextField
                             fullWidth
