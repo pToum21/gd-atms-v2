@@ -123,7 +123,7 @@ const Admin = () => {
                         <div className="reviews-content">
                             {tabValue === 0 && (
                                 <div>
-                                    <Typography variant="h5" gutterBottom>Open Reviews</Typography>
+                                    <Typography variant="h5" gutterBottom>Open Tickets</Typography>
                                     {reviewsData.reviews
                                         .filter((review) => review.status === 'open')
                                         .map((review) => (
@@ -132,8 +132,8 @@ const Admin = () => {
                                                 <Typography variant="body2" className="review-author">By: {review.username}</Typography>
                                                 <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Review</Button>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
                                                 </div>
                                             </div>
                                         ))}
@@ -141,7 +141,7 @@ const Admin = () => {
                             )}
                             {tabValue === 1 && (
                                 <div>
-                                    <Typography variant="h5" gutterBottom>Closed Reviews</Typography>
+                                    <Typography variant="h5" gutterBottom>Closed Tickets</Typography>
                                     {reviewsData.reviews
                                         .filter((review) => review.status === 'closed')
                                         .map((review) => (
@@ -150,8 +150,8 @@ const Admin = () => {
                                                 <Typography variant="body2" className="review-author">By: {review.username}</Typography>
                                                 <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Review</Button>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
                                                 </div>
                                             </div>
                                         ))}
