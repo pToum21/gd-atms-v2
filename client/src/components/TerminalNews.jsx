@@ -29,6 +29,7 @@ const locations = [
     }
 ];
 
+// used google maps API to display the locations of the ATMs
 const TerminalNews = () => {
     const [selectedLocation, setSelectedLocation] = useState(null);
 
