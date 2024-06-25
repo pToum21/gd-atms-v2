@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import {
-    Button, Tab, Tabs, Typography, CircularProgress, Fade,
-    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
-} from '@mui/material';
+import { Button, Tab, Tabs, Typography, CircularProgress, Fade, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { pink } from '@mui/material/colors';
 import { DELETE_USER, UPDATE_REVIEW_STATUS } from '../utils/mutations';
