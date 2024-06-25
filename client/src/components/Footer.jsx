@@ -1,6 +1,6 @@
 import React from 'react';
-import { Paper, Box, Typography, Link } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom'; // Assuming you are using React Router
+import { Paper, Box, Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -24,7 +24,7 @@ const Footer = () => {
                             <li><Link component={RouterLink} to="/contact" color="inherit" underline="none" sx={{ '&:hover': { color: '#5D3FD3', textDecoration: 'underline', textDecorationColor: 'white' } }}>Contact  ↗</Link></li>
                             <li><Link component={RouterLink} to="/privacy-policy" color="inherit" underline="none" sx={{ '&:hover': { color: '#5D3FD3', textDecoration: 'underline', textDecorationColor: 'white' } }}>Privacy Policy  ↗</Link></li>
                         </ul>
-                        <p style={{fontWeight: '600'}}>© 2024 GDATMs</p>
+                        <p style={{ fontWeight: '600' }}>© 2024 GDATMs</p>
                     </div>
                 </Paper>
                 <Paper elevation={3} style={{ borderRadius: '15px', padding: '20px', backgroundColor: '#48494b', flex: 1, marginLeft: '10px', marginTop: '10px', marginBottom: '20px' }}>
