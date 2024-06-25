@@ -1,5 +1,6 @@
 * need to link schema to atlas and deploy on heroku
 
+* need to fix chatbot
 
 * color scheme
 
