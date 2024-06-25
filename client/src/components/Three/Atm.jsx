@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
+// ATM component
 export function ATM(props) {
   const { nodes, materials } = useGLTF('/3dModels/security_breach_atm.glb');
   const group = useRef();
