@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-    Grid,
-    Paper,
-    Avatar,
-    TextField,
-    Button,
-    Typography,
-    Link,
-    IconButton,
-    Modal,
-} from '@mui/material';
+import { Grid, Paper, TextField, Button, Typography, Link, IconButton, Modal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
