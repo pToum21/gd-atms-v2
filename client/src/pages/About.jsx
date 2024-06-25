@@ -9,7 +9,7 @@ const About = () => {
     useEffect(() => {
         // Scroll to the top of the page when component is mounted
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
 
 
     return (
@@ -52,13 +52,13 @@ const About = () => {
                     </Box>
                 </Grid>
             </Grid>
-            
+
             <Grid container justifyContent="center" mt={5}>
                 <Grid item xs={12} md={6}>
-                    <img src={atmig2} alt="ATM" style={{ marginTop: '3%',width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
+                    <img src={atmig2} alt="ATM" style={{ marginTop: '3%', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <img src={atmig1} alt="ATM" style={{ marginTop: '3%',width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
+                    <img src={atmig1} alt="ATM" style={{ marginTop: '3%', width: '100%', height: '300px', objectFit: 'cover', borderRadius: '40px' }} />
                 </Grid>
             </Grid>
         </div>
