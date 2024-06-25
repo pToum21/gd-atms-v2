@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
     useEffect(() => {
         // Scroll to the top of the page when component is mounted
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
 
 
     return (
