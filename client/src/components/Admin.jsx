@@ -62,29 +62,39 @@ const Admin = () => {
 
     return (
         <Fade in={!reviewsLoading && !usersLoading}>
-            <div>
-                <Typography variant="h4" gutterBottom>Admin</Typography>
+            <div style={{ padding: '20px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="h4" gutterBottom>Admin</Typography>
+                    {role === 'admin' && !showReviews && (
+                        <Button variant="contained" sx={{
+                            backgroundColor: '#5D3FD3',
+                            color: '#ffffff',
+                        }} onClick={handleReviewsButtonClick}>
+                            Tickets
+                        </Button>
+                    )}
+                </div>
                 {!showReviews && (
                     <div>
                         {role === 'admin' ? (
                             <>
                                 <Typography variant="h5" gutterBottom>Users</Typography>
-                                <TableContainer component={Paper} sx={{ background: '#f3f3ec', maxHeight: '75vh', overflow: 'scroll' }}>
+                                <TableContainer component={Paper} sx={{ background: 'rgb(72, 73, 75)', color: '#ffffff', maxHeight: '75vh', overflow: 'auto' }}>
                                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                         <TableHead>
                                             <TableRow>
-                                                <TableCell sx={{ paddingLeft: '6rem' }}>USERNAME</TableCell>
-                                                <TableCell>EMAIL</TableCell>
-                                                <TableCell>ROLE</TableCell>
-                                                <TableCell>ACTION</TableCell>
+                                                <TableCell sx={{ paddingLeft: '6rem', color: '#ffffff' }}>USERNAME</TableCell>
+                                                <TableCell sx={{ color: '#ffffff' }}>EMAIL</TableCell>
+                                                <TableCell sx={{ color: '#ffffff' }}>ROLE</TableCell>
+                                                <TableCell sx={{ color: '#ffffff' }}>ACTION</TableCell>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
                                             {userData.users.map((user) => (
                                                 <TableRow key={user._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                                    <TableCell sx={{ paddingLeft: '6rem' }}>{user.username}</TableCell>
-                                                    <TableCell>{user.email}</TableCell>
-                                                    <TableCell>{user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'N/A'}</TableCell>
+                                                    <TableCell sx={{ paddingLeft: '6rem', color: '#ffffff' }}>{user.username}</TableCell>
+                                                    <TableCell sx={{ color: '#ffffff' }}>{user.email}</TableCell>
+                                                    <TableCell sx={{ color: '#ffffff' }}>{user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'N/A'}</TableCell>
                                                     <TableCell>
                                                         <a onClick={() => handleDeleteUser(user._id)} href="#">
                                                             <DeleteForeverIcon sx={{ color: muipink }} />
@@ -95,11 +105,6 @@ const Admin = () => {
                                         </TableBody>
                                     </Table>
                                 </TableContainer>
-                                <Button variant="contained" color="primary" sx={{
-                                    backgroundColor: '#5D3FD3 '
-                                }} onClick={handleReviewsButtonClick}>
-                                    Reviews
-                                </Button>
                             </>
                         ) : (
                             <Error />
@@ -108,10 +113,10 @@ const Admin = () => {
                 )}
                 {showReviews && (
                     <div>
-                        <Button variant="outlined" color="primary" onClick={handleBackButtonClick}>
+                        <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', marginBottom: '20px' }} onClick={handleBackButtonClick}>
                             Back to Users
                         </Button>
-                        <Tabs value={tabValue} onChange={handleTabChange}>
+                        <Tabs value={tabValue} onChange={handleTabChange} textColor="primary" indicatorColor="primary">
                             <Tab label="Open Reviews" />
                             <Tab label="Closed Reviews" />
                         </Tabs>
@@ -122,12 +127,14 @@ const Admin = () => {
                                     {reviewsData.reviews
                                         .filter((review) => review.status === 'open')
                                         .map((review) => (
-                                            <div key={review._id} className="review-card">
-                                                <p className="review-text">{review.reviewText}</p>
-                                                <p className="review-author">By: {review.username}</p>
-                                                <p className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</p>
-                                                <Button onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Review</Button>
-                                                <Button onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                            <div key={review._id} className="review-card" style={{ marginBottom: '20px', padding: '20px', border: `1px solid #eb7e95`, borderRadius: '10px', backgroundColor: '#f3f3f3' }}>
+                                                <Typography variant="body1" className="review-text">{review.reviewText}</Typography>
+                                                <Typography variant="body2" className="review-author">By: {review.username}</Typography>
+                                                <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Review</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                                </div>
                                             </div>
                                         ))}
                                 </div>
@@ -138,12 +145,14 @@ const Admin = () => {
                                     {reviewsData.reviews
                                         .filter((review) => review.status === 'closed')
                                         .map((review) => (
-                                            <div key={review._id} className="review-card">
-                                                <p className="review-text">{review.reviewText}</p>
-                                                <p className="review-author">By: {review.username}</p>
-                                                <p className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</p>
-                                                <Button onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Review</Button>
-                                                <Button onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                            <div key={review._id} className="review-card" style={{ marginBottom: '20px', padding: '20px', border: `1px solid #eb7e95`, borderRadius: '10px', backgroundColor: '#f3f3f3' }}>
+                                                <Typography variant="body1" className="review-text">{review.reviewText}</Typography>
+                                                <Typography variant="body2" className="review-author">By: {review.username}</Typography>
+                                                <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Review</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Review</Button>
+                                                </div>
                                             </div>
                                         ))}
                                 </div>
