@@ -117,8 +117,8 @@ const Admin = () => {
                             Back to Users
                         </Button>
                         <Tabs value={tabValue} onChange={handleTabChange} textColor="primary" indicatorColor="primary">
-                            <Tab label="Open Reviews" />
-                            <Tab label="Closed Reviews" />
+                            <Tab label="Open Tickets" />
+                            <Tab label="Closed Tickets" />
                         </Tabs>
                         <div className="reviews-content">
                             {tabValue === 0 && (
