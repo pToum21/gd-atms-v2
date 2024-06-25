@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, IconButton, Paper } from '@mui/material';
+import { Typography, IconButton, Paper } from '@mui/material';
 import { AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material'; // Import the RemoveCircleOutline icon
 
 const containerStyle = {
