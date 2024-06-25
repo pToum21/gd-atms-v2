@@ -69,6 +69,9 @@ const Admin = () => {
                         <Button variant="contained" sx={{
                             backgroundColor: '#5D3FD3',
                             color: '#ffffff',
+                            '&:hover': {
+                                backgroundColor: '#eb7e95',
+                            },
                         }} onClick={handleReviewsButtonClick}>
                             Tickets
                         </Button>
@@ -87,7 +90,7 @@ const Admin = () => {
                                                 <TableCell sx={{ color: '#ffffff' }}>EMAIL</TableCell>
                                                 <TableCell sx={{ color: '#ffffff' }}>ROLE</TableCell>
                                                 <TableCell sx={{ color: '#ffffff' }}>ACTION</TableCell>
-                                            </TableRow>
+                                            </TableRow> {/* Corrected this line */}
                                         </TableHead>
                                         <TableBody>
                                             {userData.users.map((user) => (
@@ -113,7 +116,7 @@ const Admin = () => {
                 )}
                 {showReviews && (
                     <div>
-                        <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', marginBottom: '20px' }} onClick={handleBackButtonClick}>
+                        <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', marginBottom: '20px', '&:hover': { borderColor: '#eb7e95', color: '#eb7e95' } }} onClick={handleBackButtonClick}>
                             Back to Users
                         </Button>
                         <Tabs value={tabValue} onChange={handleTabChange} textColor="primary" indicatorColor="primary">
@@ -132,8 +135,8 @@ const Admin = () => {
                                                 <Typography variant="body2" className="review-author">By: {review.username}</Typography>
                                                 <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Ticket</Button>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', '&:hover': { borderColor: '#eb7e95', color: '#eb7e95' } }} onClick={() => handleReviewStatusChange(review._id, 'closed')}>Close Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', '&:hover': { borderColor: '#eb7e95', color: '#eb7e95' } }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
                                                 </div>
                                             </div>
                                         ))}
@@ -150,8 +153,8 @@ const Admin = () => {
                                                 <Typography variant="body2" className="review-author">By: {review.username}</Typography>
                                                 <Typography variant="body2" className="review-date">Date: {new Date(review.createdAt).toLocaleDateString()}</Typography>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Ticket</Button>
-                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3' }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', '&:hover': { borderColor: '#eb7e95', color: '#eb7e95' } }} onClick={() => handleReviewStatusChange(review._id, 'open')}>Reopen Ticket</Button>
+                                                    <Button variant="outlined" sx={{ borderColor: '#5D3FD3', color: '#5D3FD3', '&:hover': { borderColor: '#eb7e95', color: '#eb7e95' } }} onClick={() => handleDeleteUser(review._id)}>Delete Ticket</Button>
                                                 </div>
                                             </div>
                                         ))}
