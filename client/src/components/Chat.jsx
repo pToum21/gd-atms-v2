@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 export class Chat extends Component {
 
+    // chatbot needs to be fixed it doesn't work
+
     componentDidMount() {
         // chatbot
         (function (d, m) {
