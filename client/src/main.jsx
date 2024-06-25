@@ -15,7 +15,6 @@ import CreateATicket from './components/CreateATicket.jsx';
 import ViewYourTickets from './components/ViewYourTickets.jsx';
 import TerminalNews from './components/TerminalNews.jsx';
 import Admin from './components/Admin.jsx';
-import PhoneSupport from './components/PhoneSupport.jsx';
 
 // this establishes pages component structure and their paths
 const router = createBrowserRouter([
@@ -74,12 +73,6 @@ const router = createBrowserRouter([
         path: '/admin',
         element: <Admin />
       },
-      {
-        path: '/phone-support',
-        element: <PhoneSupport />
-      },
-
-
     ]
   }
 ]);
