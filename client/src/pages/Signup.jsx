@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -6,10 +6,9 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
-import { useState } from 'react';
 import Auth from '../utils/auth';
 
 export default function SignUp() {
@@ -68,106 +67,122 @@ export default function SignUp() {
 
   const theme = createTheme({
     palette: {
-      type: 'light', // Light mode
+      mode: 'dark',
       primary: {
-        main: '#5D3FD3', // Red color for button
+        main: '#5D3FD3',
+      },
+      secondary: {
+        main: '#eb7e95',
       },
       text: {
-        primary: '#FFFFFF', // White text color
+        primary: '#FFFFFF',
+      },
+    },
+    typography: {
+      fontFamily: 'Roboto, sans-serif',
+      h5: {
+        fontWeight: 600,
+      },
+      body1: {
+        fontSize: '1rem',
       },
     },
   });
 
-  const customTheme = createTheme({
-    palette: {
-      type: 'light', // Light mode
-    },
-    components: {
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            '& .MuiInputLabel-root': {
-              color: 'white', // Red label color
-            },
-            '& .MuiOutlinedInput-input': {
-              color: '#FFFFFF', // White text color for input
-            },
-            '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#5D3FD3', // White border color for input outline
-            },
-            '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#5D3FD3', // Red border color for input outline on hover
-            },
-          },
-        },
+  const textFieldStyle = {
+    marginBottom: '16px',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#fff',
+      },
+      '&:hover fieldset': {
+        borderColor: '#5D3FD3',
       },
     },
-  });
+    '& .MuiInputLabel-root': {
+      color: '#fff',
+    },
+    '& .MuiInputBase-input': {
+      color: '#fff',
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component="main" sx={{ height: '100vh', maxWidth: '95%', }}>
-        <Box sx={{ mt: 8, mx: 'auto', bgcolor: 'rgb(72, 73, 75)', p: 3, borderRadius: 4, boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)', height: '70vh' }}>
-          <Typography component="h1" variant="h5" align="center" color="white">
-            Sign up
+      <Container component="main" sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+        <Box
+          sx={{
+            mt: 8,
+            mx: 'auto',
+            bgcolor: 'rgba(33, 33, 33, 0.9)',
+            p: 4,
+            borderRadius: 4,
+            boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
+            maxWidth: '400px',
+            width: '100%'
+          }}
+        >
+          <Typography component="h1" variant="h5" align="center" color="white" sx={{ mb: 2 }}>
+            Sign Up
           </Typography>
           {error && (
-            <Typography variant="body1" color="error" align="center">
+            <Typography variant="body1" color="error" align="center" sx={{ mb: 2 }}>
               {error.message || error.toString()}
             </Typography>
           )}
           <form onSubmit={handleSubmit} noValidate>
-            <Grid container spacing={2} mt={2}>
-              <ThemeProvider theme={customTheme}>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="username"
-                    label="User Name"
-                    name="username"
-                    autoComplete="username"
-                    value={formState.username}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="new-password"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                </Grid>
-              </ThemeProvider>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="username"
+                  label="User Name"
+                  name="username"
+                  autoComplete="username"
+                  value={formState.username}
+                  onChange={handleChange}
+                  sx={textFieldStyle}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  sx={textFieldStyle}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  value={formState.password}
+                  onChange={handleChange}
+                  sx={textFieldStyle}
+                />
+              </Grid>
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
-              sx={{ mt: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: '#5D3FD3', '&:hover': { bgcolor: '#3f2ea8' } }}
             >
               Sign Up
             </Button>
