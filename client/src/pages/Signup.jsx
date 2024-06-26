@@ -10,6 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { keyframes } from '@mui/system';
 
 export default function SignUp() {
   const [formState, setFormstate] = useState({
@@ -65,6 +66,15 @@ export default function SignUp() {
     }
   };
 
+  const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `;
+
   const theme = createTheme({
     palette: {
       mode: 'light',
@@ -80,6 +90,9 @@ export default function SignUp() {
     },
     typography: {
       fontFamily: 'Roboto, sans-serif',
+      h2: {
+        fontWeight: 700,
+      },
       h5: {
         fontWeight: 600,
       },
@@ -110,7 +123,15 @@ export default function SignUp() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container component="main" sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+      <Container component="main" sx={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <Typography
+          component="h2"
+          variant="h2"
+          align="center"
+          sx={{ color: 'black', mb: 4, animation: `${fadeIn} 2s ease-in-out` }}
+        >
+          Don't have an account? <br/>Sign Up to GD ATMS today!
+        </Typography>
         <Box
           sx={{
             mt: 8,
@@ -120,7 +141,8 @@ export default function SignUp() {
             borderRadius: 4,
             boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
             maxWidth: '400px',
-            width: '100%'
+            width: '100%',
+            animation: `${fadeIn} 2s ease-in-out`
           }}
         >
           <Typography component="h1" variant="h5" align="center" color="white" sx={{ mb: 2 }}>
