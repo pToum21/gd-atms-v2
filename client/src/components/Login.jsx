@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Paper, TextField, Button, Typography, Link, IconButton, Modal } from '@mui/material';
+import { Grid, Paper, TextField, Button, Typography, Link, IconButton, Modal, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
@@ -54,47 +54,79 @@ const Login = ({ open, onClose }) => {
 
     const paperStyle = {
         padding: 20,
-        height: '70vh',
-        width: 370,
+        width: 400,
         margin: '20px auto',
         position: 'relative',
         overflow: 'auto',
-        backgroundColor: 'rgb(72, 73, 75)',
-        borderRadius: '30px',
+        borderRadius: '20px',
+        backgroundColor: 'rgba(33, 33, 33, 0.9)',
     };
-    const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const btnStyle = { margin: '8px 0', backgroundColor: '#5D3FD3' };
-    const textFieldStyle = { marginBottom: '16px', color: 'white' };
 
-    const customTheme = createTheme({
+    const btnStyle = {
+        margin: '16px 0',
+        backgroundColor: '#5D3FD3',
+        color: 'white',
+        '&:hover': {
+            backgroundColor: '#3f2ea8'
+        }
+    };
+
+    const textFieldStyle = {
+        marginBottom: '16px',
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: '#fff',
+            },
+            '&:hover fieldset': {
+                borderColor: '#5D3FD3',
+            },
+        },
+        '& .MuiInputLabel-root': {
+            color: '#fff',
+        },
+        '& .MuiInputBase-input': {
+            color: '#fff',
+        }
+    };
+
+    const theme = createTheme({
         palette: {
             mode: 'dark',
             primary: {
-                main: '#fff',
+                main: '#5D3FD3',
             },
             secondary: {
                 main: '#eb7e95',
             },
         },
+        typography: {
+            fontFamily: 'Roboto, sans-serif',
+            h5: {
+                fontWeight: 600,
+            },
+            body1: {
+                fontSize: '1rem',
+            },
+        },
     });
 
     return (
-        <Modal open={open} onClose={onClose}>
-            <form onSubmit={handleFormSubmit} >
-                <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
-                    <Paper elevation={10} style={paperStyle}>
-                        <IconButton
-                            onClick={onClose}
-                            style={{ position: 'absolute', right: '8px', top: '8px', zIndex: 1, color: 'white' }}
-                        >
-                            <CloseIcon color="action" className="close" sx={{ color: 'white' }} />
-                        </IconButton>
-                        <Grid align="center">
-                            <Typography variant="h5" sx={{ color: 'white', margin: '8px 0' }}>
-                                Log In
-                            </Typography>
-                        </Grid>
-                        <ThemeProvider theme={customTheme}>
+        <ThemeProvider theme={theme}>
+            <Modal open={open} onClose={onClose}>
+                <form onSubmit={handleFormSubmit}>
+                    <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
+                        <Paper elevation={10} style={paperStyle}>
+                            <IconButton
+                                onClick={onClose}
+                                style={{ position: 'absolute', right: '8px', top: '8px', color: 'white' }}
+                            >
+                                <CloseIcon />
+                            </IconButton>
+                            <Grid align="center">
+                                <Typography variant="h5" sx={{ color: 'white', margin: '16px 0' }}>
+                                    Log In
+                                </Typography>
+                            </Grid>
                             <TextField
                                 label="Email"
                                 name="email"
@@ -102,7 +134,7 @@ const Login = ({ open, onClose }) => {
                                 variant="outlined"
                                 fullWidth
                                 required
-                                style={textFieldStyle}
+                                sx={textFieldStyle}
                                 onChange={handleChange}
                                 error={Boolean(error)}
                                 helperText={error}
@@ -111,28 +143,28 @@ const Login = ({ open, onClose }) => {
                             <TextField
                                 label="Password"
                                 name="password"
-                                placeholder="Enter password"
+                                placeholder="Enter Password"
                                 type="password"
                                 variant="outlined"
                                 fullWidth
                                 required
-                                style={textFieldStyle}
+                                sx={textFieldStyle}
                                 onChange={handleChange}
                             />
-                        </ThemeProvider>
-                        <Button type="submit" color="primary" variant="contained" style={btnStyle} fullWidth>
-                            Log in
-                        </Button>
-                        <Typography sx={{ color: 'white' }}>
-                            Do you have an account?&nbsp;
-                            <Link component={RouterLink} to="/signup" onClick={onClose} sx={{ color: '#eb7e95', textDecoration: 'none' }}>
-                                Sign Up
-                            </Link>
-                        </Typography>
-                    </Paper>
-                </Grid>
-            </form>
-        </Modal>
+                            <Button type="submit" variant="contained" sx={btnStyle} fullWidth>
+                                Log in
+                            </Button>
+                            <Typography sx={{ color: 'white', marginTop: '16px' }}>
+                                Don't have an account?&nbsp;
+                                <Link component={RouterLink} to="/signup" onClick={onClose} sx={{ color: '#eb7e95', textDecoration: 'none' }}>
+                                    Sign Up
+                                </Link>
+                            </Typography>
+                        </Paper>
+                    </Grid>
+                </form>
+            </Modal>
+        </ThemeProvider>
     );
 };
 
