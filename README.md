@@ -24,7 +24,7 @@ We hope you feel at home when visiting our locations and experience a sense of f
 Thank you for choosing GD ATMs – your premier destination for convenient and affordable cash access solutions.
 
 
-[Please enjoy the deployed GD ATM Website!]()
+[Please enjoy the deployed GD ATM Website!](https://gd-atms-09c01d3953db.herokuapp.com/)
 ![Untitled - Google Chrome 6_6_2024 11_28_35 AM](https://github.com/pToum21/gd-atms-v2/assets/138056441/3732ae68-1681-42b9-a4b0-2db89626da5c)
 
 From home, the user can navigate to use many features. They can view all execpted payments at our locations, they can navigate to support or they can directly contact us using contact in the main navigation menu.
