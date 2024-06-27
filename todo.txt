@@ -1,5 +1,7 @@
 * make the error page better
 
+* need to figure out why google maps is weird on deplyoed application
+
 * color scheme
 
     red color
