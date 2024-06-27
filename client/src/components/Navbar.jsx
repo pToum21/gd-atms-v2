@@ -115,9 +115,6 @@ const NavBar = () => {
                     <ListItem button component={Link} to="/terminal-news" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
                         <ListItemText primary="Terminal Map" sx={{ fontSize: '1.5rem' }} />
                     </ListItem>
-                    <ListItem button component={Link} to="/phone-support" onClick={handleDrawerClose} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
-                        <ListItemText primary="Phone Support" sx={{ fontSize: '1.5rem' }} />
-                    </ListItem>
                     {isLoggedIn ? (
                         <ListItem button onClick={handleLogout} sx={{ fontSize: '1.5rem', padding: '20px', '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.2)' }, '&:active': { animation: `${clickAnimation} 0.3s ease` } }}>
                             <ListItemText primary="Logout" sx={{ fontSize: '1.5rem' }} />
