@@ -1,7 +1,5 @@
 * make the error page better
 
-* create an anmiation for the text on the home screen
-
 * color scheme
 
     red color
