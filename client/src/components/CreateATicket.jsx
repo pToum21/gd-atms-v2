@@ -4,10 +4,12 @@ import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
 import AuthService from '../utils/auth';
+import Login from '../components/Login';
 
 const CreateATicket = () => {
     const [reviewText, setReviewText] = useState('');
     const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW);
+    const [loginModalOpen, setLoginModalOpen] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,6 +24,9 @@ const CreateATicket = () => {
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const handleLoginOpen = () => setLoginModalOpen(true);
+    const handleLoginClose = () => setLoginModalOpen(false);
 
     if (!AuthService.loggedIn()) {
         return (
@@ -48,10 +53,11 @@ const CreateATicket = () => {
                         backgroundColor: '#eb7e95',
                         '&:hover': { backgroundColor: '#d4677d' },
                     }}
-                    onClick={() => AuthService.login()}
+                    onClick={handleLoginOpen}
                 >
                     Log In
                 </Button>
+                <Login open={loginModalOpen} onClose={handleLoginClose} />
             </Box>
         );
     }
