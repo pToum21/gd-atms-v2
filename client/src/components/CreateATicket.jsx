@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
-import AuthService from '../utils/auth'; 
+import AuthService from '../utils/auth';
 
 const CreateATicket = () => {
     const [reviewText, setReviewText] = useState('');
@@ -24,7 +24,36 @@ const CreateATicket = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     if (!AuthService.loggedIn()) {
-        return <Typography variant="h6">You must be logged in to create a ticket.</Typography>;
+        return (
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '100vh',
+                    background: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
+                    textAlign: 'center',
+                    p: 2,
+                    bgcolor: 'rgb(72, 73, 75)'
+                }}
+            >
+                <Typography variant="h3" gutterBottom sx={{ color: '#5D3FD3' }}>
+                    You must be logged in to create a ticket.
+                </Typography>
+                <Button
+                    variant="contained"
+                    sx={{
+                        mt: 2,
+                        backgroundColor: '#eb7e95',
+                        '&:hover': { backgroundColor: '#d4677d' },
+                    }}
+                    onClick={() => AuthService.login()}
+                >
+                    Log In
+                </Button>
+            </Box>
+        );
     }
 
     return (
@@ -34,9 +63,11 @@ const CreateATicket = () => {
                     <Sidebar />
                 </Box>
             )}
-            <Box flex={1} p={2} >
-                <Paper elevation={3} style={{ padding: '20px', borderRadius: '30px' }}>
-                    <h1 className="reviews-title">Create A Ticket</h1>
+            <Box flex={1} p={2}>
+                <Paper elevation={3} sx={{ padding: '20px', borderRadius: '30px' }}>
+                    <Typography variant="h4" gutterBottom sx={{ color: '#5D3FD3' }}>
+                        Create A Ticket
+                    </Typography>
                     <form onSubmit={handleSubmit}>
                         <TextField
                             fullWidth
