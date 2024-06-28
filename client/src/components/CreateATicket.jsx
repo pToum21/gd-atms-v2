@@ -4,7 +4,17 @@ import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
 import AuthService from '../utils/auth';
-import Login from '../components/Login';
+import Login from './Login';
+import { keyframes } from '@emotion/react';
+
+// Keyframe animation for button movement and fading
+const moveAnimation = keyframes`
+  0% { opacity: 0; transform: translate(-50%, -50%); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(50vw, 50vh); }
+`;
+
+const buttonColors = ['#eb7e95', '#5D3FD3', '#5F46F8'];
 
 const CreateATicket = () => {
     const [reviewText, setReviewText] = useState('');
@@ -15,7 +25,6 @@ const CreateATicket = () => {
         e.preventDefault();
         try {
             await addReview({ variables: { reviewText } });
-            // Clear form after submission
             setReviewText('');
         } catch (err) {
             console.error(err);
@@ -39,24 +48,49 @@ const CreateATicket = () => {
                     minHeight: '100vh',
                     background: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
                     textAlign: 'center',
+                    position: 'relative',
+                    overflow: 'hidden',
                     p: 2,
-                    bgcolor: 'rgb(72, 73, 75)'
+                    bgcolor: 'rgb(72, 73, 75)',
                 }}
             >
                 <Typography variant="h3" gutterBottom sx={{ color: '#5D3FD3' }}>
                     You must be logged in to create a ticket.
                 </Typography>
-                <Button
-                    variant="contained"
+                <Box
                     sx={{
-                        mt: 2,
-                        backgroundColor: '#eb7e95',
-                        '&:hover': { backgroundColor: '#d4677d' },
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        pointerEvents: 'none',
+                        overflow: 'hidden',
                     }}
-                    onClick={handleLoginOpen}
                 >
-                    Log In
-                </Button>
+                    {[...Array(20)].map((_, i) => (
+                        <Button
+                            key={i}
+                            variant="contained"
+                            onClick={handleLoginOpen}
+                            sx={{
+                                position: 'absolute',
+                                backgroundColor: buttonColors[i % buttonColors.length],
+                                color: 'white',
+                                top: `${Math.random() * 100}%`,
+                                left: `${Math.random() * 100}%`,
+                                animation: `${moveAnimation} ${5 + Math.random() * 10}s linear infinite`,
+                                pointerEvents: 'auto',
+                                '&:hover': {
+                                    backgroundColor: buttonColors[(i + 1) % buttonColors.length],
+                                },
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                        >
+                            Log In
+                        </Button>
+                    ))}
+                </Box>
                 <Login open={loginModalOpen} onClose={handleLoginClose} />
             </Box>
         );
