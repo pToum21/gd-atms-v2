@@ -4,7 +4,7 @@ import { ADD_REVIEW } from '../utils/mutations';
 import Sidebar from './Sidebar';
 import { Box, TextField, Button, Typography, Paper, useMediaQuery, useTheme } from '@mui/material';
 import AuthService from '../utils/auth';
-import Login from './Login';
+import Login from '../components/Login';
 import { keyframes } from '@emotion/react';
 
 // Keyframe animation for button movement and fading
