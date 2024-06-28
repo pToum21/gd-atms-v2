@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { Box, Card, CardContent, CircularProgress, Fade, Button, TextField } from '@mui/material';
+import { Box, Card, CardContent, CircularProgress, Fade, Button, TextField, Typography } from '@mui/material';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Sidebar from './Sidebar';
 import { QUERY_MY_REVIEWS } from '../utils/queries';
 import { UPDATE_REVIEW, REMOVE_REVIEW } from '../utils/mutations';
 import AuthService from '../utils/auth';
+import Login from './Login';
+import { keyframes } from '@emotion/react';
 import '../styles/review.css';
+
+// Keyframe animation for button movement and fading
+const moveAnimation = keyframes`
+  0% { opacity: 0; transform: translate(-50%, -50%); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(50vw, 50vh); }
+`;
+
+const buttonColors = ['#eb7e95', '#5D3FD3', '#5F46F8'];
 
 const ViewYourTickets = () => {
     const { loading, error, data, refetch } = useQuery(QUERY_MY_REVIEWS);
@@ -17,6 +28,7 @@ const ViewYourTickets = () => {
     const [editReviewText, setEditReviewText] = useState('');
     const [deletingReviewId, setDeletingReviewId] = useState(null);
     const [reviews, setReviews] = useState([]);
+    const [loginModalOpen, setLoginModalOpen] = useState(false);
 
     useEffect(() => {
         setComponentLoaded(true);
@@ -28,12 +40,67 @@ const ViewYourTickets = () => {
         }
     }, [data]);
 
-    if (!AuthService.loggedIn()) {
-        return <p>You must be logged in to view your tickets.</p>;
-    }
+    const handleLoginOpen = () => setLoginModalOpen(true);
+    const handleLoginClose = () => setLoginModalOpen(false);
 
-    if (loading) return <CircularProgress style={{ margin: 'auto' }} />;
-    if (error) return <p>Error loading tickets. Please try again.</p>;
+    if (!AuthService.loggedIn()) {
+        return (
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: '100vh',
+                    background: 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
+                    textAlign: 'center',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    p: 2,
+                    bgcolor: 'rgb(72, 73, 75)',
+                }}
+            >
+                <Typography variant="h3" gutterBottom sx={{ color: '#5D3FD3' }}>
+                    You must be logged in to view your tickets.
+                </Typography>
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        pointerEvents: 'none',
+                        overflow: 'hidden',
+                    }}
+                >
+                    {[...Array(20)].map((_, i) => (
+                        <Button
+                            key={i}
+                            variant="contained"
+                            onClick={handleLoginOpen}
+                            sx={{
+                                position: 'absolute',
+                                backgroundColor: buttonColors[i % buttonColors.length],
+                                color: 'white',
+                                top: `${Math.random() * 100}%`,
+                                left: `${Math.random() * 100}%`,
+                                animation: `${moveAnimation} ${5 + Math.random() * 10}s linear infinite`,
+                                pointerEvents: 'auto',
+                                '&:hover': {
+                                    backgroundColor: buttonColors[(i + 1) % buttonColors.length],
+                                },
+                                transform: 'translate(-50%, -50%)'
+                            }}
+                        >
+                            Log In
+                        </Button>
+                    ))}
+                </Box>
+                <Login open={loginModalOpen} onClose={handleLoginClose} />
+            </Box>
+        );
+    }
 
     const handleEditClick = (review) => {
         setEditingReviewId(review._id);
