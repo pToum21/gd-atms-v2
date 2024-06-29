@@ -1,4 +1,3 @@
-* need to figure out why google maps is weird on deplyoed application
 
 * color scheme
 
