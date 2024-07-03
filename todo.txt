@@ -1,4 +1,4 @@
-fix google maps api
+fix google maps api for deployed site
 
 * color scheme
 
