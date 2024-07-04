@@ -1,4 +1,5 @@
 fix google maps api for deployed site
+^ in works in development but it has a weird overlay on deployed
 
 * color scheme
 
