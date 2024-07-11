@@ -1,5 +1,6 @@
 fix google maps api for deployed site
 
+
 * color scheme
 
     red color
