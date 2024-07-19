@@ -49,27 +49,29 @@ const AcceptedPayments = () => {
     }, []);
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: '90vh', marginTop: '15vh' }}>
-            <Paper style={{ backgroundColor: 'black', boxShadow: '10px 40px 50px rgba(0, 0, 0, 6)', width: '85vw', height: '70vh', overflowY: 'auto', borderRadius: '30px' }}>
-                <div style={{ padding: '20px', textAlign: 'center' }}>
-                    <h1 style={{ color: 'white' }}>Accepted Payments</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', minHeight: '100vh', paddingTop: '5vh', background: '#f0f0f0' }}>
+            <Paper style={{ backgroundColor: '#ffffff', boxShadow: '0 3px 5px rgba(0, 0, 0, 0.3)', width: '90vw', maxWidth: '900px', minHeight: '80vh', overflowY: 'auto', borderRadius: '20px', padding: '20px' }}>
+                <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                    <h1 style={{ color: '#3f51b5' }}>Accepted Payments</h1>
 
-                    <p style={{ color: 'white' }}>
+                    <p style={{ color: '#333', fontSize: '1.2em', lineHeight: '1.6' }}>
                         GD ATMs accept all major credit cards at all locations. You can use your Visa, Mastercard, American Express, or Discover card to withdraw cash or check your bank balance at any GD ATM.
                     </p>
-                    <p style={{ color: 'white' }}>
+                    <p style={{ color: '#333', fontSize: '1.2em', lineHeight: '1.6' }}>
                         In addition to withdrawing cash, GD ATMs also provide the convenience of checking your bank balance directly from the ATM interface.
                     </p>
-
-                    {/* Grid container for credit card logos */}
-                    <Grid container spacing={2} justifyContent="center">
-                        {cardLogos.map((logo, index) => (
-                            <Grid item xs={6} sm={4} md={2} key={index}>
-                                <img src={logo} alt={`Card Logo ${index}`} style={{ maxWidth: '100%', height: 'auto', borderRadius: '10px' }} />
-                            </Grid>
-                        ))}
-                    </Grid>
                 </div>
+
+                {/* Grid container for credit card logos */}
+                <Grid container spacing={2} justifyContent="center">
+                    {cardLogos.map((logo, index) => (
+                        <Grid item xs={6} sm={4} md={2} key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: '10px', boxShadow: '0 0 10px rgba(0,0,0,0.2)', transition: 'transform 0.3s ease' }}>
+                                <img src={logo} alt={`Card Logo ${index}`} style={{ width: '100%', height: 'auto', maxHeight: '100px', objectFit: 'contain', transition: 'transform 0.3s ease' }} />
+                            </div>
+                        </Grid>
+                    ))}
+                </Grid>
             </Paper>
         </div>
     );
