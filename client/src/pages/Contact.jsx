@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from '@formspree/react';
 import { TextField, InputAdornment, Button, Typography, Container, Box, Paper } from '@mui/material';
 
+
 function Contact() {
   const [state, handleSubmit] = useForm("xpzvworp");
   const [formData, setFormData] = useState({
@@ -103,8 +104,8 @@ function Contact() {
           </Box>
         </form>
 
-        {/* Contact info area */}
-        <Paper elevation={3} sx={{ backgroundColor: '#333', color: '#fff', padding: '16px', borderRadius: '15px', marginTop: '24px' }}>
+        {/* Contact info area with floating animation */}
+        <Paper elevation={3} className="float-animation" sx={{ backgroundColor: '#333', color: '#fff', padding: '16px', borderRadius: '15px', marginTop: '24px' }}>
           <Typography variant="h5" sx={{ marginBottom: '12px' }} className='contact-me-information'>Contact Information:</Typography>
           <Typography variant="h6" sx={{ marginBottom: '6px' }} className='con-info-titles'>Location</Typography>
           <Typography sx={{ marginBottom: '12px' }}>Los Angeles, CA</Typography>
